@@ -4,10 +4,6 @@
 @import "includes/vars";
 @import "includes/fonts";
 
-.git-test {
-	color: green;
-}
-
 html,
 body {
 	scroll-behavior: smooth;
@@ -860,4 +856,5 @@ ymaps {
 
 [class*="copyrights-pane"] {
 	display: none !important;
+	z-index: 1;
 }
