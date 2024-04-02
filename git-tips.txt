@@ -1,8 +1,9 @@
 git pull origin main
 git checkout anton
+
 git add .
 git commit -m "changes"
-git pull origin anton
+git push origin anton
 
 git checkout main
 git merge anton
