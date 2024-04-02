@@ -95,6 +95,10 @@ table {
   font-display: swap;
   src: local("Agora"), url("../fonts/PFAgoraSerifPro-Bold.woff2") format("woff2"), url("../fonts/PFAgoraSerifPro-Bold.woff") format("woff");
 }
+.git-test {
+  color: #000;
+}
+
 html,
 body {
   scroll-behavior: smooth;
@@ -912,7 +916,7 @@ ymaps {
 
 [class*=balloon-content__footer] a {
   display: inline-block;
-  color: #4b4d55;
+  color: #4b4d56;
 }
 
 [class*=copyrights-pane] {

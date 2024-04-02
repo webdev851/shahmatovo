@@ -1,5 +1,4 @@
-git pull origin main
-git checkout anton
+git pull --all
 
 git add .
 git commit -m "changes"
