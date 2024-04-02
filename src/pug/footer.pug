@@ -1,0 +1,81 @@
+footer.footer
+	.footer__container.container 
+		.footer__content 
+			.footer__partners.partners
+				.swiper.swiper-partners
+					.swiper-wrapper.partners__list
+						.swiper-slide.partners__item 
+							a(href="#").partners__link 
+								+picture('partner-minkult')
+						.swiper-slide.partners__item
+							a(href="#").partners__link 
+								+picture('partner-mkmo')
+						.swiper-slide.partners__item
+							a(href="#").partners__link 
+								+picture('partner-zima')
+						.swiper-slide.partners__item
+							a(href="#").partners__link 
+								+picture('partner-gosuslugi')
+						.swiper-slide.partners__item
+							a(href="#").partners__link 
+								+picture('partner-mirmuseya')
+						.swiper-slide.partners__item
+							a(href="#").partners__link 
+								+picture('partner-kultura')
+
+			.footer__top
+				.footer__left
+					include parts/logo
+					p.museum-name ГБУК МО «ГОСУДАРСТВЕННЫЙ МЕМОРИАЛЬНЫЙ МУЗЕЙ-ЗАПОВЕДНИК Д.И. МЕНДЕЛЕЕВА И А.А. БЛОКА»
+					a(href="#").btn.btn-up Наверх
+				nav.nav.footer__nav
+					ul.nav__list 
+						li.nav__title 
+							h5 Музей
+						li.nav__item
+							a.nav__link.link(href="#") Шахматово
+						li.nav__item
+							a.nav__link.link(href="#") Боблово
+						li.nav__item
+							a.nav__link.link(href="#") Тараканово
+						li.nav__item
+							a.nav__link.link(href=`${sitePath}history.html`) История музея
+						li.nav__item
+							a.nav__link.link(href="#") Заповедник
+					ul.nav__list 
+						li.nav__title 
+							h5 Посетителям
+						li.nav__item
+							a.nav__link.link(href="#") Стоимость билетов
+						li.nav__item
+							a.nav__link.link(href="#") Пушкинская карта
+						li.nav__item
+							a.nav__link.link(href="#") Безопасность
+						li.nav__item
+							a.nav__link.link(href="#") Галерея
+						li.nav__item
+							a.nav__link.link(href="#") Афиша
+					ul.nav__list 
+						li.nav__title 
+							h5 Информация
+						li.nav__item
+							a.nav__link.link(href="#") Документы
+						li.nav__item
+							a.nav__link.link(href="#") Новости
+						li.nav__item
+							a.nav__link.link(href="#") Фонды
+						li.nav__item
+							a.nav__link.link(href="#") Контакты
+			.footer__bottom 	
+				.footer__copy 
+					span 2024 © Шахматово.
+				.footer__social.social
+					ul.social__list
+						li.social__item
+							a.social__link.link(href="#") ВКонтакте
+						li.social__item
+							a.social__link.link(href="#") Одноклассники
+						li.social__item
+							a.social__link.link(href="#") телеграм
+						li.social__item
+							a.social__link.link(href="#") youtube

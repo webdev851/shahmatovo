@@ -1,0 +1,13 @@
+mixin picture(path, type = 'jpg')
+	picture 
+		//- source(type="image/avif" srcset=`img/${path}.avif`)
+		//- source(type="image/webp" srcset=`img/${path}.webp`)
+		img(src=`${sitePath}img/${path}.${type}?${randomNumber}`, alt="")
+
+mixin breadcrumps(page)
+	.breadcrumps
+		a.breadcrumps__home.link.btn.btn-link(href=`${sitePath}`) Главная страница
+		span.breadcrumps__separator 	
+			svg(width="5" height="5")
+				use(xlink:href=`${sitePath}img/vector-icons/icon-separator.svg#icon-separator`)
+		span.breadcrumps__current= page

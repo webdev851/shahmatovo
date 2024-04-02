@@ -1,0 +1,15 @@
+extends ../base
+
+block vars
+	-let pageName = 'estate-page'
+	-let pageTitle = 'Усадьба Шахматово'
+	-let metaTitle = 'Усадьба Шахматово | Музей-заповедник Д.И. Менделеева и А.А. Блока'
+	-let metaDescription = ''
+block content
+		main.main(class= pageName)
+			section.section.estate 
+				.estate__container.container
+					.estate__content 
+						+breadcrumps(pageTitle)
+						.estate__heading.section-heading.section-heading--center
+							h2.section-header= pageTitle

@@ -1,0 +1,208 @@
+extends ../base
+
+block vars
+	-let pageName = 'front-page'
+	-let pageTitle = 'Музей Шахматово'
+	-let metaTitle = 'Музей Шахматово'
+	-let metaDescription = ''
+block content
+		main.main.front-page
+			section.section.top
+				.top__container.container
+					.top__content
+						.top__heading
+							h1.c-accent МУЗЕЙ-ЗАПОВЕДНИК МЕНДЕЛЕЕВА И&nbsp;БЛОКА
+							p Музей рассказывает об истории дружбы двух семей:<br>Менделеевых и Бекетовых-Блока. 
+						.top__text
+							p В усадьбах проходила жизнь двух семей, росли дети, вершились наука и поэзия. Именно эти места объединили две семьи вместе, связав узами брака Александра Блока и Любовь Менделееву.
+							p В музей-заповедник входят три усадьбы: <strong>Боблово</strong> — усадьба Д.И. Менделеева, <strong>Шахматово</strong> — усадьба семьи Бекетовых-Блока, <strong>Тараканово</strong> — усадьба, где венчались Л.Д. Менделеева и А.А. Блок.
+			section.banner
+				.banner__container.container 
+					.banner__content 
+						.swiper.swiper-mainbanner.banner__slider
+							.swiper-wrapper.banner__list
+								.swiper-slide.banner__item
+									+picture('museum-image-01')
+								.swiper-slide.banner__item
+									+picture('museum-image-02')
+								.swiper-slide.banner__item
+									+picture('museum-image-03')
+								.swiper-slide.banner__item
+									+picture('museum-image-04')
+							.banner__tools
+								.swiper-navigation.banner__navigation
+									.swiper-button-prev.banner__btn.banner__btnprev
+									.swiper-button-next.banner__btn.banner__btnnext
+								.swiper-pagination.banner__pagination
+			section.mode
+				.mode__container.container 
+					.mode__content 
+						.mode__warning.ticker
+							ul.ticker__content
+								li.ticker__item Обращаем ваше внимание, что <strong>8 января</strong> усадьбы будут закрыты. Далее мы работаем по обычному графику: <strong>со среды по воскресенье</strong>.
+								li.ticker__item Обращаем ваше внимание, что <strong>8 января</strong> усадьбы будут закрыты. Далее мы работаем по обычному графику: <strong>со среды по воскресенье</strong>.
+								li.ticker__item Обращаем ваше внимание, что <strong>8 января</strong> усадьбы будут закрыты. Далее мы работаем по обычному графику: <strong>со среды по воскресенье</strong>.
+						ul.mode__list.card-list.card-list--three
+							li.mode__item.card-item 
+								.mode__title РЕЖИМ РАБОТЫ МУЗЕЯ-ЗАПОВЕДНИКА:
+								.mode__table.infotable
+									.mode__row.infotable__row
+										.mode__col.infotable__col Выходные дни<br>во всех усадьбах
+										.mode__col.infotable__col <span class="c-accent">Понедельник<br>Вторник</span>
+							li.mode__item.card-item
+								.mode__title Шахматово и Тараканово
+								.mode__table.infotable
+									.mode__row.infotable__row
+										.mode__col.infotable__col Среда — Воскресенье
+										.mode__col.infotable__col с 9:30 до 18:00
+									.mode__row.infotable__row
+										.mode__col.infotable__col Касса
+										.mode__col.infotable__col с 9:30 до 17:30
+							li.mode__item.card-item 
+								.mode__title Боблово
+								.mode__table.infotable
+									.mode__row.infotable__row
+										.mode__col.infotable__col Среда — Воскресенье
+										.mode__col.infotable__col с 9:00 до 17:30
+									.mode__row.infotable__row
+										.mode__col.infotable__col Касса
+										.mode__col.infotable__col с 9:00 до 17:00
+			section.section.contacts
+				.contacts__container.container 
+					.contacts__content 
+						.contacts__heading.section-heading.section-heading--center
+							h2.section-header Афиша
+			section.section.estates
+				.estates__container.container
+					.estates__content
+						.estates__top
+							.estates__heading
+								h1.c-accent Познакомьтесь с&nbsp;усадьбами<br>Музея-заповедника
+							.estates__subscription
+								p В усадьбах проходила жизнь двух семей, росли дети, вершились наука и поэзия. Именно эти места объединили две семьи вместе, связав узами брака Александра Блока и Любовь Менделееву.
+						ul.estates__list
+							li.estates__item 
+								.estates__text 
+									.estates__quoteblock
+										.estates__quote
+											p И серый дом, и в мезонине<br>Венецианское окно,<br>Цвет стекол — красный, жёлтый, синий,<br>Как будто так и быть должно.
+										.estates__author А. Блок «Возмездие»
+									.estates__name
+										h4 Усадьба Шахматово
+									.estates__description 
+										p Усадьба была приобретена дедом А. Блока — А.Н. Бекетовым в 1874 году по совету близкого друга семьи — Д.И. Менделеева. Каждое лето А. Блок приезжал в Шахматово на протяжении 36 лет своей жизни. Здесь усадебный дом с личными вещами поэта и членов его семьи, венецианские окна и дух поэзии…
+									a(href="#").estates__link.link.btn-link История усадьбы
+								.estates__image 
+									+picture('estate-shahmatovo')
+									span.image-caption Усадьба семьи Бекетовых-Блока
+							li.estates__item 
+								.estates__text 
+									.estates__quoteblock
+										.estates__quote
+											p 5 июня 1865 года командирован<br>в Москву на всеобщую выставку.<br>Тут с Ильиным и купил Боблово
+										.estates__author Д.И.&nbsp;Менделеев<br>«Биографические заметки<br>о&nbsp;Д.И. Менделееве»
+									.estates__name
+										h4 Усадьба Боблово
+									.estates__description 
+										p Имение, которое принадлежало воздухоплавателю, экономисту, путешественнику, учёному, изобретателю — Д.И. Менделееву (да-да, Менделеев был не только химиком, но и очень разносторонним человеком). Если хотите узнать много нового о жизни и научной деятельности Менделеева — вам точно нужно посетить Боблово.
+									a(href="#").estates__link.link.btn-link История усадьбы
+								.estates__image 
+									+picture('estate-boblovo')
+									span.image-caption Усадьба Д.И.&nbsp;Менделеева
+							li.estates__item 
+								.estates__text 
+									.estates__quoteblock
+										.estates__quote
+											p Падет туманная завеса.<br>Жених сойдет из алтаря.<br>И от вершин зубчатых леса<br>Забрежжит брачная заря
+										.estates__author А. Блок «Я, отрок, зажигаю свечи»
+									.estates__name
+										h4 Усадьба Тараканово
+									.estates__description 
+										p Усадьба капитана И.В. Тараканова. Здесь сохранилась земская школа, где раньше учили крестьянских детей, и в этом мемориальном здании — экспозиция, посвящённая жизни и творчеству поэта Серебряного века — А.А. Блока. На территории усадьбы: церковь Михаила Архангела, где венчался Александр Блок с дочерью Д.И. Менделеева — Любовью Менделеевой, памятник, прекрасный пруд и необъятные дали.
+									a(href="#").estates__link.link.btn-link История усадьбы
+								.estates__image 
+									+picture('estate-tarakanovo')
+									span.image-caption Усадьба, где венчались Л.Д. Менделеева и А.А. Блок
+							li.estates__item 
+								.estates__text 
+									.estates__name
+										h4 Музей-заповедник
+									.estates__description 
+										p Усадьба капитана И.В. Тараканова. Здесь сохранилась земская школа, где раньше учили крестьянских детей, и в этом мемориальном здании — экспозиция, посвящённая жизни и творчеству поэта Серебряного века — А.А. Блока. На территории усадьбы: церковь Михаила Архангела, где венчался Александр Блок с дочерью Д.И. Менделеева — Любовью Менделеевой, памятник, прекрасный пруд и необъятные дали.
+									a(href="#").estates__link.link.btn-link История музея-заповедника
+								.estates__image 
+									+picture('estate-museum')
+									span.image-caption 5 августа 2001 г. открыт Главный дом усадьбы Шахматово.
+			section.section.news
+				.news__container.container
+					.news__content 
+						.news__heading.section-heading.heading-more
+							h2.section-header.news__header Новости
+							a(href="#").heading-link.link.btn-link Все новости
+						ul.news__list.card-list.card-list--three
+							li.news__item.card-item
+								.news__image
+									img(src="img/news-img-01.jpg", alt="")
+								span.news__date 15 декабря
+								a(href="#").news__title График работы усадеб в праздничные дни
+								p.news__announce Приглашаем вас в усадьбы в новогодние каникулы!Наш музей-заповедник начинает работу с 3 января. Всю праздничную неделю для вас будут проводиться экскурсии и новогодние программы.
+								a(href="#").news__link.link.btn-link К новости
+							li.news__item.card-item
+								.news__image
+									img(src="img/news-img-02.jpg", alt="")
+								span.news__date 15 декабря
+								a(href="#").news__title Новогодние программы
+								p.news__announce Новый год на носу! Новогодние программы будут проводиться с 20 по 30 декабря и с 2 по 14 января по предварительной записи. Бронирование мест осуществляется по телефону: +7 965 252-83-94. Время бронировать места на новогодние программы в музее-заповеднике:«Весёлый снеговик» в усадьбе Тараканово
+								a(href="#").news__link.link.btn-link К новости
+							li.news__item.card-item
+								.news__image
+									img(src="img/news-img-03.jpg", alt="")
+								span.news__date 12 ноября
+								a(href="#").news__title Новогодние программы
+								p.news__announce Новый год на носу! Новогодние программы будут проводиться с 20 по 30 декабря и с 2 по 14 января по предварительной записи. Бронирование мест осуществляется по телефону: +7 965 252-83-94. Время бронировать места на новогодние программы в музее-заповеднике:«Весёлый снеговик» в усадьбе Тараканово
+								a(href="#").news__link.link.btn-link К новости
+			section.section.rules
+				.rules__container.container 
+					.rules__content 
+						.rules__heading.section-heading.heading-more 
+							h2.section-header.rules__header Условия посещения<br>музея-заповедника
+							a(href="#").heading-link.link.btn-link Ознакомиться со всеми условиями
+						ul.rules__list.card-list.card-list--two
+							li.rules__item.card-item
+								h5.rules__title.card-title <span class="c-accent">Важно!</span> Не забудьте! 
+								p.rules__text Добавить блок на главной странице о «Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+							li.rules__item.card-item
+								h5.rules__title.card-title Парковка
+								p.rules__text Добавить блок на главной странице о «Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+							li.rules__item.card-item
+								h5.rules__title.card-title Возьмите еду с собой!
+								p.rules__text Добавить блок на главной странице о «Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+							li.rules__item.card-item
+								h5.rules__title.card-title <span class="c-accent">С животными нельзя!</span>
+								p.rules__text Добавить блок на главной странице о «Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+			section.section.contacts
+				.contacts__container.container 
+					.contacts__content 
+						.contacts__heading.section-heading.section-heading--center
+							h2.section-header Контакты
+						ul.contacts__list.card-list.card-list--two.infotable
+							li.contacts__item.card-item.infotable
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Официальный сайт музея-заповедника:
+									.contacts__col.infotable__col 
+										a(href=`${sitePath}`) шахматово.рф
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Почта организатора экскурсий:
+									.contacts__col.infotable__col 
+										a(href="mailto:mk_blok_organizator@mosreg.ru") mk_blok_organizator<span class="c-accent">@mosreg.ru
+							li.contacts__item.card-item.infotable
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Официальный электронный почтовый ящик:
+									.contacts__col.infotable__col 
+										a(href="mailto:mk_al.blok@mosreg.ru") <span class="c-accent">mk_al.blok</span>@mosreg.ru
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Телефон организатора экскурсий:<br>(со вторника по воскресенье)
+									.contacts__col.infotable__col 
+										a(href="tel:+79652528394") +7 (965) 252-83-94
+						.contacts__map
+							.ymap#ymapMain
