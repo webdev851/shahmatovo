@@ -1,0 +1,10 @@
+git pull origin main
+git checkout anton
+git add .
+git commit -m "changes"
+git pull origin anton
+
+git checkout main
+git merge anton
+git commit -m "Merge into main"
+git push origin main
