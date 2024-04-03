@@ -5,15 +5,30 @@ header.header
 			nav.nav.nav__topmenu(aria-label="Верхнее меню")
 				ul.nav__list.nav__toplist
 					li.nav__item
-						a(href=`${sitePath}shahmatovo.html`).nav__link.link Шахматово
+						if (pageTitle == 'Усадьба Шахматово')
+							span.nav__link.link.selected Шахматово
+						else
+							a(href=`${sitePath}shahmatovo.html`).nav__link.link Шахматово
 					li.nav__item
-						a(href=`${sitePath}boblovo.html`).nav__link.link Боблово
+						if (pageTitle == 'Усадьба Боблово')
+							span.nav__link.link.selected Боблово
+						else
+							a(href=`${sitePath}boblovo.html`).nav__link.link Боблово
 					li.nav__item
-						a(href=`${sitePath}tarakanovo.html`).nav__link.link Тараканово
+						if (pageTitle == 'Усадьба Тараканово')
+							span.nav__link.link.selected Тараканово
+						else
+							a(href=`${sitePath}tarakanovo.html`).nav__link.link Тараканово
 					li.nav__item
-						a(href=`${sitePath}history.html`).nav__link.link История музея
+						if (pageTitle == 'История Музея-Заповедника')
+							span.nav__link.link.selected История музея
+						else
+							a(href=`${sitePath}history.html`).nav__link.link История музея
 					li.nav__item
-						a(href="#").nav__link.link Заповедник
+						if (pageTitle == 'Заповедник')
+							span.nav__link.link.selected Заповедник
+						else
+							a(href="#").nav__link.link Заповедник
 				a(href="#").nav__btn.btn.btn-primary Афиша
 			nav.nav.nav__bottommenu(aria-label="Верхнее меню")
 				ul.nav__list.nav__bottomlist
