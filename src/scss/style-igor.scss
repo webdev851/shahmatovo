@@ -6,11 +6,11 @@ body {
 body {
   position: relative;
   min-height: 100vh;
-  min-width: 1119px;
+  min-width: 320px;
   overflow-x: hidden;
   background-color: $c-white;
   font-family: "Montserrat", sans-serif;
-  font-size: 16px;
+  font-size: clamp(0.75rem, 0.6555rem + 0.4202vw, 1rem);
   font-weight: 400;
   color: $c-dark-text;
   font-style: normal;
@@ -98,6 +98,15 @@ img {
   background: $c-second-color;
 }
 
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  width: fit-content;
+}
+
 .c-accent {
   color: $c-accent;
 }
@@ -135,9 +144,13 @@ img {
   color: $c-accent;
   text-decoration: underline;
   &:hover {
-    color: $c-accent;
+    color: $c-accent-hover;
     text-decoration: underline;
   }
+}
+
+.btn-showmore {
+  font-size: clamp(1rem, 0.9055rem + 0.4202vw, 1.25rem);
 }
 
 .wrapper {
@@ -152,7 +165,7 @@ img {
 
 .container {
   max-width: 1312px;
-  padding: 0 50px;
+  padding: 0 clamp(1rem, 0.1964rem + 3.5714vw, 3.125rem);
   margin: 0 auto;
 }
 
@@ -185,6 +198,10 @@ img {
   justify-content: space-between;
   align-items: center;
   gap: 32px;
+  @media ($l-s) {
+    flex-direction: column;
+    gap: 24px;
+  }
 }
 
 .heading-link {
@@ -238,6 +255,40 @@ img {
   }
 }
 
+.groups {
+  border-bottom: 1px solid $c-stroke;
+  &__list {
+    display: flex;
+    gap: 56px;
+    justify-content: center;
+  }
+  &__btn {
+    transition: $transition-base;
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 4px;
+      background: $c-accent;
+      margin: 18px 0 0;
+      opacity: 0;
+      transition: $transition-base;
+    }
+    &.active {
+      &::after {
+        opacity: 1;
+      }
+      &:hover {
+        color: $c-dark-text;
+        cursor: default;
+      }
+    }
+    &:hover {
+      color: $c-accent;
+    }
+  }
+}
+
 .header {
   padding: 26px 0;
   color: $c-dark-text;
@@ -245,6 +296,18 @@ img {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 26px 32px;
+    @media ($l-m) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.burger {
+  display: none;
+  @media ($l-m) {
+    display: block;
   }
 }
 
@@ -267,6 +330,10 @@ img {
   &__toplist {
     text-transform: uppercase;
     gap: 32px;
+    .nav__link.selected {
+      color: $c-accent;
+      cursor: default;
+    }
   }
   &__bottommenu {
     grid-column: span 2;
@@ -382,6 +449,9 @@ img {
     display: flex;
     justify-content: space-between;
     gap: 32px;
+    @media ($l-m) {
+      flex-direction: column;
+    }
   }
   &__heading {
     max-width: 694px;
@@ -396,10 +466,18 @@ img {
   &__text {
     flex: 1;
     max-width: 514px;
+    @media ($l-m) {
+      max-width: initial;
+    }
   }
 }
 
 .card {
+  &-container {
+    @media ($t) {
+      padding: 0;
+    }
+  }
   &-list {
     display: grid;
   }
@@ -423,11 +501,31 @@ img {
   }
   &-list--two {
     grid-template-columns: repeat(2, 1fr);
+    @media ($t) {
+      grid-template-columns: 1fr;
+    }
     .card-item {
+      @media ($t) {
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        padding: 16px;
+      }
+      &:last-child {
+        @media ($t) {
+          border-bottom: 1px solid $c-stroke;
+        }
+      }
     }
   }
   &-list--three {
     grid-template-columns: repeat(3, 1fr);
+    @media ($l-m) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media ($t) {
+      grid-template-columns: 1fr;
+    }
     .card-item {
       &:nth-child(2n) {
         border-right: none;
@@ -438,10 +536,18 @@ img {
       &:nth-last-child(3) {
         border-bottom: 1px solid $c-stroke;
       }
+      @media ($l-m) {
+        &:nth-child(2n) {
+          border-right: 1px solid $c-stroke;
+        }
+      }
     }
   }
   &-title {
     margin: 0 0 24px;
+    @media ($t) {
+      margin: 0 0 20px;
+    }
   }
 }
 
@@ -614,7 +720,7 @@ img {
 }
 
 .infotable {
-  font-size: 14px;
+  font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
   &__row {
     display: flex;
     gap: 12px;
@@ -629,6 +735,7 @@ img {
       text-transform: uppercase;
       font-weight: 600;
       line-height: 1.5;
+      font-size: 14px;
     }
   }
   a {
@@ -637,21 +744,8 @@ img {
 }
 
 .mode {
-  &__list {
-    display: flex;
-  }
-  &__item {
-    flex: 1;
-    padding: 32px;
-  }
-  &__title {
-    margin: 0 0 24px;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-  &__row {
-  }
-  &__warning {
+  padding-top: 0;
+  &__note {
     padding: 24px 0;
     background: $c-accent;
     color: rgba(255, 255, 255, 0.7);
@@ -659,6 +753,40 @@ img {
     text-transform: uppercase;
     strong {
       color: rgba(255, 255, 255, 1);
+    }
+  }
+  &__list {
+    display: flex;
+    @media ($l-s) {
+      flex-direction: column;
+    }
+  }
+  &__item {
+    flex: 1;
+    padding: 32px;
+    @media ($l-s) {
+      padding: 16px;
+    }
+  }
+  &__title {
+    margin: 0 0 24px;
+    text-transform: uppercase;
+    font-weight: 700;
+    @media ($l-s) {
+      margin: 0 auto 24px;
+      max-width: 560px;
+    }
+  }
+  &__row,
+  &__row:last-child {
+    @media ($l-s) {
+      margin: 0 auto 4px;
+      max-width: 560px;
+    }
+  }
+  &__col:last-child {
+    @media ($l-s) {
+      flex: 0 1 124px;
     }
   }
 }
@@ -688,6 +816,8 @@ img {
 
 .contacts {
   padding-bottom: 0;
+  &__list {
+  }
   &__item {
     padding: 32px;
   }
@@ -695,6 +825,10 @@ img {
     margin: 0 0 24px;
     &:last-child {
       margin: 0;
+    }
+    @media ($l-m) {
+      flex-direction: column;
+      gap: 8px;
     }
   }
 }
@@ -717,6 +851,12 @@ img {
 }
 
 .banner {
+  padding-bottom: 0;
+  &__container {
+    @media ($t) {
+      padding: 0;
+    }
+  }
   &__item {
     height: 528px;
     width: 100%;
@@ -802,6 +942,97 @@ img {
   }
 }
 
+.events {
+  &__list {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+  &__item {
+    padding: 54px 0;
+    border-bottom: 1px solid $c-stroke;
+  }
+  &__top {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  &__date {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+    flex: 0 0 90px;
+  }
+  &__day,
+  &__month {
+    font-family: "Agora", sans-serif;
+    font-weight: 500;
+    color: $c-accent;
+    text-transform: uppercase;
+  }
+  &__day {
+    font-size: clamp(2rem, 1.4328rem + 2.521vw, 3.5rem);
+    line-height: 0.8;
+  }
+
+  &__month {
+    font-size: clamp(0.875rem, 0.8277rem + 0.2101vw, 1rem);
+  }
+  &__note {
+    background: $c-accent;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 4px;
+    color: $c-white;
+    font-size: 12px;
+  }
+  &__head {
+    flex: 0 0 296px;
+  }
+  &__location {
+    font-family: "Agora", sans-serif;
+    font-weight: 500;
+    color: $c-label;
+    font-size: clamp(0.875rem, 0.8277rem + 0.2101vw, 1rem);
+    margin: 0 0 8px;
+  }
+  &__title {
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.3em;
+    height: 2.6em;
+    position: relative;
+    overflow: hidden;
+    color: $c-dark-text;
+  }
+  &__text {
+    max-width: 416px;
+  }
+  &__announce {
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.6em;
+    height: 3.2em;
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 8px;
+  }
+  &__more {
+    text-align: center;
+    padding: 32px 0;
+  }
+}
+
 /* Яндекс карта */
 
 .ymap,
@@ -851,4 +1082,3 @@ ymaps {
 [class*="copyrights-pane"] {
   display: none !important;
 }
-

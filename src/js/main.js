@@ -23,6 +23,36 @@ const swiperPartners = new Swiper('.swiper-partners', {
 	autoplay: true,
 })
 
+// Табы
+const tabs = document.querySelector('.groups')
+const tabItem = document.querySelectorAll('.groups__btn')
+const tabContent = document.querySelectorAll('.events__list')
+
+if (tabs) {
+	tabItem.forEach(function (element) {
+		element.addEventListener('click', open)
+	})
+
+	function open(evt) {
+		const tabTarget = evt.currentTarget
+		const button = tabTarget.dataset.button
+
+		tabItem.forEach(function (item) {
+			item.classList.remove('active')
+		})
+
+		tabTarget.classList.add('active')
+
+		tabContent.forEach(function (item) {
+			item.classList.remove('active')
+		})
+
+		document.querySelector(`#${button}`).classList.add('active')
+	}
+
+	tabItem[0].click()
+}
+
 // Яндекс карта 
 
 const coordinates = {

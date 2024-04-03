@@ -12,5 +12,11 @@ $c-label: #40a3ec;
 // Макет
 $transition-base: 0.2s ease;
 
-// Медиа
+// Медиа-запросы
+$l-b: "max-width: 1400px";
 $l-m: "max-width: 1200px";
+$l-s: "max-width: 1024px";
+$t: "max-width: 860px";
+$p-b: "max-width: 567px";
+$p-m: "max-width: 480px";
+$p-s: "max-width: 360px";
