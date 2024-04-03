@@ -4,6 +4,14 @@ mixin picture(path, type = 'jpg')
 		//- source(type="image/webp" srcset=`img/${path}.webp`)
 		img(src=`${sitePath}img/${path}.${type}?${randomNumber}`, alt="")
 
+mixin picture-figure(path, figcaption, type = 'jpg')
+	figure
+		picture
+			//- source(type="image/avif" srcset=`img/${path}.avif`)
+			//- source(type="image/webp" srcset=`img/${path}.webp`)
+			img(src=`${sitePath}img/${path}.${type}?${randomNumber}`, alt="")
+		figcaption= figcaption
+
 mixin breadcrumps(page)
 	.breadcrumps
 		a.breadcrumps__home.link.btn.btn-link(href=`${sitePath}`) Главная страница
