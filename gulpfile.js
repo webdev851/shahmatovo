@@ -94,6 +94,7 @@ function layout() {
 
 // настройка вотчера
 function watching() {
+	watch(['src/scss/**/*.scss'], styles);
 	watch(['src/scss/style.scss'], styles);
 	watch(['src/js/main.js'], scripts);
 	watch(['src/pug/**/*.pug'], layout);
