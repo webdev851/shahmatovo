@@ -193,6 +193,16 @@ button {
   }
 }
 
+.page-top {
+  padding: 30px 0 56px;
+  .section-heading {
+    margin: 0;
+  }
+  @media ($t) {
+    padding: 24px;
+  }
+}
+
 .section-heading {
   margin: 0 0 32px;
   &--center {
@@ -220,14 +230,19 @@ button {
   font-size: 20px;
 }
 
+.narrow-content {
+  max-width: 866px;
+  margin: 0 auto;
+}
+
 .breadcrumps {
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
   margin: 0 0 24px;
   &__home {
+    font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
     font-family: $mont;
     color: $c-dark-text;
     text-decoration: none;
@@ -235,8 +250,12 @@ button {
   &__separator {
     display: flex;
     margin: 0 16px;
+    @media ($t) {
+      margin: 0 8px;
+    }
   }
   &__current {
+    font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
     color: $c-light-text;
     font-weight: 500;
   }
@@ -1028,11 +1047,14 @@ button {
     }
   }
   &__item {
-    aspect-ratio: 5 / 2;
+    aspect-ratio: 3 / 2;
     width: 100%;
     position: relative;
     @media ($t) {
       aspect-ratio: 3 / 2;
+    }
+    &--wide {
+      aspect-ratio: 5 / 2;
     }
     img {
       position: absolute;
@@ -1132,16 +1154,6 @@ button {
   }
 }
 
-.history-page {
-  .banner__content {
-    max-width: 866px;
-    margin: 0 auto;
-  }
-  .banner__item {
-    aspect-ratio: 3 / 2;
-  }
-}
-
 .events {
   &__list {
     display: none;
@@ -1208,14 +1220,13 @@ button {
   &__note {
     background: $c-accent;
     display: block;
-    width: 100%;
+    width: 90%;
     text-align: center;
     padding: 4px;
     color: $c-white;
     font-size: 12px;
   }
   &__head {
-    // flex: 0 0 296px;
   }
   &__location {
     font-family: $agora;
@@ -1276,14 +1287,18 @@ button {
     &:last-child {
       margin: 0;
     }
+    @media ($t) {
+      gap: 12px;
+    }
   }
   &__year {
+    font-family: $agora;
     color: $c-accent;
     font-size: clamp(1rem, 0.8109rem + 0.8403vw, 1.5rem);
     font-weight: 700;
     white-space: nowrap;
     justify-content: flex-end;
-    flex: 0 0 104px;
+    flex: 0 0 clamp(4.375rem, 3.5714rem + 3.5714vw, 6.5rem);
     display: flex;
   }
   &__text {
