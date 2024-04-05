@@ -9,7 +9,7 @@ body {
   min-width: 320px;
   overflow-x: hidden;
   background-color: $c-white;
-  font-family: "Montserrat", sans-serif;
+  font-family: $mont;
   font-size: clamp(0.75rem, 0.6555rem + 0.4202vw, 1rem);
   font-weight: 400;
   color: $c-dark-text;
@@ -29,7 +29,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  font-family: "Agora", sans-serif;
+  font-family: $agora;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -79,6 +79,9 @@ img {
 p {
   margin: 0 0 24px;
   line-height: 1.7;
+  @media ($t) {
+    margin: 0 0 12px;
+  }
 }
 
 p:last-child {
@@ -126,7 +129,7 @@ button {
 .btn-primary {
   color: $c-white;
   background: $c-accent;
-  font-family: "Agora", sans-serif;
+  font-family: $agora;
   display: inline-block;
   padding: 12px 24px;
   width: fit-content;
@@ -139,10 +142,11 @@ button {
 }
 
 .btn-link {
-  font-family: "Agora", sans-serif;
+  font-family: $agora;
   font-weight: 500;
   color: $c-accent;
   text-decoration: underline;
+  font-size: 16px;
   &:hover {
     color: $c-accent-hover;
     text-decoration: underline;
@@ -165,7 +169,7 @@ button {
 
 .container {
   max-width: 1312px;
-  padding: 0 clamp(1rem, 0.1964rem + 3.5714vw, 3.125rem);
+  padding: 0 $p-clamp;
   margin: 0 auto;
 }
 
@@ -184,6 +188,9 @@ button {
 
 .section {
   padding: 60px 0;
+  @media ($t) {
+    padding: 32px 0;
+  }
 }
 
 .section-heading {
@@ -191,6 +198,10 @@ button {
   &--center {
     text-align: center;
   }
+}
+
+.section-header {
+  font-size: clamp(1.5rem, 0.7437rem + 3.3613vw, 3.5rem);
 }
 
 .heading-more {
@@ -201,6 +212,7 @@ button {
   @media ($l-s) {
     flex-direction: column;
     gap: 24px;
+    text-align: center;
   }
 }
 
@@ -216,7 +228,7 @@ button {
   font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
   margin: 0 0 24px;
   &__home {
-    font-family: "Montserrat", sans-serif;
+    font-family: $mont;
     color: $c-dark-text;
     text-decoration: none;
   }
@@ -247,7 +259,7 @@ button {
       }
       &:last-child {
         font-size: 16px;
-        font-family: "Agora", sans-serif;
+        font-family: $agora;
         font-weight: 500;
         line-height: 1;
       }
@@ -256,14 +268,26 @@ button {
 }
 
 .groups {
-  border-bottom: 1px solid $c-stroke;
+  border-bottom: $border-base;
   &__list {
     display: flex;
     gap: 56px;
     justify-content: center;
+    @media ($t) {
+      flex-direction: column;
+      gap: 0;
+    }
   }
   &__btn {
     transition: $transition-base;
+    display: flex;
+    flex-direction: column;
+
+    @media ($t) {
+      flex-direction: row-reverse;
+      align-items: center;
+      border-left: $border-base;
+    }
     &::after {
       content: "";
       display: block;
@@ -273,6 +297,13 @@ button {
       margin: 18px 0 0;
       opacity: 0;
       transition: $transition-base;
+      flex-shrink: 0;
+
+      @media ($t) {
+        margin: 0 8px 0 0;
+        width: 4px;
+        height: 44px;
+      }
     }
     &.active {
       &::after {
@@ -292,6 +323,9 @@ button {
 .header {
   padding: 26px 0;
   color: $c-dark-text;
+  @media ($t) {
+    padding: 20px 0;
+  }
   &__content {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -344,14 +378,14 @@ button {
   &__bottomlist {
     justify-content: space-between;
     .nav__item {
-      border: 1px solid $c-stroke;
+      border: $border-base;
       border-right: none;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       &:last-child {
-        border-right: 1px solid $c-stroke;
+        border-right: $border-base;
       }
     }
     .nav__link {
@@ -374,12 +408,15 @@ button {
   &__top {
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid $c-stroke;
-    border-bottom: 1px solid $c-stroke;
+    border-top: $border-base;
+    border-bottom: $border-base;
+    @media ($l-s) {
+      display: none;
+    }
   }
   &__left {
     padding: 56px 16px;
-    border-left: 1px solid $c-stroke;
+    border-left: $border-base;
     border-right: none;
     max-width: 308px;
   }
@@ -395,7 +432,7 @@ button {
   .btn-up {
     background: $c-accent;
     color: $c-white;
-    font-family: "Agora", sans-serif;
+    font-family: $agora;
     padding: 13px 24px;
     max-width: 100%;
     display: flex;
@@ -411,12 +448,12 @@ button {
   }
   &__nav {
     display: flex;
-    border-right: 1px solid $c-stroke;
+    border-right: $border-base;
   }
   .nav__list {
     flex-direction: column;
     padding: 56px;
-    border-left: 1px solid $c-stroke;
+    border-left: $border-base;
     gap: 12px;
     &:first-child {
       border: none;
@@ -432,10 +469,25 @@ button {
     gap: 34px;
     padding: 24px 16px;
     font-size: 14px;
+    @media ($l-s) {
+      flex-direction: column-reverse;
+      gap: 12px;
+    }
   }
   .social__list {
     display: flex;
     gap: 24px;
+    @media ($l-s) {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+  }
+  .social__item {
+    @media ($l-s) {
+      padding: 12px 40px;
+      border: $border-base;
+    }
   }
   .social__link {
     text-transform: uppercase;
@@ -458,6 +510,9 @@ button {
     width: 100%;
     h1 {
       margin: 0 0 32px;
+      @media ($t) {
+        margin: 0 0 24px;
+      }
     }
     p {
       line-height: normal;
@@ -478,22 +533,27 @@ button {
       padding: 0;
     }
   }
+  &-content {
+    @media ($t) {
+      padding: 0 $p-clamp;
+    }
+  }
   &-list {
     display: grid;
   }
   &-item {
-    border: 1px solid $c-stroke;
+    border: $border-base;
     border-right: none;
     border-bottom: none;
     transition: $transition-base;
     padding: 56px 32px;
     &:nth-child(2n),
     &:last-child {
-      border-right: 1px solid $c-stroke;
+      border-right: $border-base;
     }
     &:last-child,
     &:nth-last-child(2) {
-      border-bottom: 1px solid $c-stroke;
+      border-bottom: $border-base;
     }
     &:hover {
       background: #f9f8f7;
@@ -510,10 +570,8 @@ button {
         border-right: none;
         border-bottom: none;
         padding: 16px;
-      }
-      &:last-child {
-        @media ($t) {
-          border-bottom: 1px solid $c-stroke;
+        &:last-child {
+          border-bottom: $border-base;
         }
       }
     }
@@ -527,18 +585,42 @@ button {
       grid-template-columns: 1fr;
     }
     .card-item {
+      border: $border-base !important;
       &:nth-child(2n) {
         border-right: none;
       }
       &:nth-child(3n) {
-        border-right: 1px solid $c-stroke;
+        border-right: $border-base;
       }
       &:nth-last-child(3) {
-        border-bottom: 1px solid $c-stroke;
+        border-bottom: $border-base;
       }
+      // две карточки
       @media ($l-m) {
+        &:nth-last-child(3),
+        &:nth-child(3n) {
+          border-bottom: none;
+        }
         &:nth-child(2n) {
-          border-right: 1px solid $c-stroke;
+          border-right: $border-base;
+        }
+        &:nth-last-child(2),
+        &:last-child {
+          border-bottom: $border-base;
+        }
+      }
+      @media ($t) {
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        &:nth-last-child(3),
+        &:nth-child(3n),
+        &:nth-child(2n) {
+          border-right: none;
+          border-bottom: none;
+        }
+        &:last-child {
+          border-bottom: $border-base;
         }
       }
     }
@@ -546,7 +628,7 @@ button {
   &-title {
     margin: 0 0 24px;
     @media ($t) {
-      margin: 0 0 20px;
+      margin: 0 0 16px;
     }
   }
 }
@@ -554,12 +636,31 @@ button {
 .news {
   &__item {
     padding: 75px 32px 40px;
+    @media ($l-m) {
+      &:last-child {
+        display: none;
+      }
+    }
+    @media ($t) {
+      padding: 24px $p-clamp;
+      &:last-child,
+      &:nth-last-child(2) {
+        display: none;
+      }
+    }
+  }
+  &__inner {
+    max-width: 456px;
+    margin: 0 auto;
   }
   &__image {
     margin: 0 0 16px;
     position: relative;
     overflow: hidden;
-    height: 248px;
+    aspect-ratio: 3 / 2;
+    @media ($t) {
+      margin: 0 0 8px;
+    }
     img {
       position: absolute;
       top: 0;
@@ -577,13 +678,16 @@ button {
     display: block;
     margin: 0 0 16px;
     font-size: 14px;
+    @media ($t) {
+      margin: 0 0 8px;
+    }
   }
   &__title {
     display: block;
     margin: 0 0 8px;
     color: $c-dark-text;
     font-size: 20px;
-    font-family: "Agora", sans-serif;
+    font-family: $agora;
     font-weight: 500;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
@@ -597,7 +701,7 @@ button {
   }
   &__announce {
     margin: 0 0 32px;
-    font-size: 14px;
+    font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -607,12 +711,19 @@ button {
     height: 4.8em;
     position: relative;
     overflow: hidden;
+    @media ($t) {
+      margin: 0 0 16px;
+    }
   }
 }
 
 .rules {
   &__heading {
     margin: 0 0 56px;
+    @media ($t) {
+      text-align: center;
+      margin: 0 0 24px;
+    }
   }
 }
 
@@ -622,9 +733,15 @@ button {
   right: 8px;
   padding: 8px 24px;
   font-style: italic;
-  font-size: 16px;
+  font-size: clamp(0.75rem, 0.6555rem + 0.4202vw, 1rem);
   display: block;
   background: $c-white;
+  @media ($t) {
+    right: 50%;
+    transform: translateX(50%);
+    width: max-content;
+    max-width: 80%;
+  }
 }
 
 .estates {
@@ -633,6 +750,12 @@ button {
     align-items: center;
     justify-content: space-between;
     margin: 0 0 80px;
+    @media ($l-s) {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0 0 32px;
+    }
   }
   &__heading {
     flex: 1;
@@ -640,6 +763,12 @@ button {
   &__subscription {
     max-width: 494px;
     padding: 0 5%;
+    @media ($l-s) {
+      max-width: 100%;
+      padding: 0;
+    }
+  }
+  &__list {
   }
   &__item {
     display: flex;
@@ -647,20 +776,32 @@ button {
     &:nth-child(2n) {
       div:first-child {
         order: 2;
+        @media ($l-s) {
+          order: initial;
+        }
       }
       div:last-child {
         order: 1;
+        @media ($l-s) {
+          order: initial;
+        }
       }
     }
     &:last-child {
       margin: 0;
+    }
+    @media ($l-s) {
+      flex-direction: column-reverse;
+      margin: 0 0 32px;
     }
   }
 
   &__image {
     position: relative;
     flex: 0 1 100%;
-
+    @media ($l-s) {
+      aspect-ratio: 3 / 2;
+    }
     img {
       position: absolute;
       top: 0;
@@ -674,10 +815,16 @@ button {
     flex: 0 0 36%;
     padding: 44px 32px 32px;
     background: #f9f8f7;
+    @media ($l-s) {
+      padding: 32px $p-clamp;
+    }
   }
   &__quoteblock {
     margin: 0 0 52px;
     text-align: center;
+    @media ($l-s) {
+      margin: 0 0 32px;
+    }
   }
   &__quote {
     display: flex;
@@ -685,7 +832,7 @@ button {
     text-align: center;
     font-style: italic;
     margin: 0 0 8px;
-    font-size: 14px;
+    font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
     font-weight: 300;
     gap: 12px;
     &::before,
@@ -704,15 +851,21 @@ button {
     }
   }
   &__author {
-    font-family: "Agora", sans-serif;
+    font-family: $agora;
     font-weight: 500;
-    font-size: 16px;
+    font-size: clamp(0.875rem, 0.8277rem + 0.2101vw, 1rem);
   }
   &__name {
     margin: 0 0 32px;
+    @media ($l-s) {
+      margin: 0 0 12px;
+    }
   }
   &__description {
     margin: 0 0 24px;
+    @media ($l-s) {
+      margin: 0 0 12px;
+    }
   }
   &__link {
     font-size: 20px;
@@ -728,6 +881,13 @@ button {
     margin: 0 0 4px;
     &:last-child {
       margin: 0;
+    }
+    @media ($l-m) {
+      flex-direction: column;
+      gap: 4px;
+    }
+    @media ($l-s) {
+      flex-direction: row;
     }
   }
   &__col {
@@ -754,6 +914,9 @@ button {
     strong {
       color: rgba(255, 255, 255, 1);
     }
+    @media ($t) {
+      padding: 16px 0;
+    }
   }
   &__list {
     display: flex;
@@ -773,7 +936,7 @@ button {
     text-transform: uppercase;
     font-weight: 700;
     @media ($l-s) {
-      margin: 0 auto 24px;
+      margin: 0 auto 16px;
       max-width: 560px;
     }
   }
@@ -802,6 +965,7 @@ button {
     flex-shrink: 0;
     padding: 0 24px;
     animation: ticker 12s linear infinite;
+    font-size: clamp(0.875rem, 0.8277rem + 0.2101vw, 1rem);
   }
 }
 
@@ -829,6 +993,7 @@ button {
     @media ($l-m) {
       flex-direction: column;
       gap: 8px;
+      margin: 0 0 16px;
     }
   }
 }
@@ -845,22 +1010,30 @@ button {
     &:last-child {
       margin: 0;
     }
-    img {
+    @media ($t) {
+      margin: 0 12px 0 0;
+      flex: 0 0 calc((100% / 4) - 6px);
+    }
+    @media ($p-m) {
+      flex: 0 0 calc((100% / 3) - 6px);
     }
   }
 }
 
 .banner {
-  padding-bottom: 0;
+  padding: 0;
   &__container {
     @media ($t) {
       padding: 0;
     }
   }
   &__item {
-    height: 528px;
+    aspect-ratio: 5 / 2;
     width: 100%;
     position: relative;
+    @media ($t) {
+      aspect-ratio: 3 / 2;
+    }
     img {
       position: absolute;
       top: 0;
@@ -878,9 +1051,13 @@ button {
     top: 0;
     left: 32px;
     display: flex;
-    height: 70px;
     width: fit-content;
     gap: 24px;
+    @media ($t) {
+      inset: initial;
+      bottom: 0;
+      right: 0;
+    }
   }
   &__navigation {
     display: flex;
@@ -896,22 +1073,32 @@ button {
     transition: $transition-base;
     &::after {
       font-size: initial;
+      width: 18px;
+      height: 22px;
+      @media ($p-b) {
+        width: 16px;
+        height: 18px;
+      }
     }
     &:hover {
       opacity: 1;
+    }
+    @media ($p-b) {
+      width: 44px;
+      height: 44px;
     }
   }
   &__btnprev {
     background: $c-white;
     &::after {
-      content: url("data:image/svg+xml,%3Csvg width='18' height='22' viewBox='0 0 18 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.43099e-07 11.2681L18 0.875763L18 21.6604L1.43099e-07 11.2681Z' fill='%23C87D37'/%3E%3C/svg%3E%0A");
+      content: url("data:image/svg+xml,%3Csvg  viewBox='0 0 18 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.43099e-07 11.2681L18 0.875763L18 21.6604L1.43099e-07 11.2681Z' fill='%23C87D37'/%3E%3C/svg%3E%0A");
     }
   }
   &__btnnext {
     background: $c-accent;
     opacity: 1;
     &::after {
-      content: url("data:image/svg+xml,%3Csvg width='18' height='22' viewBox='0 0 18 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 11.2681L-9.78799e-07 21.6604L-7.02746e-08 0.875761L18 11.2681Z' fill='white'/%3E%3C/svg%3E");
+      content: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 11.2681L-9.78799e-07 21.6604L-7.02746e-08 0.875761L18 11.2681Z' fill='white'/%3E%3C/svg%3E");
     }
     &:hover {
       background: $c-accent-hover;
@@ -925,6 +1112,9 @@ button {
     margin: initial;
     display: flex;
     align-items: center;
+    @media ($t) {
+      display: none;
+    }
   }
   &__bullet {
     width: 42px;
@@ -942,6 +1132,16 @@ button {
   }
 }
 
+.history-page {
+  .banner__content {
+    max-width: 866px;
+    margin: 0 auto;
+  }
+  .banner__item {
+    aspect-ratio: 3 / 2;
+  }
+}
+
 .events {
   &__list {
     display: none;
@@ -951,12 +1151,32 @@ button {
   }
   &__item {
     padding: 54px 0;
-    border-bottom: 1px solid $c-stroke;
+    border-bottom: $border-base;
+    @media ($t) {
+      padding: 32px $p-clamp;
+    }
   }
   &__top {
     display: flex;
     gap: 32px;
     align-items: center;
+    @media ($t) {
+      gap: 16px;
+      flex-direction: column;
+    }
+  }
+  &__col {
+    &:first-child {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      flex: 0 0 424px;
+      @media ($t) {
+        flex: auto;
+        gap: 16px;
+        width: 100%;
+      }
+    }
   }
   &__date {
     display: flex;
@@ -965,10 +1185,14 @@ button {
     align-items: center;
     gap: 14px;
     flex: 0 0 90px;
+    @media ($t) {
+      flex: 0 0 68px;
+      gap: 8px;
+    }
   }
   &__day,
   &__month {
-    font-family: "Agora", sans-serif;
+    font-family: $agora;
     font-weight: 500;
     color: $c-accent;
     text-transform: uppercase;
@@ -991,10 +1215,10 @@ button {
     font-size: 12px;
   }
   &__head {
-    flex: 0 0 296px;
+    // flex: 0 0 296px;
   }
   &__location {
-    font-family: "Agora", sans-serif;
+    font-family: $agora;
     font-weight: 500;
     color: $c-label;
     font-size: clamp(0.875rem, 0.8277rem + 0.2101vw, 1rem);
@@ -1014,6 +1238,9 @@ button {
   }
   &__text {
     max-width: 416px;
+    @media ($t) {
+      max-width: 100%;
+    }
   }
   &__announce {
     -o-text-overflow: ellipsis;
@@ -1030,6 +1257,39 @@ button {
   &__more {
     text-align: center;
     padding: 32px 0;
+    @media ($t) {
+      padding: 12px 0;
+    }
+  }
+}
+
+.history {
+  padding: 56px 0 80px;
+  &__content {
+    max-width: 866px;
+    margin: 0 auto;
+  }
+  &__item {
+    display: flex;
+    gap: 24px;
+    margin: 0 0 40px;
+    &:last-child {
+      margin: 0;
+    }
+  }
+  &__year {
+    color: $c-accent;
+    font-size: clamp(1rem, 0.8109rem + 0.8403vw, 1.5rem);
+    font-weight: 700;
+    white-space: nowrap;
+    justify-content: flex-end;
+    flex: 0 0 104px;
+    display: flex;
+  }
+  &__text {
+    *:last-child {
+      margin: 0;
+    }
   }
 }
 

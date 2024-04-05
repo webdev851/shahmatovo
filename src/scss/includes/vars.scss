@@ -9,8 +9,14 @@ $c-stroke: #e2ddd6;
 $c-white: #ffffff;
 $c-label: #40a3ec;
 
+// Шрифты
+$agora: "Agora", serif;
+$mont: "Montserrat", sans-serif;
+
 // Макет
 $transition-base: 0.2s ease;
+$border-base: 1px solid $c-stroke;
+$p-clamp: clamp(1rem, 0.1964rem + 3.5714vw, 3.125rem);
 
 // Медиа-запросы
 $l-b: "max-width: 1400px";

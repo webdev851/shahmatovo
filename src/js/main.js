@@ -4,7 +4,7 @@ const partnersItems = document.querySelectorAll('.partners__item')
 
 const swiperMainBanner = new Swiper('.swiper-mainbanner', {
 	slidesPerView: 1,
-	autoplay: true,
+	// autoplay: true,
 	loop: true,
   navigation: {
     nextEl: '.swiper-button-next',
