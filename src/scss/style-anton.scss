@@ -6,14 +6,6 @@
 	}
 }
 
-.heading-block__content {
-	& > * {
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-}
-
 .banner__container {
 	@media ($l-m) {
 		padding: 0;
