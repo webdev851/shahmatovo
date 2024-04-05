@@ -5,9 +5,8 @@
 		left: 50%;
 		transform: translateX(-50%);
 		z-index: 1;
-		@media ($l-s) {
-			left: auto;
-			right: 0;
+		@media ($t) {
+			left: 32px;
 			transform: initial;
 		}
 	}
