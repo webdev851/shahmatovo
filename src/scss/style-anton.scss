@@ -1,90 +1,8 @@
-.heading-block {
-	.section-header {
-		@media ($l-m) {
-			font-size: clamp(24px, 7vw, 56px);
-		}
-	}
-}
-
-.banner__container {
-	@media ($l-m) {
-		padding: 0;
-	}
-}
-
-.estate-page__slider {
-	.swiper-wrapper {
-		height: 577px;
-
-		@media ($l-m) {
-			height: clamp(229px, 62vw, 577px);
-		}
-	}
-}
-
 .swiper--nav-bottom {
-	img {
-		object-fit: cover;
-		width: 100%;
-		height: 577px;
-
-		@media ($l-m) {
-			height: clamp(229px, 62vw, 577px);
-		}
-	}
-
 	.banner__tools {
 		top: auto;
 		bottom: 0;
-
-		@media (max-width: 767px) {
-			height: 60px;
-		}
-
-		@media (max-width: 575px) {
-			height: 44px;
-		}
-
-		@media (min-width: 1200px) {
-			left: 50%;
-			transform: translateX(-50%);
-			z-index: 1;
-		}
 	}
-
-	.banner__btn {
-		@media (max-width: 767px) {
-			width: 60px;
-			height: 60px;
-		}
-
-		@media (max-width: 575px) {
-			width: 44px;
-			height: 44px;
-		}
-
-		&::after {
-			@media (max-width: 767px) {
-				transform: scale3d(0.85, 0.85, 1);
-			}
-
-			@media (max-width: 575px) {
-				transform: scale3d(0.65, 0.65, 1);
-			}
-		}
-	}
-
-	.swiper-pagination {
-		top: 0;
-
-		@media (max-width: 767px) {
-			display: none;
-		}
-	}
-}
-
-.estate-content__container {
-	max-width: 866px;
 }
 
 .user-content {
@@ -99,7 +17,7 @@
 			margin: 0 0 24px;
 		}
 
-		@media (max-width: 767px) {
+		@media ($t) {
 			line-height: 160%;
 		}
 	}
@@ -115,7 +33,7 @@
 		p {
 			font-style: italic;
 			line-height: 200%;
-			color: #4a565e;
+			color: $c-light-text;
 			margin-bottom: 12px;
 
 			@media ($l-m) {
@@ -123,21 +41,21 @@
 				margin-bottom: 8px;
 			}
 
-			@media (max-width: 767px) {
+			@media ($t) {
 				line-height: 160%;
 			}
 		}
 
 		cite,
 		span {
-			font-family: "Agora", sans-serif;
+			font-family: $agora;
 			font-weight: 500;
-			font-size: 16px;
+			font-size: 14px;
 			text-align: center;
-			color: #223642;
+			color: $c-dark-text;
 
 			@media ($l-m) {
-				font-size: clamp(14px, 2vw, 16px);
+				font-size: clamp(12px, 2vw, 14px);
 			}
 		}
 	}
@@ -165,11 +83,11 @@
 	}
 
 	figcaption {
-		font-family: "Agora", sans-serif;
+		font-family: $agora;
 		font-weight: 500;
 		font-size: 16px;
 		text-align: center;
-		color: #223642;
+		color: $c-dark-text;
 		margin: 12px 0 0;
 
 		@media ($l-m) {
