@@ -114,6 +114,10 @@ button {
   color: $c-accent;
 }
 
+.section.offset-top {
+  padding-top: 0;
+}
+
 .link {
   color: $c-dark-text;
   &:hover {
@@ -155,6 +159,73 @@ button {
 
 .btn-showmore {
   font-size: clamp(1rem, 0.9055rem + 0.4202vw, 1.25rem);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 32px 0;
+  justify-content: center;
+  @media ($t) {
+    padding: 24px 0;
+  }
+  .page-numbers,
+  .separator {
+    width: 38px;
+    height: 38px;
+    background: #f9f8f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #f9f8f7;
+    color: $c-dark-text;
+    transition: $transition-base;
+    font-weight: 500;
+    font-size: 16px;
+    &:hover {
+      color: $c-accent;
+    }
+    &.current {
+      font-weight: 700;
+      border-color: $c-accent;
+      color: $c-accent;
+    }
+  }
+  .prev,
+  .next {
+    svg {
+      width: 16px;
+      height: 10px;
+      stroke: $c-accent;
+    }
+  }
+  .prev {
+    margin: 0 12px 0 0;
+    svg {
+      stroke: $c-second-color;
+    }
+  }
+  .next {
+    background: $c-second-color;
+    margin: 0 0 0 12px;
+    border-color: $c-second-color;
+    &:hover {
+      background: $c-accent;
+      border-color: $c-accent;
+    }
+    svg {
+      transform: rotate(180deg);
+      stroke: $c-white;
+    }
+  }
+  .separator {
+    background: transparent;
+    border-color: transparent;
+    &:hover {
+      color: $c-dark-text;
+    }
+  }
 }
 
 .wrapper {
@@ -241,7 +312,8 @@ button {
   align-items: center;
   justify-content: center;
   margin: 0 0 24px;
-  &__home {
+  &__home,
+  &__prev {
     font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
     font-family: $mont;
     color: $c-dark-text;
@@ -476,6 +548,9 @@ button {
     gap: 12px;
     &:first-child {
       border: none;
+    }
+    @media ($l-m) {
+      padding: 56px 36px;
     }
   }
   .nav__title {
@@ -787,8 +862,6 @@ button {
       padding: 0;
     }
   }
-  &__list {
-  }
   &__item {
     display: flex;
     margin: 0 0 80px;
@@ -999,8 +1072,6 @@ button {
 
 .contacts {
   padding-bottom: 0;
-  &__list {
-  }
   &__item {
     padding: 32px;
   }
@@ -1055,6 +1126,9 @@ button {
     }
     &--wide {
       aspect-ratio: 5 / 2;
+      @media ($t) {
+        aspect-ratio: 3 / 2;
+      }
     }
     img {
       position: absolute;
@@ -1225,8 +1299,6 @@ button {
     padding: 4px;
     color: $c-white;
     font-size: 12px;
-  }
-  &__head {
   }
   &__location {
     font-family: $agora;

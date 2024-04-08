@@ -29,7 +29,7 @@ header.header
 							span.nav__link.link.selected Заповедник
 						else
 							a(href="#").nav__link.link Заповедник
-				a(href="#").nav__btn.btn.btn-primary Афиша
+				a(href=`${sitePath}events.html`).nav__btn.btn.btn-primary Афиша
 			nav.nav.nav__bottommenu(aria-label="Верхнее меню")
 				ul.nav__list.nav__bottomlist
 					li.nav__item
@@ -45,7 +45,10 @@ header.header
 					li.nav__item
 						a(href="#").nav__link.link Фонды
 					li.nav__item
-						a(href="#").nav__link.link Новости
+						if (pageName == 'news-page' || pageName == 'news-detail-page')
+							span.nav__link.link.selected Новости
+						else 
+							a(href=`${sitePath}news.html`).nav__link.link Новости
 					li.nav__item
 						a(href="#").nav__link.link Контакты
 			button.burger(aria-label="Открыть меню")
