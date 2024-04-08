@@ -7,13 +7,21 @@ mixin picture(path, caption = false, type = 'jpg')
 		if (caption)
 			figcaption= caption
 
-mixin breadcrumps(page)
+mixin breadcrumps(currentPage, prevPage = false, prevLink = false)
 	.breadcrumps
 		a.breadcrumps__home.link.btn.btn-link(href=`${sitePath}`) Главная страница
-		span.breadcrumps__separator 	
+		span.breadcrumps__separator
 			svg(width="5" height="5")
 				use(xlink:href=`${sitePath}img/vector-icons/icon-separator.svg#icon-separator`)
-		span.breadcrumps__current= page
+		if (prevPage && prevLink)
+			a.breadcrumps__prev.link.btn.btn-link(href=`${sitePath}${prevLink}`)= prevPage
+			span.breadcrumps__separator
+				svg(width="5" height="5")
+					use(xlink:href=`${sitePath}img/vector-icons/icon-separator.svg#icon-separator`)
+			span.breadcrumps__current= currentPage
+		else
+			span.breadcrumps__current= currentPage
+
 
 mixin newsItem(image, date, title, announce)
 	li.news__item.card-item
@@ -21,9 +29,9 @@ mixin newsItem(image, date, title, announce)
 			.news__image
 				+picture(image)
 			span.news__date= date
-			a(href="#").news__title= title
+			a(href=`${sitePath}news-detail.html`).news__title= title
 			p.news__announce= announce
-			a(href="#").news__link.link.btn-link К новости
+			a(href=`${sitePath}news-detail.html`).news__link.link.btn-link К&nbsp;новости
 
 mixin eventItem(day, month, location, title, announce, note = false)
 	li.events__item
