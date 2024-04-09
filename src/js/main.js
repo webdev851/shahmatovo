@@ -23,6 +23,25 @@ const swiperPartners = new Swiper('.swiper-partners', {
 	autoplay: true,
 })
 
+// Меню
+const mobileMenu = document.querySelector('.nav__mobilemenu')
+const burger = document.querySelector('.burger')
+const mobileClose = document.querySelector('.mobile-close')
+const overlay = document.querySelector('.overlay')
+const body = document.body
+
+burger.addEventListener('click', () => {
+	mobileMenu.classList.add('active')
+	overlay.classList.add('open')
+	body.classList.add('lock')
+})
+
+mobileClose.addEventListener('click', () => {
+	mobileMenu.classList.remove('active')
+	overlay.classList.remove('open')
+	body.classList.remove('lock')
+})
+
 // Табы
 const tabs = document.querySelector('.groups')
 const tabItem = document.querySelectorAll('.groups__btn')

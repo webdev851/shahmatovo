@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   scroll-behavior: smooth;
@@ -228,6 +232,28 @@ button {
   }
 }
 
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(52, 54, 59, 0.5);
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.lock {
+  overflow: hidden;
+}
+
 .wrapper {
   max-width: 1920px;
   overflow: hidden;
@@ -239,7 +265,7 @@ button {
 }
 
 .container {
-  max-width: 1312px;
+  max-width: 1412px;
   padding: 0 $p-clamp;
   margin: 0 auto;
 }
@@ -338,6 +364,15 @@ button {
   align-items: flex-end;
   gap: 8px;
   width: fit-content;
+  // z-index: 10;
+  &__icon {
+    width: 59px;
+    height: 46px;
+    @media ($t) {
+      width: 50px;
+      height: 39px;
+    }
+  }
   &__text {
     span {
       display: block;
@@ -347,12 +382,18 @@ button {
       &:first-child {
         font-size: 9px;
         margin: 0 0 2px;
+        @media ($t) {
+          font-size: 7px;
+        }
       }
       &:last-child {
         font-size: 16px;
         font-family: $agora;
         font-weight: 500;
         line-height: 1;
+        @media ($t) {
+          font-size: 12px;
+        }
       }
     }
   }
@@ -455,9 +496,11 @@ button {
   &__toplist {
     text-transform: uppercase;
     gap: 32px;
-    .nav__link.selected {
-      color: $c-accent;
-      cursor: default;
+    .nav__link {
+      &.selected {
+        color: $c-accent;
+        cursor: default;
+      }
     }
   }
   &__bottommenu {
@@ -487,9 +530,77 @@ button {
       align-items: center;
       justify-content: center;
       width: 100%;
+      height: 100%;
       &.selected {
         color: $c-white;
         background-color: $c-accent;
+        cursor: default;
+      }
+    }
+  }
+  &__mobilemenu {
+    position: fixed;
+    inset: 0;
+    max-width: 360px;
+    z-index: 10;
+    background: $c-white;
+    padding: 0;
+    // border-right: 1px solid $c-stroke;
+    min-height: 100vh;
+    overflow-y: auto;
+    width: 100%;
+    box-shadow: 5px 0 15px -5px rgba(0, 0, 0, 0.4);
+    transform: translateX(-150%);
+    transition: transform 0.3s ease;
+    &.active {
+      transform: translateX(0);
+    }
+    .logo {
+      padding: 20px 16px;
+    }
+    .close {
+      position: absolute;
+      right: 24px;
+      top: 28px;
+    }
+    .btn {
+      width: 100%;
+      text-transform: uppercase;
+    }
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      // background-color: transparent; /* or add it to the track */
+    }
+
+    /* Add a thumb */
+    &::-webkit-scrollbar-thumb {
+      background: $c-accent;
+    }
+  }
+  &__mobilelist {
+    flex-direction: column;
+    .nav__item {
+      border-top: 1px solid $c-stroke;
+      &--button {
+        padding: 16px;
+      }
+    }
+    .nav__link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 16px;
+      font-size: 16px;
+      &.selected {
+        color: $c-accent;
+        cursor: default;
+      }
+    }
+    &--top {
+      .nav__link {
+        text-transform: uppercase;
+        font-weight: 500;
       }
     }
   }

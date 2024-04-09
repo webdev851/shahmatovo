@@ -30,7 +30,7 @@ header.header
 						else
 							a(href="#").nav__link.link Заповедник
 				a(href=`${sitePath}events.html`).nav__btn.btn.btn-primary Афиша
-			nav.nav.nav__bottommenu(aria-label="Верхнее меню")
+			nav.nav.nav__bottommenu(aria-label="Нижнее меню")
 				ul.nav__list.nav__bottomlist
 					li.nav__item
 						a(href="#").nav__link.link Пушкинская карта
@@ -51,6 +51,60 @@ header.header
 							a(href=`${sitePath}news.html`).nav__link.link Новости
 					li.nav__item
 						a(href="#").nav__link.link Контакты
+			nav.nav.nav__mobilemenu(aria-label="Мобильное меню")
+				include parts/logo
+				button.close.mobile-close(aria-label="Закрыть меню")
+					svg(width="26" height="26")
+						use(xlink:href=`${sitePath}img/vector-icons/icon-close.svg#icon-close`)
+				ul.nav__list.nav__mobilelist.nav__mobilelist--top
+					li.nav__item
+						if (pageTitle == 'Усадьба Шахматово')
+							span.nav__link.link.selected Шахматово
+						else
+							a(href=`${sitePath}shahmatovo.html`).nav__link.link Шахматово
+					li.nav__item
+						if (pageTitle == 'Усадьба Боблово')
+							span.nav__link.link.selected Боблово
+						else
+							a(href=`${sitePath}boblovo.html`).nav__link.link Боблово
+					li.nav__item
+						if (pageTitle == 'Усадьба Тараканово')
+							span.nav__link.link.selected Тараканово
+						else
+							a(href=`${sitePath}tarakanovo.html`).nav__link.link Тараканово
+					li.nav__item
+						if (pageTitle == 'История Музея-Заповедника')
+							span.nav__link.link.selected История музея
+						else
+							a(href=`${sitePath}history.html`).nav__link.link История музея
+					li.nav__item
+						if (pageTitle == 'Заповедник')
+							span.nav__link.link.selected Заповедник
+						else
+							a(href="#").nav__link.link Заповедник
+				ul.nav__list.nav__mobilelist.nav__mobilelist--bottom
+					li.nav__item
+						a(href="#").nav__link.link Пушкинская карта
+					li.nav__item
+						a(href="#").nav__link.link Безопасность
+					li.nav__item
+						a(href="#").nav__link.link Документы
+					li.nav__item
+						a(href="#").nav__link.link Стоимость билетов
+					li.nav__item
+						a(href="#").nav__link.link Галерея
+					li.nav__item
+						a(href="#").nav__link.link Фонды
+					li.nav__item
+						if (pageName == 'news-page' || pageName == 'news-detail-page')
+							span.nav__link.link.selected Новости
+						else 
+							a(href=`${sitePath}news.html`).nav__link.link Новости
+					li.nav__item
+						a(href="#").nav__link.link Контакты
+					li.nav__item.nav__item--button
+						a(href=`${sitePath}events.html`).nav__btn.btn.btn-primary Афиша
+
 			button.burger(aria-label="Открыть меню")
 				svg(width="20" height="16")
 					use(xlink:href=`${sitePath}img/vector-icons/icon-burger.svg#icon-burger`)
