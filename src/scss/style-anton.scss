@@ -24,6 +24,142 @@ main.news-detail {
 	}
 }
 
+
+.section.page-top {
+	& + .section-content {
+		padding-top: 0;
+	}
+}
+
+.date-element {
+	display: flex;
+	justify-content: space-evenly;
+	max-width: 260px;
+	margin: 24px auto 0;
+
+	@media ($l-m) {
+		margin: 16px auto 0;
+		max-width: 230px;
+	}
+
+	&__visitor-counter {
+		align-self: center;
+	}
+
+	&__date {
+		font-family: $agora;
+		font-weight: 500;
+		line-height: 120%;
+		color: #c87d37;
+		align-self: center;
+
+		& > * {
+			&:not(:last-child) {
+				margin-right: 4px;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__day,
+	&__year {
+		font-size: 24px;
+
+		@media ($l-m) {
+			font-size: 18px;
+		}
+
+		&.v-line {
+			font-family: $agora;
+			font-weight: 500;
+			font-size: 20px;
+			line-height: 140%;
+			text-transform: uppercase;
+			padding-left: 40px;
+			position: relative;
+			font-style: normal;
+			text-align: left;
+
+			@media ($l-m) {
+				font-size: 16px;
+				padding-left: clamp(16px, 4vw, 40px);
+			}
+
+			&::before {
+			  position: absolute;
+			  content: '';
+			  top: 0;
+			  left: 0;
+			  width: 8px;
+			  height: 100%;
+			  background-color: #c87d37;
+			}
+
+			p {
+				font-style: normal;
+				font-size: 20px;
+				line-height: 140%;
+
+				@media ($l-m) {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+
+	&__month {
+		font-size: 16px;
+
+		@media ($l-m) {
+			font-size: 14px;
+		}
+	}
+}
+
+.visitor-counter {
+	display: flex;
+	align-content: center;
+	align-items: center;
+
+	&__icon {
+		align-self: center;
+		display: flex;
+		margin-right: 5px;
+
+		svg {
+			align-self: center;
+		}
+	}
+
+	&__count {
+		align-self: center;
+		font-family: $agora;
+		font-weight: 500;
+		font-size: 16px;
+		text-transform: uppercase;
+		color: #4a565e;
+
+		@media ($l-m) {
+			font-size: 14px;
+		}
+	}
+}
+
+/* news-detail */
+
+main.news-detail {
+	@media (min-width: 1200px) {
+		.section-heading--center > * {
+			max-width: 866px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
 .section.page-top {
 	& + .section-content {
 		padding-top: 0;
@@ -59,8 +195,7 @@ main.news-detail {
 		}
 	}
 
-	&__day,
-	&__year {
+	&__day, &__year {
 		font-size: 24px;
 
 		@media ($l-m) {
