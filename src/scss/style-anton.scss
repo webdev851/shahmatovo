@@ -59,7 +59,8 @@ main.news-detail {
 		}
 	}
 
-	&__day, &__year {
+	&__day,
+	&__year {
 		font-size: 24px;
 
 		@media ($l-m) {
