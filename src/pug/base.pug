@@ -1,5 +1,5 @@
-//- -const sitePath = 'https://weblazum.ru/shahmatovo/'
--const sitePath = '/'
+-const sitePath = 'https://weblazum.ru/shahmatovo/'
+//- -const sitePath = '/'
 -let randomNumber = Math.round(100*Math.random())
 
 doctype html
@@ -25,6 +25,9 @@ html(lang='ru')
 		meta(name="msapplication-TileColor" content="#2b5797")
 		meta(name="theme-color" content="#ffffff")
 	body
+		.preloader#preloader
+			svg(class="preloader-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200")
+				circle(class="preloader-path" stroke-width="8" stroke-miterlimit="8" cx="100" cy="100" r="94")
 		.overlay
 		.wrapper
 			include parts/mixins

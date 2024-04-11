@@ -12,195 +12,96 @@
 	}
 }
 
-.user-content {
-	p {
-		font-weight: 400;
-		line-height: 200%;
-		font-size: 14px;
-		margin: 0 0 28px;
+/* news-detail */
 
-		@media ($l-m) {
-			font-size: clamp(12px, 2vw, 14px);
-			margin: 0 0 24px;
-		}
-
-		@media ($t) {
-			line-height: 160%;
-		}
-
-		& + ul {
-			margin-top: -14px;
-
-			@media ($l-m) {
-				margin-top: -12px;
-			}
+main.news-detail {
+	@media (min-width: 1200px) {
+		.section-heading--center > * {
+			max-width: 866px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
+}
 
-	ul {
-		margin-bottom: 20px;
+.section.page-top {
+	& + .section-content {
+		padding-top: 0;
+	}
+}
 
-		@media ($l-m) {
-			margin-bottom: 12px;
-		}
+.date-element {
+	display: flex;
+	justify-content: space-evenly;
+	max-width: 260px;
+	margin: 24px auto 0;
 
-		li {
-			position: relative;
-			padding-left: 28px;
-			font-weight: 400;
-			font-size: 14px;
-			line-height: 200%;
-			margin-bottom: 20px;
-
-			@media ($l-m) {
-				margin-bottom: 12px;
-				font-size: 12px;
-				padding-left: 20px;
-			}
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-
-			&::before {
-			  position: absolute;
-			  content: '';
-			  top: calc(50%);
-			  left: 0;
-				transform: translateY(-50%);
-			  width: 8px;
-			  height: 8px;
-			  background-color: #C87D37;
-			}
-		}
+	@media ($l-m) {
+		margin: 16px auto 0;
+		max-width: 230px;
 	}
 
-	em {
-		padding: 3px 5px;
-		margin: 0 4px;
-		background-color: #f9ead3;
-		font-size: 14px;
-		line-height: 150%;
+	&__visitor-counter {
+		align-self: center;
+	}
+
+	&__date {
+		font-family: $agora;
+		font-weight: 500;
+		line-height: 120%;
 		color: #c87d37;
+		align-self: center;
+
+		& > * {
+			&:not(:last-child) {
+				margin-right: 4px;
+			}
+		}
 	}
 
-	blockquote {
-		text-align: center;
-		margin: 40px 0;
+	&__day,
+	&__year {
+		font-size: 24px;
 
 		@media ($l-m) {
-			margin: 0 0 24px;
+			font-size: 18px;
 		}
+	}
 
-		p {
-			font-style: italic;
-			line-height: 200%;
-			color: $c-light-text;
-			margin-bottom: 12px;
+	&__month {
+		font-size: 16px;
 
-			@media ($l-m) {
-				font-size: clamp(12px, 2vw, 14px);
-				margin-bottom: 8px;
-			}
-
-			@media ($t) {
-				line-height: 160%;
-			}
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-
-		cite,
-		span {
-			font-family: $agora;
-			font-weight: 500;
+		@media ($l-m) {
 			font-size: 14px;
-			text-align: center;
-			color: $c-dark-text;
-
-			@media ($l-m) {
-				font-size: clamp(12px, 2vw, 14px);
-			}
-		}
-
-		&.v-line {
-			font-family: $agora;
-			font-weight: 500;
-			font-size: 20px;
-			line-height: 140%;
-			text-transform: uppercase;
-			padding-left: 40px;
-			position: relative;
-			font-style: normal;
-			text-align: left;
-
-			@media ($l-m) {
-				font-size: 16px;
-				padding-left: clamp(16px, 4vw, 40px);
-			}
-
-			&::before {
-			  position: absolute;
-			  content: '';
-			  top: 0;
-			  left: 0;
-			  width: 8px;
-			  height: 100%;
-			  background-color: #c87d37;
-			}
-
-			p {
-				font-style: normal;
-				font-size: 20px;
-				line-height: 140%;
-
-				@media ($l-m) {
-					font-size: 16px;
-				}
-			}
 		}
 	}
+}
 
-	figure {
-		margin: 0 0 40px;
+.visitor-counter {
+	display: flex;
+	align-content: center;
+	align-items: center;
+
+	&__icon {
+		align-self: center;
 		display: flex;
-		flex-direction: column;
-		gap: 12px;
+		margin-right: 5px;
 
-		@media ($l-m) {
-			margin: 0 0 clamp(24px, 3vw, 40px);
+		svg {
+			align-self: center;
 		}
 	}
 
-	picture {
-		display: flex;
-		justify-content: center;
-	}
-
-	img {
-		text-align: center;
-		min-height: 278px;
-		object-fit: cover;
-	}
-
-	figcaption {
+	&__count {
+		align-self: center;
 		font-family: $agora;
 		font-weight: 500;
 		font-size: 16px;
-		text-align: center;
-		color: $c-dark-text;
-		margin: 12px 0 0;
+		text-transform: uppercase;
+		color: #4a565e;
 
 		@media ($l-m) {
-			font-size: clamp(14px, 2vw, 16px);
-		}
-	}
-
-	& > * {
-		&:last-child {
-			margin-bottom: 0;
+			font-size: 14px;
 		}
 	}
 }
@@ -252,7 +153,8 @@ main.news-detail {
 		}
 	}
 
-	&__day, &__year {
+	&__day,
+	&__year {
 		font-size: 24px;
 
 		@media ($l-m) {

@@ -81,60 +81,56 @@ block content
 								.estates__text.card-content
 									.estates__quoteblock
 										.estates__quote
-											p И&nbsp;серый дом, и&nbsp;в мезонине<br>Венецианское окно,<br>Цвет стекол — красный, жёлтый, синий,<br>Как будто так и&nbsp;быть должно.
-										.estates__author А.&nbsp;Блок «Возмездие»
+											+quote('А. Блок «Возмездие»', true)
+												p И&nbsp;серый дом, и&nbsp;в мезонине<br>Венецианское окно,<br>Цвет стекол — красный, жёлтый, синий,<br>Как будто так и&nbsp;быть должно.
 									.estates__name
 										h4 Усадьба Шахматово
 									.estates__description 
 										p Усадьба была приобретена дедом А.&nbsp;Блока — А.Н.&nbsp;Бекетовым в&nbsp;1874&nbsp;году по&nbsp;совету близкого друга семьи — Д.И.&nbsp;Менделеева. Каждое лето А.&nbsp;Блок приезжал в&nbsp;Шахматово на&nbsp;протяжении 36&nbsp;лет своей жизни. Здесь усадебный дом с&nbsp;личными вещами поэта и&nbsp;членов его семьи, венецианские окна и&nbsp;дух поэзии…
-									a(href="#").estates__link.link.btn-link История усадьбы
+									a(href=`${sitePath}shahmatovo.html`).estates__link.link.btn-link История усадьбы
 								.estates__image 
-									+picture('estate-shahmatovo')
-									span.image-caption Усадьба семьи Бекетовых-Блока
+									+picture('estate-shahmatovo', 'Усадьба семьи Бекетовых-Блока')
 							li.estates__item 
 								.estates__text 
 									.estates__quoteblock
 										.estates__quote
-											p 5&nbsp;июня 1865&nbsp;года командирован<br>в&nbsp;Москву на&nbsp;всеобщую выставку.<br>Тут&nbsp;с&nbsp;Ильиным и&nbsp;купил Боблово
-										.estates__author Д.И.&nbsp;Менделеев<br>«Биографические заметки<br>о&nbsp;Д.И. Менделееве»
+											+quote('Д.И. Менделеев \n «Биографические заметки \n о Д.И. Менделееве»', true)
+												p 5&nbsp;июня 1865&nbsp;года командирован<br>в&nbsp;Москву на&nbsp;всеобщую выставку.<br>Тут&nbsp;с&nbsp;Ильиным и&nbsp;купил Боблово
 									.estates__name
 										h4 Усадьба Боблово
 									.estates__description 
 										p Имение, которое принадлежало воздухоплавателю, экономисту, путешественнику, учёному, изобретателю — Д.И.&nbsp;Менделееву (да-да, Менделеев был не&nbsp;только химиком, но&nbsp;и&nbsp;очень разносторонним человеком). Если хотите узнать много нового о&nbsp;жизни и&nbsp;научной деятельности Менделеева — вам&nbsp;точно нужно посетить Боблово.
-									a(href="#").estates__link.link.btn-link История усадьбы
+									a(href=`${sitePath}boblovo.html`).estates__link.link.btn-link История усадьбы
 								.estates__image 
-									+picture('estate-boblovo')
-									span.image-caption Усадьба Д.И.&nbsp;Менделеева
+									+picture('estate-boblovo', 'Усадьба Д.И. Менделеева')
 							li.estates__item 
 								.estates__text 
 									.estates__quoteblock
 										.estates__quote
-											p Падет туманная завеса.<br>Жених сойдет из&nbsp;алтаря.<br>И&nbsp;от&nbsp;вершин зубчатых леса<br>Забрежжит брачная заря
-										.estates__author А. Блок «Я, отрок, зажигаю свечи»
+											+quote('А. Блок «Я, отрок, зажигаю свечи»', true)
+												p Падет туманная завеса.<br>Жених сойдет из&nbsp;алтаря.<br>И&nbsp;от&nbsp;вершин зубчатых леса<br>Забрежжит брачная заря
 									.estates__name
 										h4 Усадьба Тараканово
 									.estates__description 
 										p Усадьба капитана И.В.&nbsp;Тараканова. Здесь сохранилась земская школа, где&nbsp;раньше учили крестьянских детей, и&nbsp;в&nbsp;этом мемориальном здании — экспозиция, посвящённая жизни и&nbsp;творчеству поэта Серебряного века — А.А.&nbsp;Блока. На&nbsp;территории усадьбы: церковь Михаила Архангела, где&nbsp;венчался Александр Блок с&nbsp;дочерью Д.И.&nbsp;Менделеева — Любовью Менделеевой, памятник, прекрасный пруд и&nbsp;необъятные дали.
-									a(href="#").estates__link.link.btn-link История усадьбы
+									a(href=`${sitePath}tarakanovo.html`).estates__link.link.btn-link История усадьбы
 								.estates__image 
-									+picture('estate-tarakanovo')
-									span.image-caption Усадьба, где&nbsp;венчались Л.Д.&nbsp;Менделеева и&nbsp;А.А.&nbsp;Блок
+									+picture('estate-tarakanovo', 'Усадьба, где венчались Л.Д. Менделеева и А.А. Блок')
 							li.estates__item 
 								.estates__text 
 									.estates__name
 										h4 Музей-заповедник
 									.estates__description 
 										p Усадьба капитана И.В.&nbsp;Тараканова. Здесь сохранилась земская школа, где раньше учили крестьянских детей, и&nbsp;в&nbsp;этом мемориальном здании — экспозиция, посвящённая жизни и&nbsp;творчеству поэта Серебряного века — А.А.&nbsp;Блока. На территории усадьбы: церковь Михаила Архангела, где&nbsp;венчался Александр Блок с&nbsp;дочерью Д.И.&nbsp;Менделеева — Любовью Менделеевой, памятник, прекрасный пруд и необъятные дали.
-									a(href="#").estates__link.link.btn-link История музея-заповедника
+									a(href=`${sitePath}history.html`).estates__link.link.btn-link История музея-заповедника
 								.estates__image 
-									+picture('estate-museum')
-									span.image-caption 5&nbsp;августа 2001&nbsp;г. открыт Главный дом усадьбы Шахматово.
+									+picture('estate-museum', '5 августа 2001 г. открыт Главный дом усадьбы Шахматово')
 			section.section.news
 				.news__container.container
 					.news__content 
 						.news__heading.section-heading.heading-more
 							h2.section-header.news__header Новости
-							a(href="#").heading-link.link.btn-link Все&nbsp;новости
+							a(href=`${sitePath}news.html`).heading-link.link.btn-link Все&nbsp;новости
 				.card-container.container
 					ul.news__list.card-list.card-list--three
 						+newsItem('news-img-01', '15 декабря', 'График работы усадеб в праздничные дни', 'Приглашаем вас в усадьбы в новогодние каникулы! Наш музей-заповедник начинает работу с 3 января. Всю праздничную неделю для вас будут проводиться экскурсии и новогодние программы')

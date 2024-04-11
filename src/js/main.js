@@ -1,10 +1,18 @@
-const test = document.querySelector('.test')
+'use strict'
+
+// Прелоадер
+
+document.addEventListener("DOMContentLoaded", function() {
+	const preloader = document.getElementById('preloader')
+	preloader.classList.add('preloader--hidden')
+})
+
 
 const partnersItems = document.querySelectorAll('.partners__item')
 
 const swiperMainBanner = new Swiper('.swiper-mainbanner', {
 	slidesPerView: 1,
-	// autoplay: true,
+	autoplay: true,
 	loop: true,
   navigation: {
     nextEl: '.swiper-button-next',
