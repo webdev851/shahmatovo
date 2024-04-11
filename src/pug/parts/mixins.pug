@@ -10,14 +10,10 @@ mixin picture(path, caption = false, type = 'jpg')
 mixin breadcrumps(currentPage, prevPage = false, prevLink = false)
 	.breadcrumps
 		a.breadcrumps__home.link.btn.btn-link(href=`${sitePath}`) Главная страница
-		span.breadcrumps__separator
-			svg(width="5" height="5")
-				use(xlink:href=`${sitePath}img/vector-icons/icon-separator.svg#icon-separator`)
+		span.breadcrumps__separator.breadcrumps__separator--first
 		if (prevPage && prevLink)
 			a.breadcrumps__prev.link.btn.btn-link(href=`${sitePath}${prevLink}`)= prevPage
 			span.breadcrumps__separator
-				svg(width="5" height="5")
-					use(xlink:href=`${sitePath}img/vector-icons/icon-separator.svg#icon-separator`)
 			span.breadcrumps__current= currentPage
 		else
 			span.breadcrumps__current= currentPage
@@ -68,3 +64,9 @@ mixin historyItem(year)
 		.history__year= year
 		.history__text 
 			block
+
+mixin quote(caption, outerquotes = false)
+	blockquote(class=outerquotes ? 'outerquotes' : '')
+		q
+			block 
+		cite!= caption.replace(/\n/g, '<br>')
