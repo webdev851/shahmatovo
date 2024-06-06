@@ -63,6 +63,11 @@ h5,
   font-size: clamp(1.125rem, 1.0777rem + 0.2101vw, 1.25rem);
 }
 
+h6,
+.h6 {
+  font-size: 14px;
+}
+
 a {
   text-decoration: none;
   transition: $transition-base;
@@ -565,6 +570,12 @@ blockquote {
     }
     &:hover {
       color: $c-accent;
+    }
+  }
+  &__content {
+    display: none;
+    &.active {
+      display: block;
     }
   }
 }

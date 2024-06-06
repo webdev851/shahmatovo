@@ -1,15 +1,12 @@
 'use strict'
 
 // Прелоадер
-
-document.addEventListener("DOMContentLoaded", function() {
-	const preloader = document.getElementById('preloader')
+document.addEventListener('DOMContentLoaded', () => {
+	const preloader = document.querySelector('#preloader')
 	preloader.classList.add('preloader--hidden')
 })
 
-
-const partnersItems = document.querySelectorAll('.partners__item')
-
+// Верхний баннер
 const swiperMainBanner = new Swiper('.swiper-mainbanner', {
 	slidesPerView: 1,
 	autoplay: true,
@@ -26,17 +23,20 @@ const swiperMainBanner = new Swiper('.swiper-mainbanner', {
   },
 })
 
+// Карусель партнеров в футере
 const swiperPartners = new Swiper('.swiper-partners', {
 	slidesPerView: 'auto',
 	autoplay: true,
+	loop: true,
 })
 
 // Меню
-const mobileMenu = document.querySelector('.nav__mobilemenu')
-const burger = document.querySelector('.burger')
-const mobileClose = document.querySelector('.mobile-close')
-const overlay = document.querySelector('.overlay')
-const body = document.body
+const 
+	mobileMenu = document.querySelector('.nav__mobilemenu'),
+	burger = document.querySelector('.burger'),
+	mobileClose = document.querySelector('.mobile-close'),
+	overlay = document.querySelector('.overlay'),
+	body = document.body
 
 burger.addEventListener('click', () => {
 	mobileMenu.classList.add('active')
@@ -51,9 +51,10 @@ mobileClose.addEventListener('click', () => {
 })
 
 // Табы
-const tabs = document.querySelector('.groups')
-const tabItem = document.querySelectorAll('.groups__btn')
-const tabContent = document.querySelectorAll('.events__list')
+const 
+	tabs = document.querySelector('.groups'),
+	tabItem = document.querySelectorAll('.groups__btn'),
+	tabContent = document.querySelectorAll('.groups__content')
 
 if (tabs) {
 	tabItem.forEach(function (element) {
@@ -81,7 +82,6 @@ if (tabs) {
 }
 
 // Яндекс карта 
-
 const coordinates = {
 	shahmatovo: [56.314571, 37.052317],
 	tarakanovo: [56.333690, 37.045332],
@@ -116,7 +116,7 @@ function init() {
 			controls: ['zoomControl'],
 		})
 
-		// Добавление двух меток на карту
+		// Добавление трех меток на карту
 		ymapMain.geoObjects
 			.add(
 				new ymaps.Placemark(

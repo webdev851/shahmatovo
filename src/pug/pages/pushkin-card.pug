@@ -1,0 +1,57 @@
+extends ../base
+
+block vars
+	-let pageName = 'pushkincard-page'
+	-let pageTitle = 'Пушкинская карта'
+	-let metaTitle = 'Пушкинская карта | Музей-заповедник Д.И. Менделеева и А.А. Блока'
+	-let metaDescription = ''
+block content
+	main.main(class= pageName)
+		section.section.page-top
+			.container
+				.content 
+					+breadcrumps(pageTitle)
+					.section-heading.section-heading--center
+						h2.section-header= pageTitle
+		section.section.pushkincard.offset-top
+			.pushkincard__container.container
+				.pushkincard__content 
+					.pushkincard__main
+						.pushkincard__banner 
+							+picture('pushkincard-banner')
+						.pushkincard__about 
+							a.pushkincard__btn.btn.btn-primary(href="#") О проекте «Пушкинская карта»
+							span.pushkincard__disclaimer Оплата онлайн возможна только по&nbsp;пушкинской карте
+						.pushkincard__tickets.tickets
+							ul.tickets__list
+								li.tickets__item
+									h5.tickets__estate Шахматово
+									.tickets__discription 
+										p Усадьба семьи Бекетовых-Блока
+									button.tickets__btn.link.btn-link Купить билеты
+								li.tickets__item
+									h5.tickets__estate Боблово
+									.tickets__discription 
+										p Усадьба Дмитрия Ивановича Менделеева
+									button.tickets__btn.link.btn-link Купить билеты
+								li.tickets__item
+									h5.tickets__estate Тараканово
+									.tickets__discription
+										p Усадьба, где венчались Л. Менделеева и А. Блок
+									button.tickets__btn.link.btn-link Купить билеты
+					.pushkincard__sidebar
+						.user-content
+							h5 Напоминаем вам об уникальной возможности попасть в музей по «Пушкинской карте»!
+							p На карте есть 5 тысяч рублей, доступных для того, чтобы побывать на мероприятиях в театрах, музеях, библиотеках и домах культуры Подмосковья.
+							p Напомним, что получить «Пушкинскую карту» могут молодые люди от 14 до 22 лет включительно.
+							h5 Для этого нужно:
+							ul
+								li зарегистрироваться на портале «Госуслуги»;
+								li подтвердить учётную запись;
+								li установить мобильное приложение «Госуслуги.Культура»;
+								li авторизоваться в приложении «Госуслуги.Культура», запросить оформление карты;
+								li подтвердить выпуск карты в приложении и сделать селфи;
+								li зайти на афишу («Культура.рф», «Госуслуги.Культура» или сайт учреждения) и выбрать мероприятие;
+								li купить билет на сайте или в кассе;
+								li прийти на мероприятие с паспортом.
+							p Те, кто предпочитает носить карту в кошельке, могут оформить её в любом отделении «Почта банка».

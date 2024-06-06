@@ -887,10 +887,6 @@
 
 .events {
   &__list {
-    display: none;
-    &.active {
-      display: block;
-    }
   }
   &__item {
     padding: 54px 0;
@@ -1037,6 +1033,208 @@
     *:last-child {
       margin: 0;
     }
+  }
+}
+
+.plague {
+  padding: 8px 16px;
+  color: $c-accent;
+  text-transform: uppercase;
+  font-size: 12px;
+  background: #f9ead3;
+  font-weight: 700;
+  font-family: $mont;
+  text-align: center;
+}
+
+.pushkincard {
+  &__content {
+    display: flex;
+    gap: 56px;
+    @media ($l-m) {
+      flex-direction: column;
+    }
+    @media ($t) {
+      gap: 32px;
+    }
+  }
+  &__banner {
+    margin: 0 0 32px;
+    flex: 0 1 60%;
+    @media ($t) {
+      margin: 0 0 16px;
+    }
+  }
+  &__sidebar {
+    flex: 0 1 40%;
+  }
+  &__about {
+    display: flex;
+    gap: 32px;
+    margin: 0 0 32px;
+    align-items: center;
+    @media ($t) {
+      flex-direction: column;
+      gap: 16px;
+      margin: 0 0 16px;
+    }
+  }
+  &__btn {
+    max-width: 530px;
+    width: 100%;
+    display: block;
+    padding: 16px 24px;
+  }
+  &__disclaimer {
+    font-style: italic;
+    color: $c-light-text;
+    font-size: 14px;
+    @media ($t) {
+      text-align: center;
+    }
+  }
+}
+
+.tickets {
+  &__list {
+  }
+
+  &__item {
+    display: flex;
+    padding: 32px 0;
+    border-bottom: 1px solid $c-stroke;
+    gap: 20px;
+    justify-content: space-between;
+    &:last-child {
+      border-bottom: none;
+    }
+    @media ($t) {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+  &__estate {
+    width: 25%;
+    @media ($t) {
+      width: fit-content;
+    }
+  }
+  &__discription {
+    width: 50%;
+    color: $c-light-text;
+    @media ($t) {
+      font-size: 16px;
+      width: fit-content;
+      margin: 0 0 16px;
+    }
+  }
+  &__btn {
+    width: fit-content;
+  }
+}
+
+.documents {
+  &__list {
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 36px 0;
+    border-top: 1px solid $c-stroke;
+    @media ($t) {
+      flex-direction: column;
+      gap: 16px;
+      padding: 16px 0;
+    }
+  }
+  &__name {
+    font-size: clamp(1.125rem, 0.7805rem + 0.4202vw, 0.875rem);
+    width: 83%;
+    @media ($t) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    min-width: 17%;
+    justify-content: space-between;
+    @media ($t) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  &__type {
+  }
+  &__download {
+  }
+}
+
+.cost {
+  &__block {
+    padding: 56px 0;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    @media ($l-m) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__heading {
+    margin: 0 0 40px;
+    @media ($t) {
+      text-align: center;
+      margin: 0 0 24px;
+    }
+  }
+  &__title {
+    margin: 0 0 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(1rem, 0.8277rem + 0.2101vw, 0.875rem);
+    @media ($t) {
+      margin: 0 0 8px;
+    }
+  }
+  &__tickets {
+    display: flex;
+    gap: 48px;
+  }
+  &__ticket {
+    min-width: 30%;
+  }
+  &__category {
+    font-size: clamp(1rem, 0.6555rem + 0.4202vw, 0.75rem);
+    margin: 0 0 8px;
+  }
+  &__price {
+    font-size: 36px;
+    font-family: $agora;
+    color: $c-accent;
+  }
+  &__notprice {
+    font-size: clamp(0.875rem, 0.7027rem + 0.2101vw, 0.75rem);
+    color: $c-light-text;
+    max-width: 236px;
+  }
+  &__text {
+    font-size: clamp(0.875rem, 0.7027rem + 0.2101vw, 0.75rem);
+    color: $c-light-text;
+    max-width: 236px;
+    padding: 16px 0 0;
+  }
+  .documents__item:first-child {
+    padding-top: 0;
+    border-top: none;
   }
 }
 

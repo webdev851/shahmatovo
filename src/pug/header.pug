@@ -33,13 +33,22 @@ header.header
 			nav.nav.nav__bottommenu(aria-label="Нижнее меню")
 				ul.nav__list.nav__bottomlist
 					li.nav__item
-						a(href="#").nav__link.link Пушкинская карта
+						if (pageName == 'pushkincard-page')
+							span.nav__link.link.selected Пушкинская карта
+						else
+							a(href=`${sitePath}pushkin-card.html`).nav__link.link Пушкинская карта
 					li.nav__item
 						a(href="#").nav__link.link Безопасность
 					li.nav__item
-						a(href="#").nav__link.link Документы
+						if (pageName == 'documents-page')
+							span.nav__link.link.selected Документы
+						else
+							a(href=`${sitePath}documents.html`).nav__link.link Документы
 					li.nav__item
-						a(href="#").nav__link.link Стоимость билетов
+						if (pageName == 'tickets-page')
+							span.nav__link.link.selected Стоимость билетов
+						else
+							a(href=`${sitePath}tickets.html`).nav__link.link Стоимость билетов
 					li.nav__item
 						a(href="#").nav__link.link Галерея
 					li.nav__item
