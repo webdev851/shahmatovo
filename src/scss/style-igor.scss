@@ -645,6 +645,10 @@
       font-weight: 600;
       line-height: 1.5;
       font-size: 14px;
+      text-align: right;
+      @media ($l-m) {
+        text-align: initial;
+      }
     }
   }
   a {
@@ -732,8 +736,20 @@
   &__item {
     padding: 32px;
   }
-  &__row {
+  &__heading {
     margin: 0 0 24px;
+  }
+  &__block {
+    margin: 0 0 24px;
+    &:last-child {
+      margin: 0;
+    }
+  }
+  &__title {
+    margin: 0 0 16px;
+  }
+  &__row {
+    margin: 0 0 4px;
     &:last-child {
       margin: 0;
     }
@@ -1235,6 +1251,122 @@
   .documents__item:first-child {
     padding-top: 0;
     border-top: none;
+  }
+}
+
+.schema {
+  &__list {
+    margin: 0 auto;
+  }
+  &__item {
+    margin: 0 0 56px;
+    &:last-child {
+      margin: 0;
+    }
+    @media ($t) {
+      margin: 0 0 24px;
+    }
+  }
+}
+
+.requisites {
+  &__list {
+  }
+  &__item {
+    border: none;
+    border-bottom: 1px solid $c-stroke;
+    padding: 32px 0;
+    &:last-child {
+      border-bottom: none;
+    }
+    @media ($t) {
+      padding: 24px 0;
+    }
+  }
+  &__content {
+    max-width: 864px;
+    margin: 0 auto;
+  }
+}
+
+.feedback {
+  background: url("../img/background-1.jpg") center / cover no-repeat;
+  &__heading {
+    margin: 0 0 24px;
+    text-align: center;
+  }
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 24px;
+    @media ($l-s) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media ($t) {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+  &__fieldset {
+    &--spanrows {
+      grid-row: span 2;
+    }
+  }
+  &__label {
+    display: block;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  &__input,
+  input[type="text"],
+  &__textarea,
+  textarea {
+    padding: 16px;
+    background-color: $c-white;
+    border: 1px solid $c-stroke;
+    box-shadow: none;
+    outline: none;
+    width: 100%;
+  }
+  &__textarea,
+  textarea {
+    height: calc(100% - 28px);
+    resize: none;
+  }
+  &__fieldset:has(#feedback-name) {
+    order: 1;
+  }
+  &__fieldset:has(#feedback-number) {
+    order: 2;
+  }
+  &__fieldset:has(#feedback-text) {
+    order: 3;
+    @media ($l-s) {
+      order: 4;
+    }
+    @media ($t) {
+      order: 5;
+    }
+  }
+  &__fieldset:has(#feedback-mail) {
+    order: 4;
+  }
+  &__fieldset:has(#feedback-theme) {
+    order: 5;
+  }
+  &__submit {
+    grid-column: span 3;
+    width: 100%;
+    padding: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: $mont;
+    font-size: 14px;
+    order: 10;
+    @media ($l-s) {
+      grid-column: span 2;
+    }
   }
 }
 

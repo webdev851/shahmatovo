@@ -5,7 +5,7 @@ mixin picture(path, caption = false, type = 'jpg')
 			//- source(type="image/webp" srcset=`img/${path}.webp`)
 			img(src=`${sitePath}img/${path}.${type}?${randomNumber}`, alt="")
 		if (caption)
-			figcaption= caption
+			figcaption!= caption.replace(/\n/g, '<br>')
 
 mixin breadcrumps(currentPage, prevPage = false, prevLink = false)
 	.breadcrumps
@@ -65,8 +65,9 @@ mixin historyItem(year)
 		.history__text 
 			block
 
-mixin quote(caption, outerquotes = false)
-	blockquote(class=outerquotes ? 'outerquotes' : '')
+mixin quote(caption, outerquotes = false, position = false)
+	blockquote(class=outerquotes ? 'outerquotes' : '')(class=position ? 'cite-top' : '')
 		q
 			block 
-		cite!= caption.replace(/\n/g, '<br>')
+		if (caption !== '')
+			cite!= caption.replace(/\n/g, '<br>')

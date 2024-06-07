@@ -81,11 +81,14 @@
 	blockquote {
 		text-align: center;
 		margin: 40px 0;
-
+		display: flex;
+		flex-direction: column;
 		@media ($l-m) {
 			margin: 0 0 24px;
 		}
-
+		&.cite-top {
+			flex-direction: column-reverse;
+		}
 		q {
 			font-style: italic;
 			line-height: 200%;
@@ -111,10 +114,11 @@
 		span {
 			font-family: $agora;
 			font-weight: 500;
-			font-size: 14px;
+			font-size: 16px;
 			text-align: center;
 			color: $c-dark-text;
 			font-style: italic;
+			margin: 0 0 12px;
 			@media ($l-m) {
 				font-size: clamp(12px, 2vw, 14px);
 			}
@@ -195,6 +199,14 @@
 	& > * {
 		&:last-child {
 			margin-bottom: 0;
+		}
+	}
+
+	.multi-images {
+		display: flex;
+		gap: 16px;
+		@media ($t) {
+			flex-direction: column;
 		}
 	}
 }

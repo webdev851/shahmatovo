@@ -1,0 +1,163 @@
+extends ../base
+
+block vars
+	-let pageName = 'contacts-page'
+	-let pageTitle = 'Контакты'
+	-let metaTitle = 'Контакты | Музей-заповедник Д.И. Менделеева и А.А. Блока'
+	-let metaDescription = ''
+block content
+	main.main(class= pageName)
+		section.section.page-top
+			.container
+				.content 
+					+breadcrumps(pageTitle)
+					.section-heading.section-heading--center
+						h2.section-header= pageTitle
+		section.section.offset-top
+			.container 
+				.groups
+					ul.groups__list
+						li.groups__item
+							button.groups__btn.h5(data-button="contacts") Контактные данные
+						li.groups__item
+							button.groups__btn.h5(data-button="schema") СХЕМЫ УСАДЕБ МУЗЕЯ-ЗАПОВЕДНИКА
+						li.groups__item
+							button.groups__btn.h5(data-button="requisites") банковские реквизиты
+				.groups__content.nopadding#contacts
+					ul.contacts__list.card-list.card-list--two.infotable
+						li.contacts__item.card-item.infotable
+							h5.contacts__heading.c-accent РЕЖИМ РАБОТЫ МУЗЕЯ-ЗАПОВЕДНИКА:
+							.contacts__block
+								h6.contacts__title Боблово
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Среда — Воскресенье
+									.contacts__col.infotable__col с 9:30 до 18:00
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Касса
+									.contacts__col.infotable__col с 9:30 до 17:30
+							.contacts__block
+								h6.contacts__title Шахматово и Тараканово
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Среда — Воскресенье
+									.contacts__col.infotable__col с 9:30 до 18:00
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Касса
+									.contacts__col.infotable__col с 9:30 до 17:30
+							.contacts__block
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Выходные дни во всех усадьбах
+									.contacts__col.infotable__col 
+										span.c-accent Понедельник &nbsp; Вторник 
+						li.contacts__item.card-item.infotable
+							h5.contacts__heading.c-accent контактные данные:
+							.contacts__block
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Официальный сайт музея-заповедника:
+									.contacts__col.infotable__col 
+										a(href=`${sitePath}`) шахматово.рф
+							.contacts__block
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Почта организатора экскурсий:
+									.contacts__col.infotable__col 
+										a(href="mailto:mk_blok_organizator@mosreg.ru") <span class="c-accent">mk_blok_organizator</span>@mosreg.ru
+							.contacts__block
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Официальный электронный почтовый ящик:
+									.contacts__col.infotable__col 
+										a(href="mailto:mk_al.blok@mosreg.ru") <span class="c-accent">mk_al.blok</span>@mosreg.ru
+							.contacts__block
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Телефон организатора экскурсий:<br><span class="small-text">(со&nbsp;вторника по&nbsp;воскресенье)</span>
+									.contacts__col.infotable__col 
+										a(href="tel:+79652528394") +7&nbsp;(965)&nbsp;252-83-94
+							.contacts__block
+								.contacts__row.infotable__row
+									p Так как усадьбы располагаются в сельской местности, рекомендуем предусматривать удобную обувь, зонт на случай дождя, питьевую воду и питание.
+					.contacts__map
+						.ymap#ymapMain
+					.contacts__rules.documents
+						ul.documents__list
+							li.documents__item
+								h5.documents__name ПРАВИЛА ПРИЕМА ПОСЕТИТЕЛЕЙ И ПОРЯДОК ОБСЛУЖИВАНИЯ ПОСЕТИТЕЛЕЙ МУЗЕЯ-ЗАПОВЕДНИКА
+								.documents__info
+									.documents__type.plague pdf
+									button.documents__download.link.btn-link Посмотреть
+				.groups__content.narrow-content#schema
+					ul.schema__list 
+						li.schema__item 
+							+picture('schema-shahmatovo')
+						li.schema__item 
+							+picture('schema-tarakanovo')
+						li.schema__item 
+							+picture('schema-boblovo')
+				.groups__content.requisites.narrow-content#requisites
+					ul.contacts__list.infotable.requisites__list
+						li.contacts__item.infotable.requisites__item
+							.requisites__content
+								h5.contacts__heading Государственное бюджетное учреждение культуры московской области «Государственный мемориальный музей-заповедник Д.И. Менделеева и А.А. Блока»
+								.contacts__block
+									.contacts__row.infotable__row
+										.contacts__col.infotable__col Юридический адрес:
+										.contacts__col.infotable__col 141503, Московская область, Солнечногорский район,<br>д. Тараканово, Строение 1
+								.contacts__block
+									.contacts__row.infotable__row
+										.contacts__col.infotable__col Почтовый адрес:
+										.contacts__col.infotable__col 141503, Московская область, Солнечногорский район,<br>д. Тараканово, Строение 1
+								.contacts__block
+									.contacts__row.infotable__row
+										.contacts__col.infotable__col Телефон бухгалтерии: 
+										.contacts__col.infotable__col 
+											a(href="tel:+79031497740") 
+												span.c-accent 8 (903) 149-77-40
+						li.contacts__item.infotable.requisites__item
+							.requisites__content
+								h5.contacts__heading.c-accent Банковские реквизиты:
+								.contacts__block
+									p Министерство экономики и финансов Московской области
+									.contacts__row.infotable__row
+										.contacts__col.infotable__col ИНН
+										.contacts__col.infotable__col 5044010573
+									.contacts__row.infotable__row
+										.contacts__col.infotable__col КПП
+										.contacts__col.infotable__col 504401001
+									.contacts__row.infotable__row
+										.contacts__col.infotable__col Лицевой счет
+										.contacts__col.infotable__col 20018845600
+								.contacts__block
+									p ГУ Банка России по ЦФО
+									.contacts__row.infotable__row
+										.contacts__col.infotable__col Р/с
+										.contacts__col.infotable__col 40601810945253000001
+									.contacts__row.infotable__row
+										.contacts__col.infotable__col БИК 
+										.contacts__col.infotable__col 044525000
+									.contacts__row.infotable__row
+										.contacts__col.infotable__col ОГРН 
+										.contacts__col.infotable__col 1035008853549
+									.contacts__row.infotable__row
+										.contacts__col.infotable__col ОКПО 
+										.contacts__col.infotable__col 02797623
+									.contacts__row.infotable__row
+										.contacts__col.infotable__col ОКТМО 
+										.contacts__col.infotable__col 46652101
+
+		section.section.feedback 
+			.feedback__container.container
+				h2.feedback__heading.c-accent форма обратной связи
+				form.feedback__form
+					fieldset.feedback__fieldset
+						label.feedback__label(for="feedback-name") Имя отправителя:
+						input.feedback__input#feedback-name(type="text" placeholder="Имя")
+					fieldset.feedback__fieldset
+						label.feedback__label(for="feedback-number") Номер телефона:
+						input.feedback__input#feedback-number(type="text" placeholder="В любом формате")
+					fieldset.feedback__fieldset
+						label.feedback__label(for="feedback-mail") Email отправителя:
+						input.feedback__input#feedback-mail(type="text" placeholder="почта@почта.ру")
+					fieldset.feedback__fieldset
+						label.feedback__label(for="feedback-theme") Тема письма:
+						input.feedback__input#feedback-theme(type="text" placeholder="Опишите тему обращения")
+					fieldset.feedback__fieldset.feedback__fieldset--spanrows
+						label.feedback__label(for="feedback-text") Текст обращения:
+						textarea.feedback__input#feedback-text(placeholder="Ждём ваших предложений" rows="6")
+					input.feedback__submit.btn.btn-primary(type="submit" value="Отправить сообщение")
