@@ -50,7 +50,10 @@ header.header
 						else
 							a(href=`${sitePath}tickets.html`).nav__link.link Стоимость билетов
 					li.nav__item
-						a(href="#").nav__link.link Галерея
+						if (pageName == 'gallery-page')
+							span.nav__link.link.selected Галерея
+						else
+							a(href=`${sitePath}gallery.html`).nav__link.link Галерея
 					li.nav__item
 						a(href="#").nav__link.link Фонды
 					li.nav__item

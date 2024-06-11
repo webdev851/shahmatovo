@@ -23,11 +23,29 @@ const swiperMainBanner = new Swiper('.swiper-mainbanner', {
   },
 })
 
+// Галерея
+const swiperGallery = new Swiper('.swiper-gallery', {
+	slidesPerView: 1,
+	loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+})
+
+
 // Карусель партнеров в футере
 const swiperPartners = new Swiper('.swiper-partners', {
 	slidesPerView: 'auto',
 	autoplay: true,
 	loop: true,
+})
+
+// Инициализация Fancybox
+Fancybox.bind("[data-fancybox]", {
+	Carousel: {
+		infinite: false,
+	},
 })
 
 // Меню
