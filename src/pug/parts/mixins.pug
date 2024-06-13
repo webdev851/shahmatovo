@@ -1,5 +1,5 @@
-mixin picture(path, caption = false, type = 'jpg')
-	figure
+mixin picture(path, caption = false, type = 'jpg', customClass = false)
+	figure(class= customClass)
 		picture 
 			//- source(type="image/avif" srcset=`img/${path}.avif`)
 			//- source(type="image/webp" srcset=`img/${path}.webp`)

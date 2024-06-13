@@ -1457,6 +1457,39 @@
 }
 
 .estate {
+  p {
+    font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
+  }
+  figcaption {
+    text-align: left;
+    font-weight: 400;
+    font-style: italic;
+    font-family: "Agora", serif;
+    font-size: clamp(0.75rem, 0.6555rem + 0.4202vw, 1rem);
+    margin: 10px 0 0;
+  }
+  h2 {
+    text-transform: initial;
+    margin: 0 0 28px;
+  }
+
+  cite {
+    font-size: clamp(0.75rem, 0.6555rem + 0.4202vw, 1rem);
+    font-style: italic;
+    font-weight: 500;
+    display: inline-block;
+  }
+  blockquote p {
+    font-family: $agora;
+    font-size: clamp(1rem, 0.9527rem + 0.2101vw, 1.125rem);
+    font-weight: 500;
+  }
+  figure.rtl {
+    picture {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
   .breadcrumps {
     justify-content: flex-start;
     @media ($t) {
@@ -1472,10 +1505,10 @@
     }
   }
   &__preface {
-    flex: 0 1 50%;
+    flex: 0 1 43%;
   }
   &__heading {
-    margin: 0 0 78px;
+    margin: 0 0 74px;
     @media ($t) {
       margin: 0 0 40px;
     }
@@ -1496,32 +1529,185 @@
   }
 }
 
+.tarakanovo-page {
+  .estate {
+    &__top {
+      background: url("../img/tarakanovo-background.png") center / contain no-repeat;
+    }
+    &__row {
+      &:nth-child(1) {
+        display: flex;
+        gap: 34px;
+        justify-content: space-between;
+        margin: 0 0 120px;
+        div:nth-child(1) {
+          flex: 0 1 42%;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            left: -27%;
+            bottom: -9%;
+            display: block;
+            width: 224px;
+            height: 366px;
+            background: url("../img/estates/decorate-tree-02.png") no-repeat;
+            z-index: -1;
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 49%;
+        }
+      }
+      &:nth-child(2) {
+        max-width: 1098px;
+        position: relative;
+        margin: 0 auto 106px;
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          bottom: -20%;
+          display: block;
+          width: 130px;
+          height: 176px;
+          background: url("../img/estates/decorate-pen.png") no-repeat;
+          z-index: -1;
+        }
+        cite {
+          margin: 0 0 20px;
+        }
+      }
+      &:nth-child(3) {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+        margin: 0 0 80px;
+        figcaption {
+          margin: 20px 0 0;
+        }
+        div:nth-child(1) {
+          flex: 0 1 61%;
+        }
+        div:nth-child(2) {
+          flex: 0 1 32%;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            right: -3%;
+            bottom: 7%;
+            display: block;
+            width: 728px;
+            height: 415px;
+            background: #f9f8f7;
+            z-index: -1;
+          }
+        }
+      }
+      &:nth-child(4) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0 32px;
+        margin: 0 0 70px;
+        div:nth-child(1) {
+          flex: 0 0 100%;
+        }
+        div:nth-child(2) {
+          flex: 0 1 calc(49% - 32px / 2);
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            right: -4%;
+            bottom: 0;
+            display: block;
+            width: 143px;
+            height: 253px;
+            background: url("../img/estates/decorate-tree-02.png") center / contain no-repeat;
+            z-index: -1;
+          }
+        }
+        div:nth-child(3) {
+          flex: 0 1 calc(49% - 32px / 2);
+        }
+      }
+      &:nth-child(5) {
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+        max-width: 1140px;
+        margin: 0 auto 180px;
+        figcaption {
+          margin: 20px 0 0;
+        }
+        cite {
+          margin: 0 0 28px;
+        }
+        div:nth-child(1) {
+          margin: 60px 0 0;
+          flex: 0 1 calc(40% - 32px / 2);
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            left: -27%;
+            bottom: 0;
+            display: block;
+            width: 632px;
+            height: 316px;
+            background: url("../img/estates/decorate-pic.png") no-repeat;
+            z-index: -1;
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 calc(47% - 32px / 2);
+        }
+      }
+      &:nth-child(6) {
+        display: flex;
+        gap: 60px;
+        margin: 0 0 80px;
+        figcaption {
+          margin: 30px 0 0 8%;
+        }
+        div:nth-child(1) {
+          flex: 0 0 53%;
+          margin: 30px 0 0;
+        }
+        div:nth-child(2) {
+          flex: 0 1 47%;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            right: -5%;
+            bottom: -5%;
+            display: block;
+            width: 140%;
+            height: 110%;
+            background: #f9f8f7;
+            z-index: -1;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: -14%;
+            bottom: 0;
+            display: block;
+            width: 181px;
+            height: 227px;
+            background: url("../img/estates/decorate-tree-03.png") no-repeat;
+            z-index: -1;
+          }
+        }
+      }
+    }
+  }
+}
+
 .shahmatovo-page {
-  p {
-    font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
-  }
-  figcaption {
-    text-align: left;
-    font-weight: 400;
-    font-style: italic;
-    font-family: "Agora", serif;
-    font-size: clamp(0.75rem, 0.6555rem + 0.4202vw, 1rem);
-    margin: 10px 0 0;
-  }
-  h2 {
-    text-transform: initial;
-  }
-  cite {
-    font-size: clamp(0.75rem, 0.6555rem + 0.4202vw, 1rem);
-    font-style: italic;
-    font-weight: 500;
-    display: inline-block;
-  }
-  blockquote p {
-    font-family: $agora;
-    font-size: clamp(1rem, 0.9527rem + 0.2101vw, 1.125rem);
-    font-weight: 500;
-  }
   .estate {
     &__top {
       background: url("../img/shahmatovo-background.png") center / contain no-repeat;
@@ -1676,10 +1862,6 @@
         margin: 0 0 112px;
         h2 {
           margin: 0 0 26px;
-        }
-        picture {
-          display: flex;
-          justify-content: flex-end;
         }
         cite {
           margin: 0 0 32px;
