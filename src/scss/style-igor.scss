@@ -2010,7 +2010,7 @@
             display: block;
             width: 429px;
             height: 474px;
-            background: url("../img/estates/decorate-tree-01.png") no-repeat;
+            background: url("../img/estates/decorate-tree-01.png") 100% / contain no-repeat;
             z-index: -1;
           }
         }
@@ -2134,6 +2134,111 @@
           position: relative;
           figure {
             margin: -20px -24px 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.history-page {
+  .estate {
+    &__row {
+      &:nth-child(1) {
+        background: url("../img/estates/history-background.png") center / contain no-repeat;
+        div:nth-child(2) {
+          margin: 34px 0 0;
+        }
+      }
+      &:nth-child(2) {
+        display: flex;
+        gap: 60px;
+        margin: 0 0 120px;
+        padding: 0 5%;
+        div:nth-child(1) {
+          flex: 0 0 64%;
+          margin: 25px 0 0;
+          position: relative;
+          p {
+            max-width: 600px;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 80%;
+            background: #f9f8f7;
+            left: -9%;
+            top: -5%;
+            z-index: -1;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: 15%;
+            top: -2%;
+            display: block;
+            width: 197px;
+            height: 215px;
+            background: url("../img/estates/decorate-tree-01.png") 100% / contain no-repeat;
+            z-index: -1;
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 0 34%;
+          blockquote {
+            margin: 0 0 112px;
+            position: relative;
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              width: 130px;
+              height: 176px;
+              background: url("../img/estates/decorate-pen-01.png") 100% / contain no-repeat;
+            }
+          }
+          cite {
+            margin: 0 0 16px;
+          }
+          blockquote > p {
+            line-height: 1.6;
+          }
+          div {
+            position: relative;
+            &::before {
+              content: "";
+              position: absolute;
+              display: block;
+              width: 210%;
+              height: 130%;
+              background: #f9f8f7;
+              right: -44%;
+              top: -20%;
+              z-index: -1;
+            }
+          }
+        }
+      }
+      &:nth-child(3) {
+        display: flex;
+        gap: 60px;
+        margin: 0 0 198px;
+        div:nth-child(1) {
+          flex: 0 0 49%;
+          figure {
+            margin: -24px 0 0;
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 0 41%;
+          text-align: center;
+          padding: 0 2%;
+          p {
+            line-height: 1.6;
           }
         }
       }
