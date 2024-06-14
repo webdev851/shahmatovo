@@ -6,20 +6,17 @@ block vars
 	-let metaTitle = 'Усадьба Шахматово | Музей-заповедник Д.И. Менделеева и А.А. Блока'
 	-let metaDescription = ''
 block content
-	main.main(class= pageName).estate
-		section.section.estate__top
-			.estate__container.container
-				.estate__preface
-					+breadcrumps(pageTitle)
-					h2.estate__heading.section-header= pageTitle
-					.estate__year.c-accent.h2 1874 год
-					.estate__description
-						p Усадьбу Шахматово приобрёл учёный ботаник, дед А. Блока — Андрей Николаевич Бекетов в 1874 году по совету своего близкого друга <span class="c-accent">Дмитрия Ивановича Менделеева</span>. 
-				.estate__image
-					+picture('estate-shahmatovo')
-
-		section.section.estate__content
+	main.main(class= pageName)
+		section.estate
 			.container
+				.estate__row
+					.estate__col
+						+breadcrumps(pageTitle)
+						h1= pageTitle
+						h2.c-accent 1874 год
+						p Усадьбу Шахматово приобрёл учёный ботаник, дед А. Блока — Андрей Николаевич Бекетов в 1874 году по совету своего близкого друга <span class="c-accent">Дмитрия Ивановича Менделеева</span>. 
+					.estate__col
+						+picture('estate-shahmatovo')
 				.estate__row
 					q
 						span А. Блок «Возмездие»
@@ -27,7 +24,7 @@ block content
 						span За небольшое имение из 120 десятин земли предыдущие владельцы попросили 5000 рублей серебром, что считалось скромной суммой. 
 				.estate__row
 					.estate__col
-						+picture('estates/shahmatovo-sign-01', false, 'svg')
+						+picture('estates/sign-01', false, 'svg')
 						p Шахматово — летняя резиденция, в другие периоды года здесь не жили, но постоянно оставляли управляющего, человека, который следил за порядком.
 						p Впервые Александра Блока привезли сюда в шестимесячном возрасте, в мае 1881 года, и потом, на протяжении почти всей жизни, на протяжении 36 лет из непрожитых 41 года — поэт каждое лето приезжал в Шахматово.
 					.estate__col
@@ -47,7 +44,7 @@ block content
 						p В 1910 году Блок заново перестроил дом и сам руководил строительством.
 						p В последний раз поэт приехал в Шахматово на несколько дней в 1916 году, перед отправкой на фронт.
 				.estate__row
-					div
+					.estate__col
 						h2.c-accent Восстановление
 					.estate__col
 						p В 1921 году этот поэтический <span class="c-accent">«УГОЛ РАЯ»</span> подвергся участи большинства «дворянских гнёзд»: обстановка и утварь была экспроприирована окрестными жителями, книги вывезены, дом сожжён.
@@ -68,12 +65,12 @@ block content
 						p В 2000 году был открыт флигель, где жил А. Блок в детстве с мамой, а позже жил со своей супругой — Л.Д. Менделеевой.
 						p 5 августа 2001 года распахнулись двери Главного дома для посетителей музея-заповедника.
 						p.bolditalic В Шахматове дышится поэзией и чувствуется дух литературной семьи. Здесь Александр Блок черпал вдохновения для своей центральной темы произведений.
-						+picture('estates/shahmatovo-sign-02', false, 'svg', 'rtl')
+						+picture('estates/sign-02', false, 'svg', 'rtl')
 					.estate__col
 						blockquote 
 							cite Письмо А. Блока —<br>К.С. Станиславскому
 							p.c-accent «В таком виде стоит передо мной моя тема, тема о России (вопрос об интеллигенции и народе, в частности). Этой теме я сознательно и бесповоротно посвящаю жизнь. Все ярче сознаю, что это — первейший вопрос, самый жизненный, самый реальный. К нему‑то я подхожу давно, с начала своей сознательной жизни, и знаю, что путь мой в основном своём устремлении как стрела, прямой, как стрела — действенный».
-						+picture('estates/shahmatovo-sign-03', false, 'svg', 'rtl')
+						+picture('estates/sign-03', false, 'svg', 'rtl')
 				.estate__row
 					.estate__col
 						span В&nbsp;настоящее<br>время
@@ -98,5 +95,5 @@ block content
 						div
 							p Кроме усадебных построек <span class="c-accent">восстановлен и окружающий ландшафт</span>, который имеет историческое значение.
 							a.btn.btn-primary(href="#") Билеты
-							+picture('estates/shahmatovo-sign-04', false, 'svg')
+							+picture('estates/sign-04', false, 'svg', 'rtl')
 		+eventsSection('Мероприятия в Шахматово', true)
