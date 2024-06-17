@@ -16,7 +16,8 @@ block content
 						h2.c-accent 1874 год
 						p Усадьбу Шахматово приобрёл учёный ботаник, дед А. Блока — Андрей Николаевич Бекетов в 1874 году по совету своего близкого друга <span class="c-accent">Дмитрия Ивановича Менделеева</span>. 
 					.estate__col
-						+picture('estate-shahmatovo')
+						a.gallery-image(href=`${sitePath}img/estate-shahmatovo.jpg` data-fancybox) 
+							+picture('estate-shahmatovo')
 				.estate__row
 					q
 						span А. Блок «Возмездие»
@@ -37,7 +38,8 @@ block content
 							cite А. Блок «Возмездие»
 				.estate__row
 					.estate__col
-						+picture('estates/shahmatovo-image-01', 'Шахматово. \n На крыльце дома: А.А. Блок, с собакой Дианкой, А. А. Кублицкая-Пиоттух, А.Н. Бекетов, Н.Н. Бекетов, Е.Г. Бекетова, М.А. Бекетова. 1894 г.')
+						a.gallery-image(href=`${sitePath}img/estates/shahmatovo-image-01.jpg` data-fancybox data-caption="Шахматово. \n На крыльце дома: А.А. Блок, с собакой Дианкой, А. А. Кублицкая-Пиоттух, А.Н. Бекетов, Н.Н. Бекетов, Е.Г. Бекетова, М.А. Бекетова. 1894 г.") 
+							+picture('estates/shahmatovo-image-01', 'Шахматово. \n На крыльце дома: А.А. Блок, с собакой Дианкой, А. А. Кублицкая-Пиоттух, А.Н. Бекетов, Н.Н. Бекетов, Е.Г. Бекетова, М.А. Бекетова. 1894 г.')
 					.estate__col
 						h2.c-accent 1920е года
 						p Здесь, в имении деда, прошли детские, юношеские и зрелые годы поэта. 
@@ -73,26 +75,31 @@ block content
 						+picture('estates/sign-03', false, 'svg', 'rtl')
 				.estate__row
 					.estate__col
-						span В&nbsp;настоящее<br>время
+						span В&nbsp;настоящее время
 						h2.c-accent Восстановлены:
 					.estate__col
-						a(href=`${sitePath}img/estates/shahmatovo-image-05.jpg` data-fancybox="gallery" class="gallery-image") 
+						a(href=`${sitePath}img/estates/shahmatovo-image-05.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
 							+picture('estates/shahmatovo-image-05')
-						a(href=`${sitePath}img/estates/shahmatovo-image-06.jpg` data-fancybox="gallery" class="gallery-image") 
+						a(href=`${sitePath}img/estates/shahmatovo-image-06.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
 							+picture('estates/shahmatovo-image-06')
-						a(href=`${sitePath}img/estates/shahmatovo-image-07.jpg` data-fancybox="gallery" class="gallery-image") 
+						a(href=`${sitePath}img/estates/shahmatovo-image-07.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
 							+picture('estates/shahmatovo-image-07')
-						a(href=`${sitePath}img/estates/shahmatovo-image-08.jpg` data-fancybox="gallery" class="gallery-image") 
+						a(href=`${sitePath}img/estates/shahmatovo-image-08.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
 							+picture('estates/shahmatovo-image-08')
-						a(href=`${sitePath}img/estates/shahmatovo-image-09.jpg` data-fancybox="gallery" class="gallery-image") 
+						a(href=`${sitePath}img/estates/shahmatovo-image-09.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
 							+picture('estates/shahmatovo-image-09')
-						a(href=`${sitePath}img/estates/shahmatovo-image-10.jpg` data-fancybox="gallery" class="gallery-image") 
+						a(href=`${sitePath}img/estates/shahmatovo-image-10.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
 							+picture('estates/shahmatovo-image-10')
-						a(href=`${sitePath}img/estates/shahmatovo-image-11.jpg` data-fancybox="gallery" class="gallery-image") 
+						a(href=`${sitePath}img/estates/shahmatovo-image-11.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
 							+picture('estates/shahmatovo-image-11')
-						a(href=`${sitePath}img/estates/shahmatovo-image-12.jpg` data-fancybox="gallery" class="gallery-image") 
+						a(href=`${sitePath}img/estates/shahmatovo-image-12.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
 							+picture('estates/shahmatovo-image-12')
-						div
+						div.mobile-hidden
+							p Кроме усадебных построек <span class="c-accent">восстановлен и окружающий ландшафт</span>, который имеет историческое значение.
+							a.btn.btn-primary(href="#") Билеты
+							+picture('estates/sign-04', false, 'svg', 'rtl')
+					.estate__col.desktop-hidden
+						div 
 							p Кроме усадебных построек <span class="c-accent">восстановлен и окружающий ландшафт</span>, который имеет историческое значение.
 							a.btn.btn-primary(href="#") Билеты
 							+picture('estates/sign-04', false, 'svg', 'rtl')

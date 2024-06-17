@@ -46,6 +46,13 @@ Fancybox.bind("[data-fancybox]", {
 	Carousel: {
 		infinite: false,
 	},
+	Toolbar: {
+		display: {
+			left: [],
+			middle: [],
+			right: ["close"],
+		},
+	},
 })
 
 // Меню

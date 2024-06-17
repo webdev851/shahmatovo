@@ -16,7 +16,8 @@ block content
 						h2.c-accent 1865 год
 						p В июне 1865 года Дмитрий Иванович Менделеев купил в Клинском уезде Московской губернии старинное имение Боблово, где намеревался устроить показательную <span class="c-accent">сельскохозяйственную ферму</span> и добиться эффективного сельскохозяйственного производства, подвести под него научную основу.
 					.estate__col
-						+picture('estate-boblovo')
+						a.gallery-image(href=`${sitePath}img/estate-boblovo.jpg` data-fancybox="boblovo-gallery") 
+							+picture('estate-boblovo')
 				.estate__row
 					.estate__col
 						h2.c-accent Приобретение
@@ -28,7 +29,8 @@ block content
 							p.c-accent «Оно [Боблово] принадлежало раньше князю Дадьяну, умершему в год эмансипации, не оставив наследников. Имение перешло в казну, потом попало какому‑то частному лицу. У него Дмитрий Иванович с Ильиным и купили Боблово. Дмитрий Иванович рассказывал, что случайно в вагоне по дороге в Москву услыхал об этом имении, заинтересовался и поехал посмотреть, а взглянув, уже не мог отказаться от желания его иметь. И действительно, в Бобловской местности есть что‑то цельное, законченное, как в произведении талантливого художника; ничего не хотелось бы изменить, прибавить, убавить или переставить»
 				.estate__row
 					.estate__col
-						+picture('estates/boblovo-image-01', 'Боблово. \n Дом Н.П. Ильина')
+						a.gallery-image(href=`${sitePath}img/estates/boblovo-image-01.jpg` data-fancybox="boblovo-gallery" data-caption="Боблово. \n Дом Н.П. Ильина") 
+							+picture('estates/boblovo-image-01', 'Боблово. \n Дом Н.П. Ильина')
 					.estate__col
 						h2.c-accent Дом Ильина
 						p Николаю Павловичу Ильину досталась в Боблове территория с двумя нежилыми флигелями и с прудом, Менделееву достался усадебный дом предыдущего хозяина и многочисленные сельскохозяйственные постройки.
@@ -47,12 +49,18 @@ block content
 							cite И.А. Смирнов — «Историческая справка о Боблове»
 							p.c-accent «Первый дом Менделеева, как я его помню, и по фотографиям, был очень интересен. Дом в два этажа. Низ каменный, верх деревянный. Две стены верха были обложены кирпичом в 1/4 кирпича, и кирпичи были укреплены железными заклёпками… Дом построен во вкусе 60–70 гг. фальшиво-русско-швейцарского шале».
 				.estate__row
-					+picture('estates/guest-01', 'Александр Блок')
-					+picture('estates/guest-02', 'Евгений Иванов')
-					+picture('estates/guest-03', 'Андрей Белый')
-					+picture('estates/guest-04', 'Архип Куинджи')
-					+picture('estates/guest-05', 'Илья Репин')
-					+picture('estates/guest-06', 'Андрей Бекетов')
+					a.gallery-image(href=`${sitePath}img/estates/guest-01.jpg` data-fancybox="guests-gallery" data-caption="Александр Блок") 
+						+picture('estates/guest-01', 'Александр Блок')
+					a.gallery-image(href=`${sitePath}img/estates/guest-02.jpg` data-fancybox="guests-gallery" data-caption="Евгений Иванов") 
+						+picture('estates/guest-02', 'Евгений Иванов')
+					a.gallery-image(href=`${sitePath}img/estates/guest-03.jpg` data-fancybox="guests-gallery" data-caption="Андрей Белый") 
+						+picture('estates/guest-03', 'Андрей Белый')
+					a.gallery-image(href=`${sitePath}img/estates/guest-04.jpg` data-fancybox="guests-gallery" data-caption="Архип Куинджи") 
+						+picture('estates/guest-04', 'Архип Куинджи')
+					a.gallery-image(href=`${sitePath}img/estates/guest-05.jpg` data-fancybox="guests-gallery" data-caption="Илья Репин") 
+						+picture('estates/guest-05', 'Илья Репин')
+					a.gallery-image(href=`${sitePath}img/estates/guest-06.jpg` data-fancybox="guests-gallery" data-caption="Андрей Бекетов") 
+						+picture('estates/guest-06', 'Андрей Бекетов')
 				.estate__row
 					.estate__col
 						h2.c-accent Первый дом
@@ -60,7 +68,8 @@ block content
 						p Дом с заколоченным вторым этажом стоял в Боблове с 1882 по 1919 годы. Весной 1919 года дом разобрали — сначала второй этаж, затем первый.
 						+picture('estates/sign-02', false, 'svg')
 					.estate__col
-						+picture('estates/boblovo-image-02', 'Боблово. \n Первый дом Д.И. Менделеева')
+						a.gallery-image(href=`${sitePath}img/estates/boblovo-image-02.jpg` data-fancybox="boblovo-gallery" data-caption="Боблово. \n Первый дом Д.И. Менделеева") 
+							+picture('estates/boblovo-image-02', 'Боблово. \n Первый дом Д.И. Менделеева')
 				.estate__row
 					.estate__col
 						h2.c-accent Новый дом
@@ -69,13 +78,16 @@ block content
 						p.bolditalic Второй дом Менделеев построил по собственному проекту, сам делал чертежи, расчёты и сметы.
 						+picture('estates/sign-06', false, 'svg', 'rtl')
 					.estate__col
-						+picture('estates/boblovo-image-03', 'Чертежи Д.И. Менделеева')
+						a.gallery-image(href=`${sitePath}img/estates/boblovo-image-03.jpg` data-fancybox="boblovo-gallery" data-caption="Чертежи Д.И. Менделеева") 
+							+picture('estates/boblovo-image-03', 'Чертежи Д.И. Менделеева')
 				.estate__row
 					.estate__col
-						+picture('estates/boblovo-image-04', 'Боблово. \n Новый дом Д.И. Менделеева')
+						a.gallery-image(href=`${sitePath}img/estates/boblovo-image-04.jpg` data-fancybox="boblovo-gallery" data-caption="Боблово. \n Новый дом Д.И. Менделеева") 
+							+picture('estates/boblovo-image-04', 'Боблово. \n Новый дом Д.И. Менделеева')
 					.estate__col
-						p Дома Дмитрия Ивановича не сохранились до наших дней, но сохранился дом Н.П. Ильина. 
-						p И в этом мемориальном отреставрированном здании <span class="c-accent">представлена экспозиция</span>, посвящённая великому русскому учёному.
+						div
+							p Дома Дмитрия Ивановича не сохранились до наших дней, но сохранился дом Н.П. Ильина. 
+							p И в этом мемориальном отреставрированном здании <span class="c-accent">представлена экспозиция</span>, посвящённая великому русскому учёному.
 						a.btn.btn-primary(href="#") Билеты
 						+picture('estates/sign-04', false, 'svg', 'rtl')
 		+eventsSection('Мероприятия в Боблово', true)
