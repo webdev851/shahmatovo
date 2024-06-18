@@ -1414,23 +1414,31 @@
 
 .gallery-image {
   position: relative;
-  &::before {
-    content: "";
-    background: url("../img/vector-icons/icon-zoom.svg") center / 65% no-repeat;
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    background-color: $c-accent;
-    left: 0;
-    top: 50%;
-    transform: translateY(-100%);
-    z-index: 10;
-    transition: $transition-base;
-    opacity: 0;
+  picture {
+    position: relative;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    &::before {
+      content: "";
+      background: url("../img/vector-icons/icon-zoom.svg") center / 65% no-repeat;
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      background-color: $c-accent;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      transition: $transition-base;
+      opacity: 0;
+    }
   }
   &:hover {
-    &::before {
-      opacity: 1;
+    picture {
+      &::before {
+        opacity: 1;
+      }
     }
     img {
       filter: brightness(0.8);
@@ -1802,11 +1810,17 @@
           width: 100%;
         }
         a {
+          flex: 0 1 33.333%;
           margin: 0 0 18px;
           min-width: 212px;
           @media ($l-s) {
             margin: 0 0 4px;
           }
+        }
+        img {
+          aspect-ratio: 3 / 2;
+          width: 100%;
+          object-fit: cover;
         }
       }
       &:nth-child(7) {
@@ -1930,6 +1944,11 @@
               min-width: 212px;
             }
           }
+          .gallery-image img {
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
+          }
           div {
             position: relative;
             display: flex;
@@ -1939,6 +1958,8 @@
             margin: 24px auto 0;
             figure {
               margin: -24px 0 0;
+              position: relative;
+              z-index: -1;
             }
             &::after {
               content: "";
@@ -2477,6 +2498,12 @@
           flex: 0 1 calc(100% / 6 - 18px);
           min-width: 208px;
         }
+        img {
+          aspect-ratio: 4 / 5;
+          object-fit: cover;
+          width: 100%;
+          filter: grayscale(1);
+        }
       }
       &:nth-child(6) {
         display: flex;
@@ -2614,6 +2641,8 @@
           }
           figure {
             margin: -20px -24px 0;
+            position: relative;
+            z-index: -1;
             @media ($l-s) {
               position: absolute;
               bottom: 50px;
@@ -3108,6 +3137,8 @@
         }
         figure {
           margin: -24px 42% 0 0;
+          position: relative;
+          z-index: -1;
         }
         div:nth-child(1) {
           flex: 0 0 100%;
