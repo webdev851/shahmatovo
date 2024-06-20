@@ -48,7 +48,7 @@ function sprite() {
 function images() {
 	return src(['src/img/src/*.*', '!src/img/src/*.svg'])
 		.pipe(newer('src/img/')) // кэширование
-		.pipe(avif({ quality : 50 }))
+		.pipe(avif({quality: 50}))
 
 		.pipe(src('src/img/src/*.*')) // путь к оригиналам
 		.pipe(newer('src/img/')) // кэширование
@@ -79,7 +79,7 @@ function styles() {
 	return src('src/scss/style.scss') // путь к файлу-источнику
 		.pipe(autoprefixer({ overrideBrowsersList: ['last 10 version']})) // префиксы последних 10 версий
 		.pipe(concat('style.css')) // переименование, например style.min.css
-		.pipe(scss()) // { outputStyle: 'compressed' } для сжатия
+		.pipe(scss({ outputStyle: 'compressed' })) // { outputStyle: 'compressed' } для сжатия
 		.pipe(dest('src/css')) // путь для скомпилированного файла
 		.pipe(browserSync.stream());
 } 

@@ -1,9 +1,9 @@
-mixin picture(path, caption = false, type = 'jpg', customClass = false)
+mixin picture(path, caption = false, type = 'jpg', customClass = false, loading = 'lazy')
 	figure(class= customClass)
 		picture 
-			//- source(type="image/avif" srcset=`img/${path}.avif`)
-			//- source(type="image/webp" srcset=`img/${path}.webp`)
-			img(src=`${sitePath}img/${path}.${type}?${randomNumber}`, alt="")
+			source(type="image/avif" srcset=`img/${path}.avif`)
+			source(type="image/webp" srcset=`img/${path}.webp`)
+			img(src=`${sitePath}img/${path}.${type}?${randomNumber}` alt="" loading=`${loading}`)
 		if (caption)
 			figcaption!= caption.replace(/\n/g, '<br>')
 

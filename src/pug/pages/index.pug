@@ -4,7 +4,7 @@ block vars
 	-let pageName = 'front-page'
 	-let pageTitle = 'Музей Шахматово'
 	-let metaTitle = 'Музей Шахматово'
-	-let metaDescription = ''
+	-let metaDescription = 'Музей рассказывает об истории дружбы двух семей: Менделеевых и Бекетовых-Блока'
 block content
 		main.main.front-page
 			section.section.top
@@ -22,13 +22,13 @@ block content
 						.swiper.swiper-mainbanner.banner__slider
 							.swiper-wrapper.banner__list
 								.swiper-slide.banner__item.banner__item--wide
-									+picture('museum-image-01')
+									+picture('museum-image-01', false, 'jpg', false, '')
 								.swiper-slide.banner__item.banner__item--wide
-									+picture('museum-image-02')
+									+picture('museum-image-02', false, 'jpg', false, 'lazy')
 								.swiper-slide.banner__item.banner__item--wide
-									+picture('museum-image-03')
+									+picture('museum-image-03', false, 'jpg', false, 'lazy')
 								.swiper-slide.banner__item.banner__item--wide
-									+picture('museum-image-04')
+									+picture('museum-image-04', false, 'jpg', false, 'lazy')
 							.banner__tools
 								.swiper-navigation.banner__navigation
 									.swiper-button-prev.banner__btn.banner__btnprev
@@ -89,7 +89,8 @@ block content
 										p Усадьба была приобретена дедом А.&nbsp;Блока — А.Н.&nbsp;Бекетовым в&nbsp;1874&nbsp;году по&nbsp;совету близкого друга семьи — Д.И.&nbsp;Менделеева. Каждое лето А.&nbsp;Блок приезжал в&nbsp;Шахматово на&nbsp;протяжении 36&nbsp;лет своей жизни. Здесь усадебный дом с&nbsp;личными вещами поэта и&nbsp;членов его семьи, венецианские окна и&nbsp;дух поэзии…
 									a(href=`${sitePath}shahmatovo.html`).estates__link.link.btn-link История усадьбы
 								.estates__image 
-									+picture('estate-shahmatovo', 'Усадьба семьи Бекетовых-Блока')
+									a.gallery-image(href=`${sitePath}img/estates/shahmatovo-image-01-full.jpg` data-fancybox="index-gallery" data-caption="Усадьба семьи Бекетовых-Блока" aria-label="Фото усадьбы семьи Бекетовых-Блока") 
+										+picture('estates/shahmatovo-image-01', 'Усадьба семьи Бекетовых-Блока')
 							li.estates__item 
 								.estates__text 
 									.estates__quoteblock
@@ -102,7 +103,8 @@ block content
 										p Имение, которое принадлежало воздухоплавателю, экономисту, путешественнику, учёному, изобретателю — Д.И.&nbsp;Менделееву (да-да, Менделеев был не&nbsp;только химиком, но&nbsp;и&nbsp;очень разносторонним человеком). Если хотите узнать много нового о&nbsp;жизни и&nbsp;научной деятельности Менделеева — вам&nbsp;точно нужно посетить Боблово.
 									a(href=`${sitePath}boblovo.html`).estates__link.link.btn-link История усадьбы
 								.estates__image 
-									+picture('estate-boblovo', 'Усадьба Д.И. Менделеева')
+									a.gallery-image(href=`${sitePath}img/estates/boblovo-image-01-full.jpg` data-fancybox="index-gallery" data-caption="Усадьба Д.И. Менделеева" aria-label="Фото усадьбы Д.И. Менделеева") 
+										+picture('estates/boblovo-image-01', 'Усадьба Д.И. Менделеева')
 							li.estates__item 
 								.estates__text 
 									.estates__quoteblock
@@ -115,7 +117,8 @@ block content
 										p Усадьба капитана И.В.&nbsp;Тараканова. Здесь сохранилась земская школа, где&nbsp;раньше учили крестьянских детей, и&nbsp;в&nbsp;этом мемориальном здании — экспозиция, посвящённая жизни и&nbsp;творчеству поэта Серебряного века — А.А.&nbsp;Блока. На&nbsp;территории усадьбы: церковь Михаила Архангела, где&nbsp;венчался Александр Блок с&nbsp;дочерью Д.И.&nbsp;Менделеева — Любовью Менделеевой, памятник, прекрасный пруд и&nbsp;необъятные дали.
 									a(href=`${sitePath}tarakanovo.html`).estates__link.link.btn-link История усадьбы
 								.estates__image 
-									+picture('estate-tarakanovo', 'Усадьба, где венчались Л.Д. Менделеева и А.А. Блок')
+									a.gallery-image(href=`${sitePath}img/estates/tarakanovo-image-01-full.jpg` data-fancybox="index-gallery" data-caption="Усадьба, где венчались Л.Д. Менделеева и А.А. Блок" aria-label="Фото усадьба, где венчались Л.Д. Менделеева и А.А. Блок") 
+										+picture('estates/tarakanovo-image-01', 'Усадьба, где венчались Л.Д. Менделеева и А.А. Блок')
 							li.estates__item 
 								.estates__text 
 									.estates__name
@@ -124,7 +127,8 @@ block content
 										p Усадьба капитана И.В.&nbsp;Тараканова. Здесь сохранилась земская школа, где раньше учили крестьянских детей, и&nbsp;в&nbsp;этом мемориальном здании — экспозиция, посвящённая жизни и&nbsp;творчеству поэта Серебряного века — А.А.&nbsp;Блока. На территории усадьбы: церковь Михаила Архангела, где&nbsp;венчался Александр Блок с&nbsp;дочерью Д.И.&nbsp;Менделеева — Любовью Менделеевой, памятник, прекрасный пруд и необъятные дали.
 									a(href=`${sitePath}history.html`).estates__link.link.btn-link История музея-заповедника
 								.estates__image 
-									+picture('estate-museum', '5 августа 2001 г. открыт Главный дом усадьбы Шахматово')
+									a.gallery-image(href=`${sitePath}img/estates/history-image-05.jpg` data-fancybox="index-gallery" data-caption="5 августа 2001 г. открыт Главный дом усадьбы Шахматово" aria-label="Фото музея-заповедника") 
+										+picture('estates/history-image-05', '5 августа 2001 г. открыт Главный дом усадьбы Шахматово')
 			section.section.news
 				.news__container.container
 					.news__content 
@@ -168,22 +172,22 @@ block content
 								.contacts__row.infotable__row
 									.contacts__col.infotable__col Официальный сайт музея-заповедника:
 									.contacts__col.infotable__col 
-										a(href=`${sitePath}`) шахматово.рф
+										a(href=`${sitePath}` aria-label="Официальный сайт музея-заповедника") шахматово.рф
 							.contacts__block
 								.contacts__row.infotable__row
 									.contacts__col.infotable__col Почта организатора экскурсий:
 									.contacts__col.infotable__col 
-										a(href="mailto:mk_blok_organizator@mosreg.ru") mk_blok_organizator<span class="c-accent">@mosreg.ru
+										a(href="mailto:mk_blok_organizator@mosreg.ru" aria-label="Почта организатора экскурсий") mk_blok_organizator<span class="c-accent">@mosreg.ru
 						li.contacts__item.card-item.infotable
 							.contacts__block
 								.contacts__row.infotable__row
 									.contacts__col.infotable__col Официальный электронный почтовый ящик:
 									.contacts__col.infotable__col 
-										a(href="mailto:mk_al.blok@mosreg.ru") <span class="c-accent">mk_al.blok</span>@mosreg.ru
+										a(href="mailto:mk_al.blok@mosreg.ru" aria-label="Официальный электронный почтовый ящик") <span class="c-accent">mk_al.blok</span>@mosreg.ru
 							.contacts__block
 								.contacts__row.infotable__row
 									.contacts__col.infotable__col Телефон организатора экскурсий:<br><span class="small-text">(со&nbsp;вторника по&nbsp;воскресенье)</span>
 									.contacts__col.infotable__col 
-										a(href="tel:+79652528394") +7&nbsp;(965)&nbsp;252-83-94
+										a(href="tel:+79652528394" aria-label="Телефон организатора экскурсий") +7&nbsp;(965)&nbsp;252-83-94
 					.contacts__map
 						.ymap#ymapMain

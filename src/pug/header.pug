@@ -5,22 +5,22 @@ header.header
 			nav.nav.nav__topmenu(aria-label="Верхнее меню")
 				ul.nav__list.nav__toplist
 					li.nav__item
-						if (pageTitle == 'Усадьба Шахматово')
+						if (pageName == 'shahmatovo-page')
 							span.nav__link.link.selected Шахматово
 						else
 							a(href=`${sitePath}shahmatovo.html`).nav__link.link Шахматово
 					li.nav__item
-						if (pageTitle == 'Усадьба Боблово')
+						if (pageName == 'boblovo-page')
 							span.nav__link.link.selected Боблово
 						else
 							a(href=`${sitePath}boblovo.html`).nav__link.link Боблово
 					li.nav__item
-						if (pageTitle == 'Усадьба Тараканово')
+						if (pageName == 'tarakanovo-page')
 							span.nav__link.link.selected Тараканово
 						else
 							a(href=`${sitePath}tarakanovo.html`).nav__link.link Тараканово
 					li.nav__item
-						if (pageTitle == 'История Музея-Заповедника')
+						if (pageName == 'history-page')
 							span.nav__link.link.selected История музея
 						else
 							a(href=`${sitePath}history.html`).nav__link.link История музея
@@ -76,50 +76,68 @@ header.header
 						use(xlink:href=`${sitePath}img/vector-icons/icon-close.svg#icon-close`)
 				ul.nav__list.nav__mobilelist.nav__mobilelist--top
 					li.nav__item
-						if (pageTitle == 'Усадьба Шахматово')
+						if (pageName == 'shahmatovo-page')
 							span.nav__link.link.selected Шахматово
 						else
 							a(href=`${sitePath}shahmatovo.html`).nav__link.link Шахматово
 					li.nav__item
-						if (pageTitle == 'Усадьба Боблово')
+						if (pageName == 'boblovo-page')
 							span.nav__link.link.selected Боблово
 						else
 							a(href=`${sitePath}boblovo.html`).nav__link.link Боблово
 					li.nav__item
-						if (pageTitle == 'Усадьба Тараканово')
+						if (pageName == 'tarakanovo-page')
 							span.nav__link.link.selected Тараканово
 						else
 							a(href=`${sitePath}tarakanovo.html`).nav__link.link Тараканово
 					li.nav__item
-						if (pageTitle == 'История Музея-Заповедника')
+						if (pageName == 'history-page')
 							span.nav__link.link.selected История музея
 						else
 							a(href=`${sitePath}history.html`).nav__link.link История музея
 					li.nav__item
-						if (pageTitle == 'Заповедник')
+						if (pageName == 'park-page')
 							span.nav__link.link.selected Заповедник
 						else
-							a(href="#").nav__link.link Заповедник
+							a(href=`${sitePath}park.html`).nav__link.link Заповедник
 				ul.nav__list.nav__mobilelist.nav__mobilelist--bottom
 					li.nav__item
-						a(href="#").nav__link.link Пушкинская карта
+						if (pageName == 'pushkincard-page')
+							span.nav__link.link.selected Пушкинская карта
+						else
+							a(href=`${sitePath}pushkin-card.html`).nav__link.link Пушкинская карта
 					li.nav__item
 						a(href="#").nav__link.link Безопасность
 					li.nav__item
-						a(href="#").nav__link.link Документы
+						if (pageName == 'documents-page')
+							span.nav__link.link.selected Документы
+						else
+							a(href=`${sitePath}documents.html`).nav__link.link Документы
 					li.nav__item
-						a(href="#").nav__link.link Стоимость билетов
+						if (pageName == 'tickets-page')
+							span.nav__link.link.selected Стоимость билетов
+						else
+							a(href=`${sitePath}tickets.html`).nav__link.link Стоимость билетов
 					li.nav__item
-						a(href="#").nav__link.link Галерея
+						if (pageName == 'gallery-page')
+							span.nav__link.link.selected Галерея
+						else
+							a(href=`${sitePath}gallery.html`).nav__link.link Галерея
 					li.nav__item
-						a(href="#").nav__link.link Фонды
+						if (pageName == 'funds-page')
+							span.nav__link.link.selected Фонды
+						else
+							a(href=`${sitePath}funds.html`).nav__link.link Фонды
 					li.nav__item
 						if (pageName == 'news-page' || pageName == 'news-detail-page')
 							span.nav__link.link.selected Новости
 						else 
 							a(href=`${sitePath}news.html`).nav__link.link Новости
 					li.nav__item
-						a(href="#").nav__link.link Контакты
+						if (pageName == 'contacts-page')
+							span.nav__link.link.selected Контакты
+						else 
+							a(href=`${sitePath}contacts.html`).nav__link.link Контакты
 					li.nav__item.nav__item--button
 						a(href=`${sitePath}events.html`).nav__btn.btn.btn-primary Афиша
 
