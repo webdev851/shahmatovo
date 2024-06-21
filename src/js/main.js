@@ -76,6 +76,8 @@ mobileClose.addEventListener('click', () => {
 })
 
 // Табы
+let currentUrl = window.location.href
+
 const 
 	tabs = document.querySelector('.groups'),
 	tabItem = document.querySelectorAll('.groups__btn'),
@@ -89,21 +91,42 @@ if (tabs) {
 	function open(evt) {
 		const tabTarget = evt.currentTarget
 		const button = tabTarget.dataset.button
-
+		const tabTargetData = tabTarget.getAttribute("data-button")
+		
 		tabItem.forEach(function (item) {
 			item.classList.remove('active')
 		})
-
+		
 		tabTarget.classList.add('active')
-
+		
+		if (currentUrl.includes('?ref')) {
+			currentUrl = currentUrl.replace(/ref=[^&]*/, `ref=${tabTargetData}`);
+		} else {
+			currentUrl += `?ref=${tabTargetData}`;
+		}
+		
+		if (currentUrl.includes('tickets') && tabTargetData !== "common") {
+			window.history.pushState({ path: currentUrl }, '', currentUrl);
+		}
+		
 		tabContent.forEach(function (item) {
 			item.classList.remove('active')
 		})
-
+		
 		document.querySelector(`#${button}`).classList.add('active')
 	}
 
 	tabItem[0].click()
+}
+
+
+// Отслеживание страницы перехода для открытия соответствующей вкладки на странице билетов
+const 
+	pageParams = new URLSearchParams(window.location.search),
+	pageReferrer = pageParams.get('ref')
+
+if (pageReferrer) {
+	document.querySelector(`.groups__btn[data-button="${pageReferrer}"]`).click()
 }
 
 // Яндекс карта 
