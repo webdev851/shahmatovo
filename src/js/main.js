@@ -1,19 +1,26 @@
 'use strict'
 
-// Прелоадер
 
-document.addEventListener("DOMContentLoaded", function() {
-	const preloader = document.getElementById('preloader')
+
+// Год в футере
+let currentDate = new Date();
+const copyYear = document.querySelector('#copy-year')
+
+copyYear.innerHTML = currentDate.getFullYear()
+
+// Прелоадер
+document.addEventListener('DOMContentLoaded', () => {
+	const preloader = document.querySelector('#preloader')
 	preloader.classList.add('preloader--hidden')
 })
 
-
-const partnersItems = document.querySelectorAll('.partners__item')
-
+// Верхний баннер
 const swiperMainBanner = new Swiper('.swiper-mainbanner', {
 	slidesPerView: 1,
 	autoplay: true,
 	loop: true,
+	effect: 'fade',
+
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -26,34 +33,68 @@ const swiperMainBanner = new Swiper('.swiper-mainbanner', {
   },
 })
 
+// Галерея
+const swiperGallery = new Swiper('.swiper-gallery', {
+	slidesPerView: 1,
+	loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+})
+
+
+// Карусель партнеров в футере
 const swiperPartners = new Swiper('.swiper-partners', {
 	slidesPerView: 'auto',
 	autoplay: true,
+	loop: true,
+})
+
+// Инициализация Fancybox
+Fancybox.bind("[data-fancybox]", {
+	Carousel: {
+		infinite: false,
+	},
+	Toolbar: {
+		display: {
+			left: [],
+			middle: [],
+			right: ["close"],
+		},
+	},
 })
 
 // Меню
-const mobileMenu = document.querySelector('.nav__mobilemenu')
-const burger = document.querySelector('.burger')
-const mobileClose = document.querySelector('.mobile-close')
-const overlay = document.querySelector('.overlay')
-const body = document.body
+const 
+	header = document.querySelector('.header'),
+	mobileMenu = document.querySelector('.nav__mobilemenu'),
+	burger = document.querySelector('.burger'),
+	mobileClose = document.querySelector('.mobile-close'),
+	overlay = document.querySelector('.overlay'),
+	body = document.body
 
 burger.addEventListener('click', () => {
 	mobileMenu.classList.add('active')
 	overlay.classList.add('open')
 	body.classList.add('lock')
+	header.classList.add('open')
 })
 
 mobileClose.addEventListener('click', () => {
 	mobileMenu.classList.remove('active')
 	overlay.classList.remove('open')
 	body.classList.remove('lock')
+	header.classList.remove('open')
 })
 
 // Табы
-const tabs = document.querySelector('.groups')
-const tabItem = document.querySelectorAll('.groups__btn')
-const tabContent = document.querySelectorAll('.events__list')
+let currentUrl = window.location.href
+
+const 
+	tabs = document.querySelector('.groups'),
+	tabItem = document.querySelectorAll('.groups__btn'),
+	tabContent = document.querySelectorAll('.groups__content')
 
 if (tabs) {
 	tabItem.forEach(function (element) {
@@ -63,25 +104,45 @@ if (tabs) {
 	function open(evt) {
 		const tabTarget = evt.currentTarget
 		const button = tabTarget.dataset.button
-
+		const tabTargetData = tabTarget.getAttribute("data-button")
+		
 		tabItem.forEach(function (item) {
 			item.classList.remove('active')
 		})
-
+		
 		tabTarget.classList.add('active')
-
+		
+		if (currentUrl.includes('?ref')) {
+			currentUrl = currentUrl.replace(/ref=[^&]*/, `ref=${tabTargetData}`);
+		} else {
+			currentUrl += `?ref=${tabTargetData}`;
+		}
+		
+		if (currentUrl.includes('tickets') && tabTargetData !== "common") {
+			window.history.pushState({ path: currentUrl }, '', currentUrl);
+		}
+		
 		tabContent.forEach(function (item) {
 			item.classList.remove('active')
 		})
-
+		
 		document.querySelector(`#${button}`).classList.add('active')
 	}
 
 	tabItem[0].click()
 }
 
-// Яндекс карта 
 
+// Отслеживание страницы перехода для открытия соответствующей вкладки на странице билетов
+const 
+	pageParams = new URLSearchParams(window.location.search),
+	pageReferrer = pageParams.get('ref')
+
+if (pageReferrer) {
+	document.querySelector(`.groups__btn[data-button="${pageReferrer}"]`).click()
+}
+
+// Яндекс карта 
 const coordinates = {
 	shahmatovo: [56.314571, 37.052317],
 	tarakanovo: [56.333690, 37.045332],
@@ -116,7 +177,7 @@ function init() {
 			controls: ['zoomControl'],
 		})
 
-		// Добавление двух меток на карту
+		// Добавление трех меток на карту
 		ymapMain.geoObjects
 			.add(
 				new ymaps.Placemark(
@@ -203,4 +264,48 @@ function init() {
 // Ожидание загрузки библиотеки Яндекс.Карт
 if (document.querySelector('.ymap')) {
 	ymaps.ready(init)
+}
+
+
+// Открытие событий
+const 
+	eventLinks = document.querySelectorAll('.events__link'),
+	eventItems = document.querySelectorAll('.events__item'),
+	eventBodies = document.querySelectorAll('.events__body'),
+	eventList = document.querySelector('.events__list'),
+	eventMoreBtn = document.querySelector('.events__more button')
+
+if (eventList) {
+	eventLinks.forEach((item, index) => {
+		item.addEventListener('click', (e) => {
+			e.preventDefault()
+
+			// Закрываем все элементы
+			eventItems.forEach((item, i) => {
+				if (i !== index) {
+					item.classList.remove('open')
+					eventLinks[i].innerHTML = 'Читать подробнее'
+				}
+			});
+			
+			// Переключаем текущий элемент
+			if (eventItems[index].classList.contains('open')) {
+				eventItems[index].classList.remove('open')
+				item.innerHTML = 'Читать подробнее'
+			} else {
+				eventItems[index].classList.add('open')
+				item.innerHTML = 'Скрыть'
+			}
+		})
+	})
+
+	eventMoreBtn.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		eventItems.forEach(item => {
+			item.classList.remove('hidden');
+		})
+
+		eventMoreBtn.style.display = "none"
+	})
 }

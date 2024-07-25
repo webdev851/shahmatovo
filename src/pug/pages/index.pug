@@ -4,14 +4,14 @@ block vars
 	-let pageName = 'front-page'
 	-let pageTitle = 'Музей Шахматово'
 	-let metaTitle = 'Музей Шахматово'
-	-let metaDescription = ''
+	-let metaDescription = 'Музей рассказывает об истории дружбы двух семей: Менделеевых и Бекетовых-Блока'
 block content
 		main.main.front-page
 			section.section.top
 				.top__container.container
 					.top__content
 						.top__heading
-							h1.c-accent МУЗЕЙ-ЗАПОВЕДНИК МЕНДЕЛЕЕВА И&nbsp;БЛОКА
+							h1 МУЗЕЙ-ЗАПОВЕДНИК <span class="c-accent">МЕНДЕЛЕЕВА И&nbsp;БЛОКА</span>
 							p Музей рассказывает об&nbsp;истории дружбы двух семей:<br>Менделеевых и&nbsp;Бекетовых-Блока. 
 						.top__text
 							p В&nbsp;усадьбах проходила жизнь двух семей, росли дети, вершились наука и&nbsp;поэзия. Именно эти места объединили две семьи вместе, связав узами брака Александра Блока и&nbsp;Любовь Менделееву.
@@ -22,13 +22,13 @@ block content
 						.swiper.swiper-mainbanner.banner__slider
 							.swiper-wrapper.banner__list
 								.swiper-slide.banner__item.banner__item--wide
-									+picture('museum-image-01')
+									+picture('museum-image-01', false, 'jpg', false, '')
 								.swiper-slide.banner__item.banner__item--wide
-									+picture('museum-image-02')
+									+picture('museum-image-02', false, 'jpg', false, 'lazy')
 								.swiper-slide.banner__item.banner__item--wide
-									+picture('museum-image-03')
+									+picture('museum-image-03', false, 'jpg', false, 'lazy')
 								.swiper-slide.banner__item.banner__item--wide
-									+picture('museum-image-04')
+									+picture('museum-image-04', false, 'jpg', false, 'lazy')
 							.banner__tools
 								.swiper-navigation.banner__navigation
 									.swiper-button-prev.banner__btn.banner__btnprev
@@ -63,10 +63,10 @@ block content
 								.mode__table.infotable
 									.mode__row.infotable__row
 										.mode__col.infotable__col Среда — Воскресенье
-										.mode__col.infotable__col с&nbsp;9:00 до&nbsp;17:30
+										.mode__col.infotable__col с&nbsp;9:30 до&nbsp;18:00
 									.mode__row.infotable__row
 										.mode__col.infotable__col Касса
-										.mode__col.infotable__col с&nbsp;9:00 до&nbsp;17:00
+										.mode__col.infotable__col с&nbsp;9:30 до&nbsp;17:30
 			+eventsSection('Афиша', true)
 			section.section.estates
 				.estates__container.container.card-container
@@ -89,7 +89,8 @@ block content
 										p Усадьба была приобретена дедом А.&nbsp;Блока — А.Н.&nbsp;Бекетовым в&nbsp;1874&nbsp;году по&nbsp;совету близкого друга семьи — Д.И.&nbsp;Менделеева. Каждое лето А.&nbsp;Блок приезжал в&nbsp;Шахматово на&nbsp;протяжении 36&nbsp;лет своей жизни. Здесь усадебный дом с&nbsp;личными вещами поэта и&nbsp;членов его семьи, венецианские окна и&nbsp;дух поэзии…
 									a(href=`${sitePath}shahmatovo.html`).estates__link.link.btn-link История усадьбы
 								.estates__image 
-									+picture('estate-shahmatovo', 'Усадьба семьи Бекетовых-Блока')
+									a.gallery-image(href=`${sitePath}img/estates/shahmatovo-image-01-full.jpg` data-fancybox="index-gallery" data-caption="Усадьба семьи Бекетовых-Блока" aria-label="Фото усадьбы семьи Бекетовых-Блока") 
+										+picture('estates/shahmatovo-image-01', 'Усадьба семьи Бекетовых-Блока')
 							li.estates__item 
 								.estates__text 
 									.estates__quoteblock
@@ -102,7 +103,8 @@ block content
 										p Имение, которое принадлежало воздухоплавателю, экономисту, путешественнику, учёному, изобретателю — Д.И.&nbsp;Менделееву (да-да, Менделеев был не&nbsp;только химиком, но&nbsp;и&nbsp;очень разносторонним человеком). Если хотите узнать много нового о&nbsp;жизни и&nbsp;научной деятельности Менделеева — вам&nbsp;точно нужно посетить Боблово.
 									a(href=`${sitePath}boblovo.html`).estates__link.link.btn-link История усадьбы
 								.estates__image 
-									+picture('estate-boblovo', 'Усадьба Д.И. Менделеева')
+									a.gallery-image(href=`${sitePath}img/estates/boblovo-image-01-full.jpg` data-fancybox="index-gallery" data-caption="Усадьба Д.И. Менделеева" aria-label="Фото усадьбы Д.И. Менделеева") 
+										+picture('estates/boblovo-image-01', 'Усадьба Д.И. Менделеева')
 							li.estates__item 
 								.estates__text 
 									.estates__quoteblock
@@ -115,7 +117,8 @@ block content
 										p Усадьба капитана И.В.&nbsp;Тараканова. Здесь сохранилась земская школа, где&nbsp;раньше учили крестьянских детей, и&nbsp;в&nbsp;этом мемориальном здании — экспозиция, посвящённая жизни и&nbsp;творчеству поэта Серебряного века — А.А.&nbsp;Блока. На&nbsp;территории усадьбы: церковь Михаила Архангела, где&nbsp;венчался Александр Блок с&nbsp;дочерью Д.И.&nbsp;Менделеева — Любовью Менделеевой, памятник, прекрасный пруд и&nbsp;необъятные дали.
 									a(href=`${sitePath}tarakanovo.html`).estates__link.link.btn-link История усадьбы
 								.estates__image 
-									+picture('estate-tarakanovo', 'Усадьба, где венчались Л.Д. Менделеева и А.А. Блок')
+									a.gallery-image(href=`${sitePath}img/estates/tarakanovo-image-01-full.jpg` data-fancybox="index-gallery" data-caption="Усадьба, где венчались Л.Д. Менделеева и А.А. Блок" aria-label="Фото усадьба, где венчались Л.Д. Менделеева и А.А. Блок") 
+										+picture('estates/tarakanovo-image-01', 'Усадьба, где венчались Л.Д. Менделеева и А.А. Блок')
 							li.estates__item 
 								.estates__text 
 									.estates__name
@@ -124,7 +127,12 @@ block content
 										p Усадьба капитана И.В.&nbsp;Тараканова. Здесь сохранилась земская школа, где раньше учили крестьянских детей, и&nbsp;в&nbsp;этом мемориальном здании — экспозиция, посвящённая жизни и&nbsp;творчеству поэта Серебряного века — А.А.&nbsp;Блока. На территории усадьбы: церковь Михаила Архангела, где&nbsp;венчался Александр Блок с&nbsp;дочерью Д.И.&nbsp;Менделеева — Любовью Менделеевой, памятник, прекрасный пруд и необъятные дали.
 									a(href=`${sitePath}history.html`).estates__link.link.btn-link История музея-заповедника
 								.estates__image 
-									+picture('estate-museum', '5 августа 2001 г. открыт Главный дом усадьбы Шахматово')
+									a.gallery-image(href=`${sitePath}img/estates/history-image-05.jpg` data-fancybox="index-gallery" data-caption="5 августа 2001 г. открыт Главный дом усадьбы Шахматово" aria-label="Фото музея-заповедника") 
+										+picture('estates/history-image-05', '5 августа 2001 г. открыт Главный дом усадьбы Шахматово')
+			section.section.pushkincard
+				.container.card-container
+					a(href=`${sitePath}pushkin-card.html`) 
+						include ../parts/pushkincard-banner
 			section.section.news
 				.news__container.container
 					.news__content 
@@ -141,21 +149,29 @@ block content
 					.rules__content 
 						.rules__heading.section-heading.heading-more 
 							h2.section-header.rules__header Условия посещения<br>музея-заповедника
-							a(href="#").heading-link.link.btn-link Ознакомиться со&nbsp;всеми условиями
 				.card-container.container 
 					ul.rules__list.card-list.card-list--two
 						li.rules__item.card-item
-							h5.rules__title.card-title <span class="c-accent">Важно!</span> Не забудьте! 
-							p.rules__text Добавить блок на&nbsp;главной странице о&nbsp;«Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+							h5.h5.rules__title.card-title.c-accent Расположение
+							p.rules__text Три усадьбы (Шахматово, Боблово и Тараканово) расположены за городом, поэтому советуем одеваться по погоде, и предусмотреть удобную обувь на устойчивой подошве. Не забудьте взять с собой перекус и средство от насекомых.
 						li.rules__item.card-item
-							h5.rules__title.card-title Парковка
-							p.rules__text Добавить блок на главной странице о «Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+							h5.h5.rules__title.card-title.c-accent Билеты
+							p.rules__text Вход на территорию усадеб и в здания музеев осуществляется посетителями по предъявлению входного билета. В экспозициях необходимо оставить в гардеробе верхнюю одежду и наплечные сумки/рюкзаки (либо держать их перед собой в экспозициях);
 						li.rules__item.card-item
-							h5.rules__title.card-title Возьмите еду с собой!
-							p.rules__text Добавить блок на главной странице о «Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+							h5.h5.rules__title.card-title.c-accent Животные
+							p.rules__text Вход с животными на территории усадеб запрещен – в музее-заповеднике живут лошади и собаки, и мы очень не хотим, чтобы у четвероногих друзей были конфликты; 
 						li.rules__item.card-item
-							h5.rules__title.card-title <span class="c-accent">С животными нельзя!</span>
-							p.rules__text Добавить блок на главной странице о «Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+							h5.h5.rules__title.card-title.c-accent Экскурсии
+							p.rules__text Экскурсионная деятельность в музее-заповеднике осуществляется экскурсоводами музея.
+			section.section.gosuslugi
+				.gosuslugi__container.container.card-container
+					.gosuslugi__content
+						.gosuslugi__text
+							h3.c-accent.gosuslugi__title Расскажите, как музей может стать лучше?
+							p.gosuslugi__description Ждём ваших предложений
+							button.gosuslugi__button.btn.btn-primary.pos-banner-btn_2#js-show-iframe-wrapper Написать
+						.gosuslugi__image
+							+picture('gosuslugi-pic')
 			section.section.contacts
 				.contacts__container.container 
 					.contacts__content 
@@ -164,22 +180,26 @@ block content
 				.container.card-container
 					ul.contacts__list.card-list.card-list--two.infotable
 						li.contacts__item.card-item.infotable
-							.contacts__row.infotable__row
-								.contacts__col.infotable__col Официальный сайт музея-заповедника:
-								.contacts__col.infotable__col 
-									a(href=`${sitePath}`) шахматово.рф
-							.contacts__row.infotable__row
-								.contacts__col.infotable__col Почта организатора экскурсий:
-								.contacts__col.infotable__col 
-									a(href="mailto:mk_blok_organizator@mosreg.ru") mk_blok_organizator<span class="c-accent">@mosreg.ru
+							.contacts__block
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Официальный сайт музея-заповедника:
+									.contacts__col.infotable__col 
+										a(href=`${sitePath}` aria-label="Официальный сайт музея-заповедника") шахматово.рф
+							.contacts__block
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Почта организатора экскурсий:
+									.contacts__col.infotable__col 
+										a(href="mailto:mk_blok_organizator@mosreg.ru" aria-label="Почта организатора экскурсий") mk_blok_organizator<span class="c-accent">@mosreg.ru
 						li.contacts__item.card-item.infotable
-							.contacts__row.infotable__row
-								.contacts__col.infotable__col Официальный электронный почтовый ящик:
-								.contacts__col.infotable__col 
-									a(href="mailto:mk_al.blok@mosreg.ru") <span class="c-accent">mk_al.blok</span>@mosreg.ru
-							.contacts__row.infotable__row
-								.contacts__col.infotable__col Телефон организатора экскурсий:<br>(со&nbsp;вторника по&nbsp;воскресенье)
-								.contacts__col.infotable__col 
-									a(href="tel:+79652528394") +7&nbsp;(965)&nbsp;252-83-94
+							.contacts__block
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Официальный электронный почтовый ящик:
+									.contacts__col.infotable__col 
+										a(href="mailto:mk_al.blok@mosreg.ru" aria-label="Официальный электронный почтовый ящик") <span class="c-accent">mk_al.blok</span>@mosreg.ru
+							.contacts__block
+								.contacts__row.infotable__row
+									.contacts__col.infotable__col Телефон организатора экскурсий:<br><span class="small-text">(со&nbsp;вторника по&nbsp;воскресенье)</span>
+									.contacts__col.infotable__col 
+										a(href="tel:+79652528394" aria-label="Телефон организатора экскурсий") +7&nbsp;(965)&nbsp;252-83-94
 					.contacts__map
 						.ymap#ymapMain

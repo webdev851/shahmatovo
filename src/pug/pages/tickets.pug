@@ -1,0 +1,232 @@
+extends ../base
+
+block vars
+	-let pageName = 'tickets-page'
+	-let pageTitle = 'Стоимость билетов'
+	-let metaTitle = 'Стоимость билетов | Музей-заповедник Д.И. Менделеева и А.А. Блока'
+	-let metaDescription = ''
+block content
+	main.main(class= pageName)
+		section.section.page-top
+			.container
+				.content 
+					+breadcrumps(pageTitle)
+					.section-heading.section-heading--center
+						h2.section-header= pageTitle
+		section.section.offset-top
+			.container
+				.groups.card-content
+					ul.groups__list
+						li.groups__item
+							button.groups__btn.h5(data-button="common") Единые билеты
+						li.groups__item
+							button.groups__btn.h5(data-button="shahmatovo") Шахматово
+						li.groups__item
+							button.groups__btn.h5(data-button="boblovo") боблово
+						li.groups__item
+							button.groups__btn.h5(data-button="tarakanovo") Тараканово
+				.groups__content.cost#common
+					.cost__block
+						h4.cost__heading Единые входные билеты
+						ul.cost__list
+							li.cost__item
+								.cost__title Шахматово, Боблово, Тараканово
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category Взрослый билет
+										.cost__price 1000&nbsp;₽
+									li.cost__ticket
+										.cost__category Льготные категории граждан
+										.cost__price 850&nbsp;₽
+							li.cost__item
+								.cost__title Шахматово, Тараканово
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category Взрослый билет
+										.cost__price 730&nbsp;₽
+									li.cost__ticket
+										.cost__category Льготные категории граждан
+										.cost__price 640&nbsp;₽
+							li.cost__item
+								.cost__title Тараканово, Боблово
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category Взрослый билет
+										.cost__price 560&nbsp;₽
+									li.cost__ticket
+										.cost__category Льготные категории граждан
+										.cost__price 445&nbsp;₽
+							li.cost__item
+								.cost__title Шахматово, Боблово
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category Взрослый билет
+										.cost__price 770&nbsp;₽
+									li.cost__ticket
+										.cost__category Льготные категории граждан
+										.cost__price 680&nbsp;₽
+					include ../parts/tables
+				.groups__content.cost#shahmatovo
+					.cost__block
+						h4.cost__heading Входные билеты
+						ul.cost__list
+							li.cost__item
+								.cost__title Территория усадьбы Шахматово
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category Взрослый билет
+										.cost__price 120&nbsp;₽
+									li.cost__ticket
+										.cost__category Льготные категории граждан
+										.cost__price 110&nbsp;₽
+							li.cost__item
+								.cost__title территория + Главный дом
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category Взрослый билет
+										.cost__price 400&nbsp;₽
+									li.cost__ticket
+										.cost__category Льготные категории граждан
+										.cost__price 360&nbsp;₽
+							li.cost__item
+								.cost__title территория + Главный дом + кухня + флигель
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category Взрослый билет
+										.cost__price 570&nbsp;₽
+									li.cost__ticket
+										.cost__category Льготные категории граждан
+										.cost__price 490&nbsp;₽
+							li.cost__item
+								.cost__title Семейный билет 
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category За 1 человека
+										.cost__price 450&nbsp;₽
+									li.cost__ticket
+										.cost__notprice На группу от четырех человек – полный по усадьбе Шахматово
+					.cost__block
+						h4.cost__heading Экскурсии в сборные группы
+						ul.cost__list
+							li.cost__item
+								.cost__title Экскурсия по главному дому 
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category За 1 человека
+										.cost__price 350&nbsp;₽
+							li.cost__item
+								.cost__title Экскурсия по территории и главному дому
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category За 1 человека
+										.cost__price 450&nbsp;₽
+							li.cost__item
+								.cost__title Экскурсия по трем объектам:<br>главный дом, кухня, флигель 
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category За 1 человека
+										.cost__price 450&nbsp;₽
+							li.cost__item
+								.cost__title Обзорная экскурсия:<br>территория, главный дом, кухня, флигель.
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category За 1 человека
+										.cost__price 550&nbsp;₽
+							li.cost__item
+								.cost__title Аудиогид
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__price 200&nbsp;₽
+					include ../parts/tables
+				.groups__content.cost#boblovo
+					.cost__block
+						h4.cost__heading Входные билеты
+						ul.cost__list
+							li.cost__item
+								.cost__title Территория усадьбы Боблово
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category Взрослый билет
+										.cost__price 40&nbsp;₽
+									li.cost__ticket
+										.cost__category Льготные категории граждан
+										.cost__price 30&nbsp;₽
+							li.cost__item
+								.cost__title территория и Дом Н.П. Ильина (музей)
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category Взрослый билет
+										.cost__price 290&nbsp;₽
+									li.cost__ticket
+										.cost__category Льготные категории граждан
+										.cost__price 260&nbsp;₽
+								.cost__text 
+									p Полный в усадьбе Боблово
+
+					.cost__block
+						h4.cost__heading Экскурсии в сборные группы
+						ul.cost__list
+							li.cost__item
+								.cost__title Экскурсия по дому Н.П. Ильина 
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category За 1 человека
+										.cost__price 350&nbsp;₽
+							li.cost__item
+								.cost__title Экскурсия по парку
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category За 1 человека
+										.cost__price 350&nbsp;₽
+							li.cost__item
+								.cost__title Обзорная экскурсия: по дому Н.П. Ильина и парку 
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category За 1 человека
+										.cost__price 550&nbsp;₽
+
+					include ../parts/tables
+				.groups__content.cost#tarakanovo
+					.cost__block
+						h4.cost__heading Входные билеты
+						ul.cost__list
+							li.cost__item
+								.cost__title Территория усадьбы Тараканово
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category Взрослый билет
+										.cost__price 100&nbsp;₽
+									li.cost__ticket
+										.cost__category Льготные категории граждан
+										.cost__price 80&nbsp;₽
+							li.cost__item
+								.cost__title территория + Земская школа
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category Взрослый билет
+										.cost__price 280&nbsp;₽
+									li.cost__ticket
+										.cost__category Льготные категории граждан
+										.cost__price 220&nbsp;₽
+					.cost__block
+						h4.cost__heading Экскурсии в сборные группы
+						ul.cost__list
+							li.cost__item
+								.cost__title Экскурсия по земской школе 
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category За 1 человека
+										.cost__price 300&nbsp;₽
+							li.cost__item
+								.cost__title Экскурсия по территории 
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category За 1 человека
+										.cost__price 200&nbsp;₽
+							li.cost__item
+								.cost__title Обзорная экскурсия: по территории и земской школе 
+								ul.cost__tickets
+									li.cost__ticket
+										.cost__category За 1 человека
+										.cost__price 450&nbsp;₽
+					include ../parts/tables

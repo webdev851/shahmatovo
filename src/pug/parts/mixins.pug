@@ -1,11 +1,15 @@
-mixin picture(path, caption = false, type = 'jpg')
-	figure
-		picture 
-			//- source(type="image/avif" srcset=`img/${path}.avif`)
-			//- source(type="image/webp" srcset=`img/${path}.webp`)
-			img(src=`${sitePath}img/${path}.${type}?${randomNumber}`, alt="")
-		if (caption)
-			figcaption= caption
+mixin picture(path, caption = false, type = 'jpg', customClass = false, loading = 'lazy')
+	if (type !== 'svg')
+		figure(class= customClass)
+			picture 
+				source(type="image/avif" srcset=`img/${path}.avif`)
+				source(type="image/webp" srcset=`img/${path}.webp`)
+				img(src=`${sitePath}img/${path}.${type}?${randomNumber}` alt="" loading=`${loading}`)
+			if (caption)
+				figcaption!= caption.replace(/\n/g, '<br>')
+	else 
+		figure(class= customClass)
+			img(src=`${sitePath}img/${path}.${type}?${randomNumber}` alt="" loading=`${loading}`)
 
 mixin breadcrumps(currentPage, prevPage = false, prevLink = false)
 	.breadcrumps
@@ -29,8 +33,8 @@ mixin newsItem(image, date, title, announce)
 			p.news__announce= announce
 			a(href=`${sitePath}news-detail.html`).news__link.link.btn-link К&nbsp;новости
 
-mixin eventItem(day, month, location, title, announce, note = false)
-	li.events__item
+mixin eventItem(day, month, location, title, announce, note = false, picture, customClass = '')
+	li.events__item(class= customClass)
 		.events__top 
 			.events__col
 				.events__date
@@ -40,12 +44,17 @@ mixin eventItem(day, month, location, title, announce, note = false)
 						span.events__note Важно!
 				.events__head 
 					.events__location= location
-					a(href="#").events__title.h5= title
+					.events__title.h5= title
 			.events__col
 				.events__text
 					.events__announce= announce
-					a(href="#").events__link.btn.link.btn-link Читать подробнее
+					button.events__link.btn.link.btn-link Читать подробнее
+			if (picture)
+				.events__col
+					.events__image
+						+picture(picture)
 		.events__body
+			block
 
 mixin eventsSection(title, showmore = false)
 	section.section.events
@@ -65,8 +74,9 @@ mixin historyItem(year)
 		.history__text 
 			block
 
-mixin quote(caption, outerquotes = false)
-	blockquote(class=outerquotes ? 'outerquotes' : '')
+mixin quote(caption, outerquotes = false, position = false)
+	blockquote(class=outerquotes ? 'outerquotes' : '')(class=position ? 'cite-top' : '')
 		q
 			block 
-		cite!= caption.replace(/\n/g, '<br>')
+		if (caption !== '')
+			cite!= caption.replace(/\n/g, '<br>')

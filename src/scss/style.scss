@@ -6,5 +6,3671 @@
 
 @import "common";
 @import "user-content";
-@import "style-igor";
-@import "style-anton";
+
+.header {
+  padding: 26px 0;
+  color: $c-dark-text;
+  position: relative;
+  @media ($l-m) {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      inset: 0;
+      backdrop-filter: blur(4px);
+      z-index: -1;
+    }
+  }
+  @media ($t) {
+    padding: 20px 0;
+  }
+  &.open {
+    &::before {
+      background: transparent;
+      z-index: 9;
+    }
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 26px 32px;
+    @media ($l-m) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.burger {
+  display: none;
+  @media ($l-m) {
+    display: block;
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+  }
+  &__link {
+    color: $c-dark-text;
+  }
+  &__topmenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    @media ($l-m) {
+      display: none;
+    }
+  }
+  &__toplist {
+    text-transform: uppercase;
+    gap: 32px;
+    .nav__link {
+      &.selected {
+        color: $c-accent;
+        cursor: default;
+      }
+    }
+  }
+  &__bottommenu {
+    grid-column: span 2;
+    @media ($l-m) {
+      display: none;
+    }
+  }
+  &__bottomlist {
+    justify-content: space-between;
+    .nav__item {
+      border: $border-base;
+      border-right: none;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(200, 125, 55, 0.1);
+      &:last-child {
+        border-right: $border-base;
+      }
+    }
+    .nav__link {
+      font-size: 14px;
+      padding: 12px 8px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      &.selected {
+        color: $c-white;
+        background-color: $c-accent;
+        cursor: default;
+      }
+    }
+  }
+  &__mobilemenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-width: 360px;
+    z-index: 10;
+    background: $c-white;
+    padding: 0;
+    height: 100dvh;
+    overflow-y: auto;
+    width: 100%;
+    box-shadow: 5px 0 15px -5px rgba(0, 0, 0, 0.4);
+    transform: translateX(150%);
+    transition: transform $transition-middle;
+    &.active {
+      transform: translateX(0);
+    }
+    .logo {
+      padding: 20px 16px;
+    }
+    .close {
+      position: absolute;
+      right: 24px;
+      top: 28px;
+    }
+    .btn {
+      width: 100%;
+      text-transform: uppercase;
+    }
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $c-accent;
+    }
+  }
+  &__mobilelist {
+    flex-direction: column;
+    .nav__item {
+      border-top: 1px solid $c-stroke;
+      &--button {
+        padding: 16px;
+      }
+    }
+    .nav__link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 16px;
+      font-size: 16px;
+      &.selected {
+        color: $c-accent;
+        cursor: default;
+      }
+    }
+    &--top {
+      .nav__link {
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.footer {
+  &__container {
+    @media ($t) {
+      padding: 0;
+    }
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    border-top: $border-base;
+    border-bottom: $border-base;
+    @media ($l-s) {
+      display: none;
+    }
+  }
+  &__left {
+    padding: 56px 16px;
+    border-left: $border-base;
+    border-right: none;
+    max-width: 308px;
+  }
+  .logo {
+    margin: 0 0 26px;
+  }
+  .museum-name {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0 0 24px;
+  }
+  .btn-up {
+    background: $c-accent;
+    color: $c-white;
+    font-family: $agora;
+    padding: 13px 24px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &::after {
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg width='21' height='11' viewBox='0 0 21 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5 0.148926L21 10.1489H0L10.5 0.148926Z' fill='white'/%3E%3C/svg%3E%0A");
+      width: 21px;
+      height: 11px;
+      display: block;
+    }
+  }
+  &__nav {
+    display: flex;
+    border-right: $border-base;
+  }
+  .nav__list {
+    flex-direction: column;
+    padding: 56px;
+    border-left: $border-base;
+    gap: 12px;
+    &:first-child {
+      border: none;
+    }
+    @media ($l-m) {
+      padding: 56px 36px;
+    }
+  }
+  .nav__title {
+    margin: 0 0 12px;
+  }
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 34px;
+    padding: 24px 16px;
+    font-size: 14px;
+    background: #f9f8f7;
+    @media ($l-s) {
+      flex-direction: column-reverse;
+      gap: 12px;
+    }
+  }
+
+  .social__list {
+    display: flex;
+    gap: 24px;
+    @media ($l-s) {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+  }
+  .social__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      flex-shrink: 0;
+      margin: 0 4px 0 0;
+    }
+    @media ($l-s) {
+      padding: 13px;
+      border: $border-base;
+      flex: 0 1 calc(50% - 8px);
+      text-align: center;
+    }
+  }
+  .social__link {
+    text-transform: uppercase;
+    font-size: clamp(0.6875rem, 0.6166rem + 0.3151vw, 0.875rem);
+    font-weight: 500;
+  }
+  &__copy {
+    max-width: 540px;
+    @media ($l-s) {
+      text-align: center;
+    }
+  }
+}
+
+.top {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    @media ($l-m) {
+      flex-direction: column;
+    }
+  }
+  &__heading {
+    max-width: 694px;
+    width: 100%;
+    h1 {
+      margin: 0 0 32px;
+      @media ($t) {
+        margin: 0 0 24px;
+      }
+    }
+    p {
+      line-height: normal;
+    }
+  }
+  &__text {
+    flex: 1;
+    max-width: 514px;
+    @media ($l-m) {
+      max-width: initial;
+    }
+  }
+}
+
+.card {
+  &-container {
+    @media ($t) {
+      padding: 0;
+    }
+  }
+  &-content {
+    @media ($t) {
+      padding: 0 $p-clamp;
+    }
+  }
+  &-list {
+    display: grid;
+  }
+  &-item {
+    border: $border-base;
+    border-right: none;
+    border-bottom: none;
+    transition: $transition-middle;
+    padding: 56px 32px;
+    &:nth-child(2n),
+    &:last-child {
+      border-right: $border-base;
+    }
+    &:last-child,
+    &:nth-last-child(2) {
+      border-bottom: $border-base;
+    }
+    &:hover {
+      background: #f9f8f7;
+      img {
+        scale: 1.1;
+      }
+    }
+  }
+  &-list--two {
+    grid-template-columns: repeat(2, 1fr);
+    @media ($t) {
+      grid-template-columns: 1fr;
+    }
+    .card-item {
+      @media ($t) {
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        padding: 16px;
+        &:last-child {
+          border-bottom: $border-base;
+        }
+      }
+    }
+  }
+  &-list--three {
+    grid-template-columns: repeat(3, 1fr);
+    @media ($l-m) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media ($t) {
+      grid-template-columns: 1fr;
+    }
+    .card-item {
+      border: $border-base !important;
+      &:nth-child(2n) {
+        border-right: none;
+      }
+      &:nth-child(3n) {
+        border-right: $border-base;
+      }
+      &:nth-last-child(3) {
+        border-bottom: $border-base;
+      }
+      @media ($l-m) {
+        &:nth-last-child(3),
+        &:nth-child(3n) {
+          border-bottom: none;
+        }
+        &:nth-child(2n) {
+          border-right: $border-base;
+        }
+        &:nth-last-child(2),
+        &:last-child {
+          border-bottom: $border-base;
+        }
+      }
+      @media ($t) {
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        &:nth-last-child(3),
+        &:nth-child(3n),
+        &:nth-child(2n) {
+          border-right: none;
+          border-bottom: none;
+        }
+        &:last-child {
+          border-bottom: $border-base;
+        }
+      }
+    }
+  }
+  &-title {
+    margin: 0 0 24px;
+    @media ($t) {
+      margin: 0 0 16px;
+    }
+  }
+}
+
+.news {
+  &__item {
+    padding: 75px 32px 40px;
+    @media ($l-m) {
+      &:last-child {
+        display: none;
+      }
+    }
+    @media ($t) {
+      padding: 24px $p-clamp;
+      &:last-child,
+      &:nth-last-child(2) {
+        display: none;
+      }
+    }
+    &:hover {
+      .news__image:after {
+        opacity: 0.7;
+      }
+    }
+  }
+  &__inner {
+    max-width: 456px;
+    margin: 0 auto;
+  }
+  &__image {
+    margin: 0 0 16px;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    transition: $transition-middle;
+    @media ($t) {
+      margin: 0 0 8px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: radial-gradient(rgba(0, 0, 0, 0.4) 20%, #000);
+      transition: $transition-base;
+      opacity: 0;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      transition: $transition-middle;
+    }
+  }
+  &__date {
+    display: block;
+    margin: 0 0 16px;
+    font-size: 14px;
+    @media ($t) {
+      margin: 0 0 8px;
+    }
+  }
+  &__title {
+    display: block;
+    margin: 0 0 8px;
+    color: $c-dark-text;
+    font-size: 20px;
+    font-family: $agora;
+    font-weight: 500;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.4em;
+    height: 2.8em;
+    position: relative;
+    overflow: hidden;
+  }
+  &__announce {
+    margin: 0 0 32px;
+    font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.6em;
+    height: 4.8em;
+    position: relative;
+    overflow: hidden;
+    @media ($t) {
+      margin: 0 0 16px;
+    }
+  }
+}
+
+.rules {
+  &__heading {
+    margin: 0 0 56px;
+    @media ($t) {
+      text-align: center;
+      margin: 0 0 24px;
+    }
+  }
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  padding: 8px 24px;
+  font-style: italic;
+  font-size: clamp(0.75rem, 0.6555rem + 0.4202vw, 1rem);
+  display: block;
+  background: $c-white;
+  @media ($t) {
+    position: static;
+    display: block;
+    padding: 8px 16px;
+    font-style: initial;
+    font-size: 14px;
+    font-weight: 600;
+    color: $c-accent;
+    text-align: center;
+    background: transparent;
+  }
+}
+
+.estates {
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 80px;
+    @media ($l-s) {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0 0 32px;
+    }
+  }
+  &__heading {
+    flex: 1;
+  }
+  &__subscription {
+    max-width: 494px;
+    padding: 0 5%;
+    @media ($l-s) {
+      max-width: 100%;
+      padding: 0;
+    }
+  }
+  &__item {
+    display: flex;
+    margin: 0 0 80px;
+    background: #f9f8f7;
+    &:nth-child(2n) {
+      div:first-child {
+        order: 2;
+        @media ($l-s) {
+          order: initial;
+        }
+      }
+      div:last-child {
+        order: 1;
+        @media ($l-s) {
+          order: initial;
+        }
+      }
+    }
+    &:last-child {
+      margin: 0;
+    }
+    @media ($l-s) {
+      flex-direction: column-reverse;
+      margin: 0 0 32px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    flex: 0 1 100%;
+    a {
+      height: 100%;
+    }
+    picture {
+      width: 100%;
+    }
+    figcaption {
+      position: static;
+      bottom: 8px;
+      right: 8px;
+      padding: 8px 24px;
+      margin: 8px 0 0 0;
+      text-align: right;
+      font-style: italic;
+      font-size: clamp(0.75rem, 0.6555rem + 0.4202vw, 1rem);
+      display: block;
+      background: $c-white;
+      @media ($t) {
+        position: static;
+        display: block;
+        padding: 8px 16px;
+        font-style: initial;
+        font-size: 14px;
+        font-weight: 600;
+        color: $c-accent;
+        text-align: center;
+        background: transparent;
+      }
+    }
+  }
+  &__text {
+    flex: 0 0 36%;
+    padding: 44px 32px 32px;
+    @media ($l-s) {
+      flex: 0 1 100%;
+      padding: 32px $p-clamp;
+    }
+  }
+  &__quoteblock {
+    margin: 0 0 52px;
+    text-align: center;
+    @media ($l-s) {
+      margin: 0 0 32px;
+    }
+  }
+
+  &__name {
+    margin: 0 0 32px;
+    @media ($l-s) {
+      margin: 0 0 12px;
+      text-align: center;
+    }
+  }
+  &__description {
+    margin: 0 0 24px;
+    @media ($l-s) {
+      margin: 0 0 12px;
+    }
+  }
+  &__link {
+    font-size: 20px;
+  }
+}
+
+.infotable {
+  font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
+  &__row {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    margin: 0 0 4px;
+    &:last-child {
+      margin: 0;
+    }
+    @media ($l-m) {
+      flex-direction: column;
+      gap: 4px;
+    }
+    @media ($l-s) {
+      flex-direction: row;
+    }
+  }
+  &__col {
+    &:last-child {
+      text-transform: uppercase;
+      font-weight: 600;
+      line-height: 1.5;
+      font-size: 14px;
+      text-align: right;
+      @media ($l-m) {
+        text-align: initial;
+      }
+    }
+  }
+  a {
+    color: $c-dark-text;
+  }
+}
+
+.mode {
+  padding-top: 0;
+  &__note {
+    padding: 24px 0;
+    background: $c-accent;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    text-transform: uppercase;
+    strong {
+      color: rgba(255, 255, 255, 1);
+    }
+    @media ($t) {
+      padding: 16px 0;
+    }
+  }
+  &__list {
+    display: flex;
+    @media ($l-s) {
+      flex-direction: column;
+    }
+  }
+  &__item {
+    flex: 1;
+    padding: 32px;
+    @media ($l-s) {
+      padding: 16px;
+    }
+  }
+  &__title {
+    margin: 0 0 24px;
+    text-transform: uppercase;
+    font-weight: 700;
+    @media ($l-s) {
+      margin: 0 auto 16px;
+      max-width: 560px;
+    }
+  }
+  &__row,
+  &__row:last-child {
+    @media ($l-s) {
+      margin: 0 auto 4px;
+      max-width: 560px;
+    }
+  }
+  &__col:last-child {
+    @media ($l-s) {
+      flex: 0 1 124px;
+    }
+  }
+}
+
+.ticker {
+  position: relative;
+  overflow: hidden;
+  &__content {
+    display: flex;
+  }
+  &__item {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0 24px;
+    animation: ticker 12s linear infinite;
+    font-size: clamp(0.875rem, 0.8277rem + 0.2101vw, 1rem);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateZ(0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.contacts {
+  padding-bottom: 0;
+  &__item {
+    padding: 32px;
+  }
+  &__heading {
+    margin: 0 0 24px;
+  }
+  &__block {
+    margin: 0 0 24px;
+    &:last-child {
+      margin: 0;
+    }
+  }
+  &__title {
+    margin: 0 0 16px;
+  }
+  &__row {
+    margin: 0 0 4px;
+    &:last-child {
+      margin: 0;
+    }
+    @media ($l-m) {
+      flex-direction: column;
+      gap: 8px;
+      margin: 0 0 16px;
+    }
+    &--mode {
+      @media ($l-m) {
+        flex-direction: row;
+      }
+      @media ($p-s) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.partners {
+  padding: 24px 0;
+  @media ($t) {
+    padding: 24px $p-clamp;
+  }
+  figure,
+  img {
+    height: 100%;
+    width: 100%;
+  }
+  img {
+    object-fit: contain;
+  }
+  &__list {
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__item {
+    flex: 0 0 calc((100% / 6) - 16px);
+    margin: 0 16px 0 0;
+    &:last-child {
+      margin: 0;
+    }
+    @media ($l-m) {
+      flex: 0 0 calc((100% / 5) - 16px);
+    }
+    @media ($l-s) {
+      flex: 0 0 calc((100% / 4) - 16px);
+    }
+    @media ($t) {
+      margin: 0 12px 0 0;
+      flex: 0 0 calc((100% / 3) - 6px);
+    }
+    @media ($p-b) {
+      flex: 0 0 calc((100% / 2) - 6px);
+    }
+  }
+  &__link {
+    background-color: hsl(30, 14%, 97%);
+    display: flex;
+    padding: 11px;
+    height: 114px;
+    width: 100%;
+    transition: $transition-base;
+    &--fill {
+      padding: 0;
+      img {
+        object-fit: cover;
+      }
+    }
+    &:hover {
+      background-color: hsl(30, 14%, 95%);
+    }
+  }
+}
+
+.banner {
+  padding: 0;
+  &__container {
+    @media ($t) {
+      padding: 0;
+    }
+  }
+  &__item {
+    aspect-ratio: 3 / 2;
+    width: 100%;
+    position: relative;
+    @media ($t) {
+      aspect-ratio: 3 / 2;
+    }
+    &--wide {
+      aspect-ratio: 5 / 2;
+      @media ($t) {
+        aspect-ratio: 3 / 2;
+      }
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__slider {
+    position: relative;
+  }
+  &__tools {
+    position: absolute;
+    top: 0;
+    left: 32px;
+    display: flex;
+    width: fit-content;
+    gap: 24px;
+    @media ($t) {
+      inset: initial;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  &__navigation {
+    display: flex;
+  }
+  &__btn {
+    position: relative;
+    inset: initial;
+    width: 70px;
+    height: 70px;
+    background: $c-accent;
+    margin: initial;
+    opacity: 0.9;
+    transition: $transition-base;
+    &::after {
+      font-size: initial;
+      width: 18px;
+      height: 22px;
+      @media ($p-b) {
+        width: 16px;
+        height: 18px;
+      }
+    }
+    &:hover {
+      opacity: 1;
+    }
+    @media ($p-b) {
+      width: 44px;
+      height: 44px;
+    }
+  }
+  &__btnprev {
+    background: $c-white;
+    &::after {
+      content: url("data:image/svg+xml,%3Csvg  viewBox='0 0 18 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.43099e-07 11.2681L18 0.875763L18 21.6604L1.43099e-07 11.2681Z' fill='%23C87D37'/%3E%3C/svg%3E%0A");
+    }
+  }
+  &__btnnext {
+    background: $c-accent;
+    opacity: 1;
+    &::after {
+      content: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 11.2681L-9.78799e-07 21.6604L-7.02746e-08 0.875761L18 11.2681Z' fill='white'/%3E%3C/svg%3E");
+    }
+    &:hover {
+      background: $c-accent-hover;
+    }
+  }
+  &__pagination,
+  .swiper-pagination {
+    position: relative;
+    inset: initial;
+    height: 70px;
+    margin: initial;
+    display: flex;
+    align-items: center;
+    @media ($t) {
+      display: none;
+    }
+  }
+  &__bullet {
+    width: 42px;
+    height: 8px;
+    background: $c-white;
+    margin: 0 16px 0 0;
+    opacity: 0.4;
+    transition: $transition-base;
+    &:last-child {
+      margin: 0;
+    }
+    &--active {
+      opacity: 1;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.events {
+  &__list {
+  }
+  &__item {
+    padding: 54px 0;
+    border-bottom: $border-base;
+    @media ($t) {
+      padding: 32px $p-clamp;
+    }
+    &:hover {
+      .events__image img {
+        filter: grayscale(0);
+        opacity: 1;
+      }
+    }
+    &.open {
+      .events__top {
+        align-items: flex-start;
+      }
+      .events__body {
+        display: block;
+        opacity: 1;
+      }
+      .events__text {
+        max-width: 100%;
+      }
+      .events__image {
+        display: none;
+      }
+      .events__announce {
+        text-overflow: initial;
+        display: block;
+        -webkit-line-clamp: initial;
+        -webkit-box-orient: initial;
+        height: initial;
+        margin: 0 0 8px;
+      }
+    }
+  }
+  &__top {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    @media ($t) {
+      gap: 16px;
+      flex-direction: column;
+    }
+  }
+  &__col {
+    &:first-child {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      flex: 0 0 424px;
+      @media ($t) {
+        flex: auto;
+        gap: 16px;
+        width: 100%;
+      }
+    }
+
+    &:nth-child(2) {
+      align-self: center;
+      margin: 0 auto 0 0;
+    }
+    &:nth-child(3) {
+      flex: 1;
+      max-width: 300px;
+      @media ($l-m) {
+        display: none;
+      }
+    }
+  }
+  &__date {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+    flex: 0 0 90px;
+    @media ($t) {
+      flex: 0 0 68px;
+      gap: 8px;
+    }
+  }
+  &__day,
+  &__month {
+    font-family: $agora;
+    font-weight: 500;
+    color: $c-accent;
+    text-transform: uppercase;
+  }
+  &__day {
+    font-size: clamp(2rem, 1.4328rem + 2.521vw, 3.5rem);
+    line-height: 0.8;
+  }
+
+  &__month {
+    font-size: clamp(0.875rem, 0.8277rem + 0.2101vw, 1rem);
+  }
+  &__note {
+    background: $c-accent;
+    display: block;
+    width: 90%;
+    text-align: center;
+    padding: 4px;
+    color: $c-white;
+    font-size: 12px;
+  }
+  &__location {
+    font-family: $agora;
+    font-weight: 500;
+    color: $c-label;
+    font-size: clamp(0.875rem, 0.8277rem + 0.2101vw, 1rem);
+    margin: 0 0 8px;
+  }
+  &__title {
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.3em;
+    height: 2.6em;
+    position: relative;
+    overflow: hidden;
+    color: $c-dark-text;
+  }
+  &__text {
+    max-width: 416px;
+    @media ($t) {
+      max-width: 100%;
+    }
+  }
+  &__announce {
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.6em;
+    height: 3.2em;
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 8px;
+  }
+  &__more {
+    text-align: center;
+    padding: 32px 0;
+    @media ($t) {
+      padding: 12px 0;
+    }
+  }
+  &__image {
+    figure {
+      height: 170px;
+    }
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      filter: grayscale(1);
+      opacity: 0.2;
+      transition: $transition-middle;
+    }
+  }
+  &__body {
+    display: none;
+    opacity: 0;
+    padding: 32px 0 22px;
+  }
+}
+
+.history {
+  padding: 56px 0 80px;
+  &__content {
+    max-width: 866px;
+    margin: 0 auto;
+  }
+  &__item {
+    display: flex;
+    gap: 24px;
+    margin: 0 0 40px;
+    &:before {
+      display: none;
+    }
+    &:last-child {
+      margin: 0;
+    }
+    @media ($t) {
+      gap: 12px;
+    }
+  }
+  &__year {
+    font-family: $agora;
+    color: $c-accent;
+    font-size: clamp(1rem, 0.8109rem + 0.8403vw, 1.5rem);
+    font-weight: 700;
+    white-space: nowrap;
+    justify-content: flex-end;
+    flex: 0 0 clamp(4.375rem, 3.5714rem + 3.5714vw, 6.5rem);
+    display: flex;
+  }
+  &__text {
+    *:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.plague {
+  padding: 8px 16px;
+  color: $c-accent;
+  text-transform: uppercase;
+  font-size: 12px;
+  background: #f9ead3;
+  font-weight: 700;
+  font-family: $mont;
+  text-align: center;
+}
+
+.pushkincard {
+  background: url("../img/background-1.jpg") center / cover no-repeat;
+  &__content {
+    display: flex;
+    gap: 56px;
+    @media ($l-m) {
+      flex-direction: column;
+    }
+    @media ($t) {
+      gap: 32px;
+    }
+  }
+  &__main {
+    flex: 0 1 67%;
+  }
+  &__banner {
+    margin: 0 0 32px;
+    display: flex;
+    padding: 38px 0 0;
+    max-width: 88%;
+    justify-content: center;
+    margin: 0 auto;
+    @media ($l-s) {
+      max-width: 100%;
+      margin: 0 0 16px;
+    }
+    @media ($p-b) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+  &__pic {
+    display: flex;
+    align-items: flex-end;
+    max-width: 462px;
+    translate: -15% 0;
+    @media ($p-b) {
+      translate: initial;
+    }
+    img {
+      pointer-events: none;
+    }
+  }
+  &__text {
+    translate: -24% 0;
+    @media ($t) {
+      translate: -34% 0;
+    }
+    @media ($p-b) {
+      translate: initial;
+      padding: 0 $p-clamp;
+    }
+  }
+  &__title {
+    span {
+      display: block;
+      font-weight: 700;
+    }
+    .h5 {
+      margin: 0 0 8px 28px;
+      font-size: clamp(1rem, 0.9055rem + 0.4202vw, 1.25rem);
+    }
+    .h2 {
+      margin: 0 0 8px;
+    }
+  }
+  &__subtitle {
+    display: flex;
+    justify-content: flex-end;
+    translate: 16% -100%;
+    font-size: clamp(0.8125rem, 0.6471rem + 0.7353vw, 1.25rem);
+    font-family: $agora;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0 0 16px;
+    color: $c-dark-text;
+    @media ($p-b) {
+      translate: 0 -100%;
+    }
+    @media ($p-s) {
+      translate: 0;
+    }
+  }
+  &__description {
+    font-weight: 700;
+    text-align: center;
+    width: 65%;
+    margin: 0 auto 60px;
+    color: $c-dark-text;
+    @media ($t) {
+      width: 80%;
+      max-width: 564px;
+    }
+  }
+  &__tickets {
+    @media ($t) {
+      padding: 0 $p-clamp;
+    }
+  }
+  &__sidebar {
+    flex: 0 1 33%;
+    @media ($t) {
+      padding: 0 $p-clamp;
+    }
+  }
+  &__about {
+    display: flex;
+    gap: 32px;
+    margin: 0 0 32px;
+    align-items: center;
+    @media ($t) {
+      flex-direction: column;
+      gap: 16px;
+      margin: 0 0 16px;
+      padding: 0 $p-clamp;
+    }
+  }
+  &__btn {
+    max-width: 530px;
+    width: 100%;
+    display: block;
+    padding: 16px 24px;
+  }
+  &__disclaimer {
+    font-style: italic;
+    color: $c-light-text;
+    font-size: 14px;
+    @media ($t) {
+      text-align: center;
+    }
+  }
+}
+
+.tickets {
+  &__list {
+  }
+
+  &__item {
+    display: flex;
+    padding: 32px 0;
+    border-bottom: 1px solid $c-stroke;
+    gap: 20px;
+    justify-content: space-between;
+    &:last-child {
+      border-bottom: none;
+    }
+    @media ($t) {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+  &__estate {
+    width: 25%;
+    @media ($t) {
+      width: fit-content;
+    }
+  }
+  &__discription {
+    width: 50%;
+    color: $c-light-text;
+    @media ($t) {
+      font-size: 16px;
+      width: fit-content;
+      margin: 0 0 16px;
+      text-align: center;
+    }
+  }
+  &__btn {
+    width: fit-content;
+  }
+}
+
+.documents {
+  &__list {
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 36px 0;
+    border-top: 1px solid $c-stroke;
+    @media ($t) {
+      flex-direction: column;
+      gap: 16px;
+      padding: 16px 0;
+    }
+  }
+  &__name {
+    font-size: clamp(1.125rem, 0.7805rem + 0.4202vw, 0.875rem);
+    width: 83%;
+    @media ($t) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    min-width: 17%;
+    justify-content: space-between;
+    @media ($t) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  &__type {
+  }
+  &__download {
+  }
+}
+
+.cost {
+  &__block {
+    padding: 56px 0;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    @media ($l-m) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__heading {
+    margin: 0 0 40px;
+    @media ($t) {
+      text-align: center;
+      margin: 0 0 24px;
+    }
+  }
+  &__title {
+    margin: 0 0 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: clamp(1rem, 0.8277rem + 0.2101vw, 0.875rem);
+    @media ($t) {
+      margin: 0 0 8px;
+    }
+  }
+  &__tickets {
+    display: flex;
+    gap: 48px;
+  }
+  &__ticket {
+    min-width: 30%;
+  }
+  &__category {
+    font-size: clamp(1rem, 0.6555rem + 0.4202vw, 0.75rem);
+    margin: 0 0 8px;
+  }
+  &__price {
+    font-size: 36px;
+    font-family: $agora;
+    color: $c-accent;
+  }
+  &__notprice {
+    font-size: clamp(0.875rem, 0.7027rem + 0.2101vw, 0.75rem);
+    color: $c-light-text;
+    max-width: 236px;
+  }
+  &__text {
+    font-size: clamp(0.875rem, 0.7027rem + 0.2101vw, 0.75rem);
+    color: $c-light-text;
+    max-width: 236px;
+    padding: 16px 0 0;
+  }
+  .documents__item:first-child {
+    padding-top: 0;
+    border-top: none;
+  }
+}
+
+.gosuslugi {
+  &__content {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    @media ($l-s) {
+      flex-direction: column-reverse;
+      gap: 44px;
+    }
+  }
+  &__text {
+    flex: 0 1 41%;
+    max-width: 532px;
+    @media ($l-m) {
+      flex: 0 1 50%;
+    }
+    @media ($l-s) {
+      max-width: 100%;
+    }
+    @media ($t) {
+      padding: 0 $p-clamp;
+    }
+  }
+  &__title {
+    margin: 0 0 32px;
+    @media ($t) {
+      margin: 0 0 24px;
+    }
+  }
+  &__description {
+    font-size: clamp(1rem, 0.9055rem + 0.4202vw, 1.25rem);
+    margin: 0 0 32px;
+    font-weight: 500;
+    @media ($t) {
+      margin: 0 0 24px;
+    }
+  }
+  &__button {
+    max-width: 448px;
+    width: 100%;
+    text-transform: uppercase;
+  }
+  &__image {
+    flex: 1;
+  }
+}
+
+.schema {
+  &__list {
+    margin: 0 auto;
+  }
+  &__item {
+    margin: 0 0 56px;
+    &:last-child {
+      margin: 0;
+    }
+    @media ($t) {
+      margin: 0 0 24px;
+    }
+  }
+}
+
+.requisites {
+  &__list {
+  }
+  &__item {
+    border: none;
+    border-bottom: 1px solid $c-stroke;
+    padding: 32px 0;
+    &:last-child {
+      border-bottom: none;
+    }
+    @media ($t) {
+      padding: 24px 0;
+    }
+  }
+  &__content {
+    max-width: 864px;
+    margin: 0 auto;
+  }
+}
+
+.feedback {
+  background: url("../img/background-1.jpg") center / cover no-repeat;
+  &__heading {
+    margin: 0 0 24px;
+    text-align: center;
+  }
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 24px;
+    @media ($l-s) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media ($t) {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+  &__fieldset {
+    &--spanrows {
+      grid-row: span 2;
+    }
+  }
+  &__label {
+    display: block;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  &__input,
+  input[type="text"],
+  &__textarea,
+  textarea {
+    padding: 16px;
+    background-color: $c-white;
+    border: 1px solid $c-stroke;
+    box-shadow: none;
+    outline: none;
+    width: 100%;
+  }
+  &__textarea,
+  textarea {
+    height: calc(100% - 28px);
+    resize: none;
+  }
+  &__fieldset:has(#feedback-name) {
+    order: 1;
+  }
+  &__fieldset:has(#feedback-number) {
+    order: 2;
+  }
+  &__fieldset:has(#feedback-text) {
+    order: 3;
+    @media ($l-s) {
+      order: 4;
+    }
+    @media ($t) {
+      order: 5;
+    }
+  }
+  &__fieldset:has(#feedback-mail) {
+    order: 4;
+  }
+  &__fieldset:has(#feedback-theme) {
+    order: 5;
+  }
+  &__submit {
+    grid-column: span 3;
+    width: 100%;
+    padding: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: $mont;
+    font-size: 14px;
+    order: 10;
+    @media ($l-s) {
+      grid-column: span 2;
+    }
+  }
+}
+
+.swiper--nav-bottom {
+  .banner__tools {
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    @media ($t) {
+      left: 32px;
+      transform: initial;
+    }
+  }
+}
+
+/* style Anton */
+
+main.news-detail {
+  @media (min-width: 1200px) {
+    .section-heading--center > * {
+      max-width: 866px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.section.page-top {
+  & + .section-content {
+    padding-top: 0;
+  }
+}
+
+.date-element {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 260px;
+  margin: 24px auto 0;
+
+  @media ($l-m) {
+    margin: 16px auto 0;
+    max-width: 230px;
+  }
+
+  &__visitor-counter {
+    align-self: center;
+  }
+
+  &__date {
+    font-family: $agora;
+    font-weight: 500;
+    line-height: 120%;
+    color: #c87d37;
+    align-self: center;
+
+    & > * {
+      &:not(:last-child) {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  &__day,
+  &__year {
+    font-size: 24px;
+
+    @media ($l-m) {
+      font-size: 18px;
+    }
+  }
+
+  &__month {
+    font-size: 16px;
+
+    @media ($l-m) {
+      font-size: 14px;
+    }
+  }
+}
+
+.visitor-counter {
+  display: flex;
+  align-content: center;
+  align-items: center;
+
+  &__icon {
+    align-self: center;
+    display: flex;
+    margin-right: 5px;
+
+    svg {
+      align-self: center;
+    }
+  }
+
+  &__count {
+    align-self: center;
+    font-family: $agora;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #4a565e;
+
+    @media ($l-m) {
+      font-size: 14px;
+    }
+  }
+}
+
+/* style Anton END */
+
+.gallery {
+  &__container {
+    @media ($t) {
+      padding: 0;
+    }
+  }
+  &__banner {
+    margin: 0 0 56px;
+    @media ($t) {
+      margin: 0 0 24px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  &__item {
+    flex: 0 1 calc(100% / 4 - 8px);
+    overflow: hidden;
+    @media ($t) {
+      flex: 0 1 calc(100% / 3 - 8px);
+    }
+  }
+  &__link {
+    img {
+      aspect-ratio: 3/2;
+    }
+  }
+}
+
+.swiper--nav-gallery {
+  .banner__tools {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: auto;
+    z-index: 1;
+    gap: 0;
+  }
+}
+
+.estate {
+  margin: -26px 0 0 0;
+  background-position: center top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  @media ($l-s) {
+    background-size: 150%;
+    margin: 0;
+  }
+  p {
+    font-size: clamp(0.75rem, 0.7027rem + 0.2101vw, 0.875rem);
+    line-height: 2;
+  }
+  figcaption {
+    text-align: left;
+    font-weight: 400;
+    font-style: italic;
+    font-family: "Agora", serif;
+    font-size: clamp(0.75rem, 0.6555rem + 0.4202vw, 1rem);
+    margin: 16px 0 0;
+  }
+  h1 {
+    font-size: clamp(1.5rem, 0.7437rem + 3.3613vw, 3.5rem);
+  }
+  h2 {
+    text-transform: initial;
+    margin: 0 0 24px;
+    @media ($l-s) {
+      margin: 0 0 16px;
+    }
+  }
+
+  cite {
+    font-size: clamp(0.75rem, 0.6555rem + 0.4202vw, 1rem);
+    font-style: italic;
+    font-weight: 500;
+    display: inline-block;
+    margin: 0 0 24px;
+    @media ($l-s) {
+      margin: 0 0 16px;
+    }
+  }
+  blockquote p {
+    font-family: $agora;
+    font-size: clamp(1rem, 0.9527rem + 0.2101vw, 1.125rem);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  figure.rtl {
+    picture {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  a.btn-primary {
+    min-width: 214px;
+    font-size: 18px;
+  }
+  .gallery-image img {
+    @media ($l-s) {
+      margin: 0 auto;
+    }
+  }
+  .c-accent {
+    font-weight: 500;
+  }
+  .breadcrumps {
+    justify-content: flex-start;
+    margin: 0 0 18px;
+    @media ($l-s) {
+      margin: 0 0 14px;
+      justify-content: center;
+    }
+  }
+  &__row:first-child {
+    display: flex;
+    gap: 60px;
+    margin: 0 0 90px;
+    padding: 50px 0 0 0;
+    justify-content: space-between;
+    @media ($l-s) {
+      flex-direction: column;
+      margin: 0 0 40px;
+      gap: 40px;
+    }
+    h1 {
+      margin: 0 0 68px;
+      @media ($l-s) {
+        text-align: center;
+        margin: 0 0 36px;
+      }
+    }
+    h2 {
+      margin: 0 0 24px;
+      @media ($l-s) {
+        margin: 0 0 10px;
+      }
+    }
+    div:nth-child(1) {
+      flex: 0 1 43%;
+    }
+    div:nth-child(2) {
+      flex: 0 1 54%;
+      @media ($l-s) {
+        transform: scale(1.1);
+        margin: 4% 0;
+      }
+    }
+  }
+}
+
+.pushkincard-page {
+  .pushkincard {
+    background: none;
+    &__banner {
+      background: url("../img/background-1.jpg") center / cover no-repeat;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 0 0 32px;
+    }
+  }
+}
+
+.shahmatovo-page {
+  .estate {
+    background-image: url("../img/estates/shahmatovo-background.png");
+    &__row {
+      &:nth-child(2) {
+        max-width: 1172px;
+        margin: 0 auto 100px;
+        @media ($l-s) {
+          margin: 0 auto 64px;
+        }
+        span {
+          display: inline-block;
+          @media ($l-s) {
+            display: block;
+            text-align: center;
+          }
+          &:nth-child(1) {
+            font-style: italic;
+            font-weight: 500;
+            transform: translateY(-14px);
+            margin: 0 30px 0 0;
+            @media ($l-s) {
+              transform: initial;
+              margin: 0 0 16px;
+            }
+          }
+          &:nth-child(2) {
+            font-size: clamp(1rem, 0.0546rem + 4.2017vw, 3.5rem);
+          }
+          &:nth-child(3) {
+            display: block;
+            font-style: italic;
+            max-width: 614px;
+            margin: 24px 0 0 auto;
+            line-height: 2;
+            @media ($l-s) {
+              margin: 24px 0 0;
+            }
+          }
+        }
+      }
+      &:nth-child(3) {
+        display: flex;
+        gap: 60px;
+        margin: 0 0 42px;
+        align-items: center;
+        @media ($l-s) {
+          flex-direction: column-reverse;
+          gap: 24px;
+          margin: 0 0 42px;
+        }
+        div:nth-child(1) {
+          flex: 0 1 49%;
+          padding: 0 3%;
+          position: relative;
+          @media ($l-s) {
+            padding: 0;
+          }
+          figure {
+            margin: 0 0 30px -8px;
+            @media ($l-s) {
+              margin: 0 0 20px -8px;
+              max-width: 97px;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            top: 7%;
+            left: 0;
+            background-color: #f9f8f7;
+            width: 100%;
+            height: 646px;
+            z-index: -1;
+            @media ($l-s) {
+              width: 150%;
+              left: -25%;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 36%;
+          margin: 82px 0 0;
+          position: relative;
+          @media ($l-s) {
+            margin: 0;
+          }
+          blockquote {
+            padding: 0 0 5%;
+            text-align: center;
+          }
+          p {
+            font-weight: 500;
+            line-height: 1.5;
+          }
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 130px;
+            height: 176px;
+            background: url("../img/estates/decorate-pen-01.png") 100% / contain no-repeat;
+            @media ($l-s) {
+              width: 79px;
+              height: 107px;
+            }
+          }
+        }
+      }
+      &:nth-child(4) {
+        display: flex;
+        gap: 66px;
+        align-items: center;
+        margin: 0 0 170px;
+        @media ($l-s) {
+          flex-direction: column;
+          gap: 48px;
+          margin: 0 0 88px;
+        }
+        div:nth-child(1) {
+          flex: 0 1 58%;
+          padding: 0 0 0 5%;
+          @media ($l-s) {
+            transform: scale(1.1);
+            margin: 4% 0;
+            padding: 0;
+          }
+          figcaption {
+            @media ($l-s) {
+              padding: 0 5%;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 26%;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 200%;
+            height: 130%;
+            left: -80%;
+            bottom: -19%;
+            background: #f9f8f7;
+            z-index: -1;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            right: -18%;
+            bottom: -140px;
+            width: 187px;
+            height: 140px;
+            background: url("../img/estates/decorate-museum.png") 100% / contain no-repeat;
+            @media ($l-s) {
+              width: 101px;
+              height: 76px;
+              right: 0;
+              bottom: -37%;
+            }
+          }
+        }
+      }
+      &:nth-child(5) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0 32px;
+        padding: 0 3%;
+        margin: 0 0 100px;
+        @media ($l-s) {
+          padding: 0;
+          flex-direction: column;
+          margin: 0 0 32px;
+        }
+        div:nth-child(1) {
+          flex: 0 0 100%;
+          h2 {
+            position: relative;
+            width: fit-content;
+            &::after {
+              content: "";
+              position: absolute;
+              right: -38px;
+              bottom: -10px;
+              background: url("../img/estates/decorate-arrow.svg") 100% / contain no-repeat;
+              width: 50px;
+              height: 58px;
+              display: block;
+              margin: 18px 0 0;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 45%;
+        }
+        div:nth-child(3) {
+          flex: 0 1 49%;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            background: url("../img/estates/decorate-tree-01.png") 100% / contain no-repeat;
+            width: 429px;
+            height: 474px;
+            right: 0;
+            top: -50%;
+            @media ($l-s) {
+              width: 313px;
+              height: 346px;
+              right: -20%;
+              top: auto;
+              bottom: -20%;
+            }
+          }
+        }
+      }
+      &:nth-child(6) {
+        margin: 0 0 174px;
+        @media ($l-s) {
+          margin: 0 0 64px;
+        }
+        .gallery {
+          display: flex;
+          flex-direction: row;
+          gap: 16px;
+          width: 100%;
+          margin: 0 0 26px;
+          @media ($l-s) {
+            gap: 8px;
+          }
+        }
+        a {
+          flex: 0 1 33.333%;
+          margin: 0 0 18px;
+          min-width: 212px;
+          @media ($l-s) {
+            margin: 0 0 4px;
+          }
+        }
+        img {
+          aspect-ratio: 3 / 2;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      &:nth-child(7) {
+        display: flex;
+        gap: 32px;
+        padding: 0 2%;
+        justify-content: space-between;
+        margin: 0 0 112px;
+        @media ($l-s) {
+          flex-direction: column;
+          gap: 64px;
+          margin: 0 0 64px;
+        }
+        cite {
+          font-weight: 500;
+          @media ($l-s) {
+          }
+        }
+        p {
+          line-height: 1.6;
+        }
+        div:nth-child(1) {
+          flex: 0 1 43%;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            right: -7%;
+            top: -13%;
+            display: block;
+            width: 181px;
+            height: 227px;
+            background: url("../img/estates/decorate-tree-03.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 137px;
+              height: 173px;
+              right: -3%;
+              top: -7%;
+            }
+          }
+          figure {
+            margin: -24px 0 0;
+            @media ($l-s) {
+              margin: -12px -12px 0 auto;
+              max-width: 78px;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 41%;
+          position: relative;
+          @media ($l-s) {
+            text-align: center;
+          }
+          figure {
+            @media ($l-s) {
+              max-width: 92px;
+              margin: 16px auto 0;
+            }
+          }
+          &::after {
+            content: "";
+            background: url("../img/estates/decorate-pen-02.png") center / contain no-repeat;
+            display: block;
+            width: 130px;
+            height: 176px;
+            position: absolute;
+            right: -10%;
+            bottom: 10%;
+            @media ($l-s) {
+              width: 56px;
+              height: 77px;
+              right: 0;
+            }
+          }
+        }
+      }
+      &:nth-child(8) {
+        margin: 0 0 80px;
+        @media ($l-s) {
+          margin: 0 0 32px;
+        }
+        .estate__col:nth-child(1) {
+          display: flex;
+          gap: 16px;
+          margin: 0 0 26px;
+          @media ($l-s) {
+            flex-direction: column;
+            margin: 0 0 16px;
+            gap: 4px;
+          }
+          & > span {
+            text-transform: uppercase;
+            text-align: right;
+            margin: 10px 0 0;
+            color: $c-light-text;
+            font-size: clamp(0.875rem, 0.7332rem + 0.6303vw, 1.25rem);
+            display: inline-block;
+            max-width: 160px;
+            @media ($l-s) {
+              text-align: left;
+              margin: 0;
+              max-width: 100%;
+            }
+          }
+          h2 {
+            margin: 0;
+          }
+        }
+        .estate__col:nth-child(2) {
+          .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin: 0 0 16px;
+            @media ($l-s) {
+              margin: 0 0 26px;
+              display: flex;
+              gap: 8px;
+            }
+            & > div {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              max-width: 256px;
+              margin: 24px auto 0;
+              figure {
+                margin: -24px 0 0;
+                position: relative;
+                z-index: -1;
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                left: -100%;
+                bottom: -25%;
+                display: block;
+                width: 632px;
+                height: 316px;
+                background: url("../img/estates/decorate-pic-01.png") 100% / contain no-repeat;
+                z-index: -1;
+              }
+            }
+          }
+          figure {
+            @media ($l-s) {
+              min-width: 202px;
+            }
+          }
+          .gallery-image img {
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
+          }
+        }
+        .estate__col:nth-child(3) {
+          div {
+            position: relative;
+            p {
+              max-width: 85%;
+              margin: 0 0 20px;
+            }
+            figure {
+              position: absolute;
+              bottom: 50px;
+              right: 5%;
+              max-width: 60px;
+              margin: -12px 0 0 auto;
+            }
+            a.btn {
+              display: block;
+              @media ($l-s) {
+                width: 100%;
+                max-width: 360px;
+                margin: 0 auto;
+              }
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              right: 0;
+              bottom: -40%;
+              display: block;
+              width: 327px;
+              height: 164px;
+              background: url("../img/estates/decorate-pic-01.png") 100% / contain no-repeat;
+              z-index: -1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.tarakanovo-page {
+  .estate {
+    background-image: url("../img/estates/tarakanovo-background.png");
+    &__row {
+      &:nth-child(1) {
+      }
+      &:nth-child(2) {
+        display: flex;
+        gap: 34px;
+        justify-content: space-between;
+        margin: 0 0 120px;
+        @media ($l-s) {
+          flex-direction: column;
+          gap: 12px;
+          margin: 0 0 64px;
+        }
+        div:nth-child(1) {
+          flex: 0 1 42%;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            left: -27%;
+            bottom: -9%;
+            display: block;
+            width: 224px;
+            height: 366px;
+            background: url("../img/estates/decorate-tree-02.png") 200% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 102px;
+              height: 168px;
+              left: auto;
+              bottom: auto;
+              top: -5%;
+              right: 0;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 49%;
+          figure {
+            @media ($l-s) {
+              max-width: 102px;
+              margin: -12px 0 0 auto;
+            }
+          }
+        }
+      }
+      &:nth-child(3) {
+        max-width: 1098px;
+        position: relative;
+        margin: 0 auto 106px;
+        @media ($l-s) {
+          text-align: center;
+          margin: 0 auto 64px;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          bottom: -20%;
+          display: block;
+          width: 130px;
+          height: 176px;
+          background: url("../img/estates/decorate-pen-01.png") 100% / contain no-repeat;
+          z-index: -1;
+          @media ($l-s) {
+            width: 79px;
+            height: 107px;
+          }
+        }
+        cite {
+          margin: 0 0 20px;
+        }
+      }
+      &:nth-child(4) {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+        margin: 0 0 80px;
+        @media ($l-s) {
+          flex-direction: column;
+          gap: 48px;
+          margin: 0 0 50px;
+        }
+        figcaption {
+          margin: 20px 0 0;
+          @media ($l-s) {
+            margin: 8px 0 0;
+            padding: 0 5%;
+          }
+        }
+        div:nth-child(1) {
+          flex: 0 1 61%;
+          @media ($l-s) {
+            transform: scale(1.1);
+            margin: 4% 0;
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 32%;
+          position: relative;
+          figure {
+            margin: -24px 0 0 0;
+            @media ($l-s) {
+              margin: -12px 0 0 auto;
+              max-width: 88px;
+            }
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: -3%;
+            bottom: 7%;
+            display: block;
+            width: 180%;
+            height: 100%;
+            background: #f9f8f7;
+            z-index: -1;
+            @media ($l-s) {
+              right: -20%;
+              bottom: 5%;
+            }
+          }
+        }
+      }
+      &:nth-child(5) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0 32px;
+        margin: 0 0 70px;
+        @media ($l-s) {
+          flex-direction: column;
+          margin: 0 0 64px;
+        }
+        div:nth-child(1) {
+          flex: 0 0 100%;
+        }
+        div:nth-child(2) {
+          flex: 0 1 calc(49% - 32px / 2);
+          position: relative;
+          figure {
+            @media ($l-s) {
+              margin: -12px 0 0 auto;
+              max-width: 63px;
+            }
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: -4%;
+            bottom: 0;
+            display: block;
+            width: 143px;
+            height: 253px;
+            background: url("../img/estates/decorate-tree-02.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 81px;
+              height: 145px;
+              bottom: auto;
+              top: -18%;
+            }
+          }
+        }
+        div:nth-child(3) {
+          flex: 0 1 48%;
+        }
+      }
+      &:nth-child(6) {
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+        max-width: 1140px;
+        margin: 0 auto 180px;
+        @media ($l-s) {
+          flex-direction: column;
+          margin: 0 auto 64px;
+          gap: 64px;
+        }
+        figcaption {
+          @media ($l-s) {
+            padding: 0 5%;
+          }
+        }
+        div:nth-child(1) {
+          margin: 60px 0 0;
+          flex: 0 1 38%;
+          position: relative;
+          @media ($l-s) {
+            text-align: center;
+            margin: 0;
+          }
+          figure {
+            @media ($l-s) {
+              max-width: 106px;
+              margin: 12px auto 0;
+            }
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            left: -27%;
+            bottom: -13%;
+            display: block;
+            width: 632px;
+            height: 316px;
+            background: url("../img/estates/decorate-pic-01.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 360px;
+              height: 180px;
+              left: auto;
+              right: -3%;
+              bottom: -5%;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 46%;
+          @media ($l-s) {
+            transform: scale(1.1);
+            margin: 4% 0;
+          }
+        }
+      }
+      &:nth-child(7) {
+        display: flex;
+        gap: 60px;
+        margin: 0 0 80px;
+        @media ($l-s) {
+          flex-direction: column;
+          margin: 0 auto 32px;
+          gap: 40px;
+        }
+        figcaption {
+          margin: 30px 0 0 8%;
+          @media ($l-s) {
+            margin: 16px 0;
+            padding: 0 5%;
+          }
+        }
+        div:nth-child(1) {
+          flex: 0 0 53%;
+          margin: 30px 0 0;
+          @media ($l-s) {
+            transform: scale(1.1);
+            margin: 4% 0;
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 47%;
+          position: relative;
+          a.btn {
+            display: block;
+            @media ($l-s) {
+              width: 100%;
+              max-width: 360px;
+              margin: 0 auto;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            right: -5%;
+            bottom: -5%;
+            display: block;
+            width: 140%;
+            height: 110%;
+            background: #f9f8f7;
+            z-index: -1;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: -14%;
+            bottom: 0;
+            display: block;
+            width: 181px;
+            height: 227px;
+            background: url("../img/estates/decorate-tree-03.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 114px;
+              height: 144px;
+              right: 0;
+              bottom: -5%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.boblovo-page {
+  .estate {
+    background-image: url("../img/estates/boblovo-background.png");
+    &__row {
+      &:nth-child(1) {
+      }
+      &:nth-child(2) {
+        display: flex;
+        gap: 60px;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 0 180px;
+        @media ($l-s) {
+          flex-direction: column;
+          gap: 40px;
+          margin: 0 0 64px;
+        }
+        h2 {
+          position: relative;
+          width: fit-content;
+          &::after {
+            content: "";
+            position: absolute;
+            right: -38px;
+            bottom: -10px;
+            background: url("../img/estates/decorate-arrow.svg") 100% / contain no-repeat;
+            width: 50px;
+            height: 58px;
+            display: block;
+            margin: 18px 0 0;
+          }
+        }
+        cite {
+          margin: 0 0 24px;
+        }
+        div:nth-child(1) {
+          flex: 0 1 38%;
+        }
+        div:nth-child(2) {
+          flex: 0 1 47%;
+          position: relative;
+          @media ($l-s) {
+            text-align: center;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: -5%;
+            bottom: -10%;
+            display: block;
+            width: 130px;
+            height: 176px;
+            background: url("../img/estates/decorate-pen-01.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 79px;
+              height: 107px;
+              right: 0;
+            }
+          }
+        }
+      }
+      &:nth-child(3) {
+        display: flex;
+        gap: 60px;
+        margin: 0 0 150px;
+        @media ($l-s) {
+          flex-direction: column;
+          gap: 48px;
+          margin: 0 0 50px;
+        }
+        div:nth-child(1) {
+          flex: 0 0 61%;
+          position: relative;
+          @media ($l-s) {
+            transform: scale(1.1);
+            margin: 4% 0;
+          }
+          figcaption {
+            padding: 0 5%;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            left: -18%;
+            top: -20%;
+            display: block;
+            width: 429px;
+            height: 474px;
+            background: url("../img/estates/decorate-tree-01.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 194px;
+              height: 216px;
+              left: -10%;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 0 32%;
+          position: relative;
+          figure {
+            margin: -24px 0 0;
+            @media ($l-s) {
+              margin: -12px 0 0 auto;
+              max-width: 88px;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            background: #f9f8f7;
+            display: block;
+            width: 180%;
+            height: 115%;
+            z-index: -1;
+            right: -10%;
+            top: -6%;
+            @media ($l-s) {
+              top: -4%;
+              height: 100%;
+            }
+          }
+        }
+      }
+      &:nth-child(4) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0 60px;
+        margin: 0 0 72px;
+        @media ($l-s) {
+          flex-direction: column;
+          margin: 0 0 24px;
+        }
+        div:nth-child(1) {
+          flex: 0 0 100%;
+        }
+        div:nth-child(2) {
+          flex: 0 0 50%;
+          position: relative;
+          @media ($l-s) {
+            margin: 0 0 14px;
+          }
+          figure {
+            margin: -24px -50px 0;
+            @media ($l-s) {
+              margin: -12px 0 0 auto;
+              max-width: 81px;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            right: -17%;
+            bottom: 0;
+            display: block;
+            width: 295px;
+            height: 376px;
+            background: url("../img/estates/decorate-tree-03.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 121px;
+              height: 153px;
+              right: -5%;
+            }
+          }
+        }
+        div:nth-child(3) {
+          flex: 0 0 36%;
+          @media ($l-s) {
+            text-align: center;
+          }
+        }
+      }
+      &:nth-child(5) {
+        margin: 0 0 124px;
+        @media ($l-s) {
+          margin: 0 0 64px;
+        }
+        .guest-gallery {
+          display: flex;
+          gap: 18px;
+          justify-content: space-between;
+          margin: 0 0 26px;
+        }
+        figure {
+          width: 202px;
+        }
+        img {
+          aspect-ratio: 4 / 5;
+          object-fit: cover;
+          width: 100%;
+          filter: grayscale(1);
+        }
+      }
+      &:nth-child(6) {
+        display: flex;
+        gap: 5%;
+        align-items: center;
+        margin: 0 0 118px;
+        @media ($l-s) {
+          flex-direction: column;
+          margin: 0 0 64px;
+        }
+        div:nth-child(1) {
+          flex: 0 1 39%;
+          padding: 0 5%;
+          position: relative;
+          @media ($l-s) {
+            padding: 0;
+            margin: 0 0 24px;
+          }
+          figure {
+            @media ($l-s) {
+              margin: -12px 0 0 auto;
+              max-width: 79px;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 150%;
+            height: 100%;
+            background: #f9f8f7;
+            top: -5%;
+            left: -5%;
+            z-index: -1;
+            @media ($l-s) {
+              height: 150%;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 61%;
+          figcaption {
+            @media ($l-s) {
+              padding: 0 5%;
+            }
+          }
+          @media ($l-s) {
+            transform: scale(1.1);
+            margin: 4% 0;
+          }
+        }
+      }
+      &:nth-child(7) {
+        display: flex;
+        margin: 0 0 114px;
+        @media ($l-s) {
+          flex-direction: column;
+          gap: 8px;
+          margin: 0 0 40px;
+        }
+        div:nth-child(1) {
+          flex: 0 1 50%;
+          padding: 24px 56px 0 32px;
+          position: relative;
+          @media ($l-s) {
+            padding: 0;
+          }
+          figure {
+            margin: -24px 30% 0;
+            @media ($l-s) {
+              margin: -12px 0 0 auto;
+              max-width: 79px;
+            }
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: -15%;
+            bottom: -6%;
+            display: block;
+            width: 350px;
+            height: 288px;
+            background: url("../img/estates/decorate-pic-02.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              right: -32%;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 1 45%;
+          figcaption {
+            @media ($l-s) {
+              padding: 0 5%;
+            }
+          }
+          @media ($l-s) {
+            transform: scale(1.1);
+            margin: 4% 0;
+          }
+        }
+      }
+      &:nth-child(8) {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+        margin: 0 0 80px;
+        @media ($l-s) {
+          flex-direction: column;
+          margin: 0 0 32px;
+          gap: 40px;
+        }
+        & > div:nth-child(1) {
+          flex: 0 1 67%;
+          figcaption {
+            @media ($l-s) {
+              padding: 0 5%;
+            }
+          }
+          @media ($l-s) {
+            transform: scale(1.1);
+            margin: 4% 0;
+          }
+        }
+        & > div:nth-child(2) {
+          flex: 0 1 18%;
+          position: relative;
+          div {
+            margin: 0 0 20px;
+          }
+          p {
+            @media ($l-s) {
+              max-width: 85%;
+            }
+          }
+          figure {
+            margin: -20px -24px 0;
+            position: relative;
+            z-index: -1;
+            @media ($l-s) {
+              position: absolute;
+              bottom: 50px;
+              right: 0;
+              max-width: 60px;
+              margin: -12px 0 0 auto;
+            }
+          }
+          a.btn {
+            display: block;
+            @media ($l-s) {
+              width: 100%;
+              max-width: 360px;
+              margin: 12px auto 0;
+            }
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            left: -110%;
+            bottom: -10%;
+            display: block;
+            width: 632px;
+            height: 316px;
+            background: url("../img/estates/decorate-pic-01.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              left: auto;
+              right: 0;
+              bottom: -20%;
+              width: 360px;
+              height: 182px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.history-page {
+  .estate {
+    background-image: url("../img/estates/history-background.png");
+    &__row {
+      &:nth-child(1) {
+        gap: 5%;
+        justify-content: initial;
+        div:nth-child(2) {
+          margin: 34px 0 0;
+          flex: 0 1 44%;
+          @media ($l-s) {
+            transform: initial;
+            margin: 0;
+          }
+        }
+      }
+      &:nth-child(2) {
+        display: flex;
+        gap: 60px;
+        margin: 0 0 120px;
+        padding: 0 5%;
+        @media ($l-s) {
+          flex-direction: column-reverse;
+          gap: 64px;
+          padding: 0;
+          margin: 0 0 50px;
+        }
+        div:nth-child(1) {
+          flex: 0 0 64%;
+          margin: 25px 0 0;
+          position: relative;
+          @media ($l-s) {
+            margin: 0;
+          }
+          & > p {
+            max-width: 600px;
+            @media ($l-s) {
+              margin: 0 0 48px;
+            }
+          }
+          a {
+            display: block;
+            @media ($l-s) {
+              transform: scale(1.1);
+              margin: 4% 0 calc(4% + 24px);
+            }
+          }
+          figure {
+            height: initial;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 80%;
+            background: #f9f8f7;
+            left: -9%;
+            top: -5%;
+            z-index: -1;
+            @media ($l-s) {
+              width: 150%;
+              left: -20%;
+              top: -3%;
+              height: 100%;
+            }
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: 15%;
+            top: -2%;
+            display: block;
+            width: 197px;
+            height: 215px;
+            background: url("../img/estates/decorate-tree-01.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 143px;
+              height: 156px;
+              right: -5%;
+              top: 2%;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 0 34%;
+          @media ($l-s) {
+            text-align: center;
+          }
+          blockquote {
+            margin: 0 0 112px;
+            position: relative;
+            @media ($l-s) {
+              margin: 0;
+            }
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              width: 130px;
+              height: 176px;
+              background: url("../img/estates/decorate-pen-01.png") 100% / contain no-repeat;
+              @media ($l-s) {
+                width: 70px;
+                height: 95px;
+                bottom: -7%;
+              }
+            }
+          }
+          cite {
+            margin: 0 0 16px;
+          }
+          blockquote > p {
+            line-height: 1.6;
+          }
+          div {
+            position: relative;
+            &::before {
+              content: "";
+              position: absolute;
+              display: block;
+              width: 210%;
+              height: 130%;
+              background: #f9f8f7;
+              right: -8%;
+              top: -20%;
+              z-index: -1;
+            }
+          }
+        }
+      }
+      &:nth-child(3) {
+        display: flex;
+        gap: 60px;
+        margin: 0 0 198px;
+        @media ($l-s) {
+          flex-direction: column;
+          gap: 38px;
+          margin: 0 0 56px;
+        }
+        div:nth-child(1) {
+          flex: 0 0 49%;
+          position: relative;
+          figure {
+            margin: -24px 0 0;
+            @media ($l-s) {
+              margin: -12px 0 0 auto;
+              max-width: 70px;
+            }
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 9%;
+            display: block;
+            width: 143px;
+            height: 253px;
+            background: url("../img/estates/decorate-tree-02.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 105px;
+              height: 186px;
+              bottom: 0;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 0 41%;
+          text-align: center;
+          padding: 0 2%;
+          p {
+            line-height: 1.6;
+          }
+        }
+      }
+      &:nth-child(4) {
+        display: flex;
+        gap: 60px;
+        margin: 0 0 70px;
+        @media ($l-s) {
+          flex-direction: column-reverse;
+          gap: 38px;
+          margin: 0 0 64px;
+        }
+        & > div:nth-child(1) {
+          flex: 0 0 53%;
+          position: relative;
+          figcaption {
+            padding: 0 5%;
+          }
+          a {
+            display: block;
+            @media ($l-s) {
+              transform: scale(1.1);
+              margin: -32px 0 calc(4% + 40px);
+            }
+          }
+          blockquote {
+            text-align: center;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            left: -15%;
+            top: -15%;
+            display: block;
+            width: 429px;
+            height: 474px;
+            background: url("../img/estates/decorate-tree-01.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              display: none;
+            }
+          }
+        }
+        & > div:nth-child(2) {
+          flex: 0 0 35%;
+          position: relative;
+          div {
+            margin: 0 0 46px;
+            @media ($l-s) {
+              margin: 0;
+            }
+            figure {
+              margin: -24px 0 0;
+              @media ($l-s) {
+                max-width: 88px;
+                margin: 0 0 0 auto;
+              }
+            }
+            &::before {
+              content: "";
+              position: absolute;
+              display: block;
+              width: 150%;
+              height: 115%;
+              background: #f9f8f7;
+              left: -28%;
+              top: -10%;
+              z-index: -1;
+              @media ($l-s) {
+                top: -4%;
+                height: 150%;
+              }
+            }
+          }
+          blockquote {
+            text-align: center;
+          }
+        }
+      }
+      &:nth-child(5) {
+        position: relative;
+        max-width: 972px;
+        margin: 0 auto 105px;
+        @media ($l-s) {
+          text-align: center;
+          margin: 0 auto 42px;
+        }
+        p {
+          font-size: clamp(1rem, 0.8109rem + 0.8403vw, 1.5rem);
+          @media ($l-s) {
+            text-align: left;
+          }
+        }
+        figure {
+          margin: -24px 0 0;
+          @media ($l-s) {
+            margin: -24px 0 0 auto;
+            max-width: 106px;
+          }
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          right: -7%;
+          top: 0;
+          display: block;
+          width: 392px;
+          height: 196px;
+          background: url("../img/estates/decorate-pic-01.png") 100% / contain no-repeat;
+          z-index: -1;
+          @media ($l-s) {
+            width: 306px;
+            height: 152px;
+            right: 0;
+            top: auto;
+            bottom: 3%;
+          }
+        }
+      }
+      &:nth-child(6) {
+        display: flex;
+        gap: 5%;
+        margin: 0 0 120px;
+        @media ($l-s) {
+          gap: 16px;
+          flex-direction: column;
+          margin: 0 0 48px;
+        }
+        div:nth-child(1) {
+          flex: 0 0 42%;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            left: -14%;
+            top: -13%;
+            display: block;
+            width: 181px;
+            height: 227px;
+            background: url("../img/estates/decorate-tree-03.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 97px;
+              height: 121px;
+              left: -8%;
+              top: -5%;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 0 49%;
+          figcaption {
+            @media ($l-s) {
+              padding: 0 5%;
+            }
+          }
+          @media ($l-s) {
+            transform: scale(1.1);
+            margin: 4% 0;
+          }
+        }
+      }
+      &:nth-child(7) {
+        display: flex;
+        gap: 6%;
+        margin: 0 0 148px;
+        @media ($l-s) {
+          gap: 48px;
+          flex-direction: column;
+          margin: 0 0 64px;
+        }
+        div:nth-child(1) {
+          flex: 0 0 48%;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            right: 7%;
+            top: -5%;
+            display: block;
+            width: 247px;
+            height: 272px;
+            background: url("../img/estates/decorate-tree-01.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 131px;
+              height: 144px;
+              right: 0;
+              top: -18%;
+            }
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 0 45%;
+          position: relative;
+          figure {
+            margin: -24px 25% 0 0;
+            @media ($l-s) {
+              position: absolute;
+              right: 0;
+              top: 0;
+              margin: 0;
+            }
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: 1%;
+            top: -12%;
+            display: block;
+            width: 350px;
+            height: 288px;
+            background: url("../img/estates/decorate-pic-02.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              top: -2%;
+              width: 228px;
+              height: 187px;
+            }
+          }
+        }
+      }
+      &:nth-child(8) {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+        margin: 0 0 120px;
+        @media ($l-s) {
+          flex-direction: column;
+          gap: 36px;
+          margin: 0 0 44px;
+        }
+
+        div:nth-child(1) {
+          flex: 0 0 61%;
+          figcaption {
+            padding: 0 5%;
+          }
+          @media ($l-s) {
+            transform: scale(1.1);
+            margin: 4% 0;
+          }
+        }
+        div:nth-child(2) {
+          flex: 0 0 32%;
+          position: relative;
+          figure {
+            @media ($l-s) {
+              max-width: 88px;
+              margin: -12px 0 0 auto;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 150%;
+            height: 105%;
+            background: #f9f8f7;
+            right: -12%;
+            top: -12%;
+            z-index: -1;
+            @media ($l-s) {
+              top: -4%;
+              height: 98%;
+            }
+          }
+        }
+      }
+      &:nth-child(9) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 5%;
+        justify-content: space-between;
+        margin: 0 0 65px;
+        @media ($l-s) {
+          flex-direction: column;
+        }
+        figure {
+          margin: -24px 0 0 42%;
+          position: relative;
+          z-index: -1;
+        }
+        div:nth-child(1) {
+          flex: 0 0 100%;
+        }
+        div:nth-child(2) {
+          flex: 0 0 41%;
+          position: relative;
+          figure {
+            @media ($l-s) {
+              display: none;
+            }
+          }
+          a.btn {
+            display: block;
+            @media ($l-s) {
+              width: 100%;
+              max-width: 360px;
+              margin: 12px auto 0;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            left: -20%;
+            bottom: 6%;
+            display: block;
+            width: 187px;
+            height: 329px;
+            background: url("../img/estates/decorate-tree-02.png") 200% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              width: 96px;
+              height: 169px;
+              bottom: auto;
+              top: -20%;
+              left: -10%;
+            }
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 15%;
+            display: none;
+            width: 309px;
+            height: 156px;
+            background: url("../img/estates/decorate-pic-01.png") 100% / contain no-repeat;
+            z-index: -1;
+            @media ($l-s) {
+              display: block;
+            }
+          }
+        }
+        div:nth-child(3) {
+          flex: 0 0 49%;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: -12%;
+            display: block;
+            width: 516px;
+            height: 258px;
+            background: url("../img/estates/decorate-pic-01.png") 100% / contain no-repeat;
+            z-index: -1;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Яндекс карта */
+
+.ymap,
+#ymapMain {
+  min-height: 460px;
+  background-color: #e2ddd6;
+}
+
+@media (max-width: 1024px) {
+  .ymap {
+    max-height: 300px;
+  }
+}
+
+ymaps {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  mix-blend-mode: luminosity;
+}
+
+[class*="balloon__content"] ymaps {
+  font-family: "WixMadeforText", sans-serif;
+  line-height: 1.4;
+  font-size: 16px;
+}
+
+[class*="balloon-content"] ymaps a {
+  display: inline-block;
+  color: #4b4d55;
+}
+
+[class*="balloon-content__header"] {
+  font-size: 22px !important;
+  padding: 10px 0;
+}
+
+[class*="balloon-content__footer"] {
+  padding: 10px 0;
+  color: #4b4d55;
+}
+
+[class*="balloon-content__footer"] a {
+  display: inline-block;
+  color: #4b4d56;
+}
+
+[class*="copyrights-pane"] {
+  display: none !important;
+}
+
+.test__content {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: auto;
+  gap: 20px; /* Промежуток между колонками */
+  min-height: 100vh;
+}
+
+.test__carusel {
+  grid-column: 1;
+  grid-row: span 5; /* Занимает все строки в левой колонке */
+  height: 100%;
+  min-width: 0;
+  .swiper {
+    height: 100%;
+    max-height: 80vh;
+  }
+  figure,
+  picture {
+    height: 100%;
+  }
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}

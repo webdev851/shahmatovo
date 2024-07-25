@@ -15,6 +15,7 @@ $mont: "Montserrat", sans-serif;
 
 // Макет
 $transition-base: 0.2s ease;
+$transition-middle: 0.4s ease;
 $border-base: 1px solid $c-stroke;
 $p-clamp: clamp(1rem, 0.1964rem + 3.5714vw, 3.125rem);
 
@@ -25,4 +26,4 @@ $l-s: "max-width: 1024px";
 $t: "max-width: 860px";
 $p-b: "max-width: 567px";
 $p-m: "max-width: 480px";
-$p-s: "max-width: 360px";
+$p-s: "max-width: 359px";
