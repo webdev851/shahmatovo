@@ -48,7 +48,7 @@ function sprite() {
 function images() {
 	return src(['src/img/src/*.*', '!src/img/src/*.svg'])
 		.pipe(newer('src/img/')) // кэширование
-		.pipe(avif({quality: 50}))
+		.pipe(avif()) // {quality: 50}
 
 		.pipe(src('src/img/src/*.*')) // путь к оригиналам
 		.pipe(newer('src/img/')) // кэширование

@@ -48,19 +48,20 @@ block content
 						blockquote 
 							cite И.А. Смирнов — «Историческая справка о Боблове»
 							p.c-accent «Первый дом Менделеева, как я его помню, и по фотографиям, был очень интересен. Дом в два этажа. Низ каменный, верх деревянный. Две стены верха были обложены кирпичом в 1/4 кирпича, и кирпичи были укреплены железными заклёпками… Дом построен во вкусе 60–70 гг. фальшиво-русско-швейцарского шале».
-				.estate__row
-					a.gallery-image(href=`${sitePath}img/estates/guest-01.jpg` data-fancybox="guests-gallery" data-caption="Александр Блок") 
-						+picture('estates/guest-01', 'Александр Блок')
-					a.gallery-image(href=`${sitePath}img/estates/guest-02.jpg` data-fancybox="guests-gallery" data-caption="Евгений Иванов") 
-						+picture('estates/guest-02', 'Евгений Иванов')
-					a.gallery-image(href=`${sitePath}img/estates/guest-03.jpg` data-fancybox="guests-gallery" data-caption="Андрей Белый") 
-						+picture('estates/guest-03', 'Андрей Белый')
-					a.gallery-image(href=`${sitePath}img/estates/guest-04.jpg` data-fancybox="guests-gallery" data-caption="Архип Куинджи") 
-						+picture('estates/guest-04', 'Архип Куинджи')
-					a.gallery-image(href=`${sitePath}img/estates/guest-05.jpg` data-fancybox="guests-gallery" data-caption="Илья Репин") 
-						+picture('estates/guest-05', 'Илья Репин')
-					a.gallery-image(href=`${sitePath}img/estates/guest-06.jpg` data-fancybox="guests-gallery" data-caption="Андрей Бекетов") 
-						+picture('estates/guest-06', 'Андрей Бекетов')
+				.estate__row(data-simplebar)
+					.guest-gallery
+						a.gallery-image(href=`${sitePath}img/estates/guest-01.jpg` data-fancybox="guests-gallery" data-caption="Александр Блок") 
+							+picture('estates/guest-01', 'Александр Блок')
+						a.gallery-image(href=`${sitePath}img/estates/guest-02.jpg` data-fancybox="guests-gallery" data-caption="Евгений Иванов") 
+							+picture('estates/guest-02', 'Евгений Иванов')
+						a.gallery-image(href=`${sitePath}img/estates/guest-03.jpg` data-fancybox="guests-gallery" data-caption="Андрей Белый") 
+							+picture('estates/guest-03', 'Андрей Белый')
+						a.gallery-image(href=`${sitePath}img/estates/guest-04.jpg` data-fancybox="guests-gallery" data-caption="Архип Куинджи") 
+							+picture('estates/guest-04', 'Архип Куинджи')
+						a.gallery-image(href=`${sitePath}img/estates/guest-05.jpg` data-fancybox="guests-gallery" data-caption="Илья Репин") 
+							+picture('estates/guest-05', 'Илья Репин')
+						a.gallery-image(href=`${sitePath}img/estates/guest-06.jpg` data-fancybox="guests-gallery" data-caption="Андрей Бекетов") 
+							+picture('estates/guest-06', 'Андрей Бекетов')
 				.estate__row
 					.estate__col
 						h2.c-accent Первый дом

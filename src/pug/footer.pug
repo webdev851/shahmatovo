@@ -5,22 +5,22 @@ footer.footer
 				.swiper.swiper-partners
 					.swiper-wrapper.partners__list
 						.swiper-slide.partners__item 
-							a(href="#" aria-label="Минкульт" target="_blank").partners__link 
-								+picture('partner-minkult')
+							a(href="https://culture.gov.ru/" aria-label="Минкульт" target="_blank").partners__link 
+								+picture('partner-minkult', false, 'png')
 						.swiper-slide.partners__item
-							a(href="#" aria-label="МКМО" target="_blank").partners__link 
-								+picture('partner-mkmo')
+							a(href="https://mk.mosreg.ru/" aria-label="МКМО" target="_blank").partners__link 
+								+picture('partner-mkmo', false, 'png')
 						.swiper-slide.partners__item
-							a(href="#" aria-label="Зима" target="_blank").partners__link 
+							a(href="https://zima.riamo.ru/" aria-label="Зима" target="_blank").partners__link.partners__link--fill
 								+picture('partner-zima')
 						.swiper-slide.partners__item
-							a(href="#" aria-label="Госуслуги" target="_blank").partners__link 
-								+picture('partner-gosuslugi')
+							a(href="https://www.gosuslugi.ru/" aria-label="Госуслуги" target="_blank").partners__link 
+								+picture('partner-gosuslugi', false, 'png')
 						.swiper-slide.partners__item
-							a(href="#" aria-label="Мир музея" target="_blank").partners__link 
-								+picture('partner-mirmuseya')
+							a(href="http://club-wom.com/" aria-label="Мир музея" target="_blank").partners__link 
+								+picture('partner-mirmuseya', false, 'png')
 						.swiper-slide.partners__item
-							a(href="#" aria-label="Культура.рф" target="_blank").partners__link 
+							a(href="https://grants.culture.ru/" aria-label="Культура.рф" target="_blank").partners__link.partners__link--fill
 								+picture('partner-kultura')
 
 			.footer__top
@@ -66,14 +66,19 @@ footer.footer
 							a.nav__link.link(href=`${sitePath}contacts.html`) Контакты
 			.footer__bottom 	
 				.footer__copy 
-					span 2024 © Шахматово.
+					span#copy-year
+					span  © ГОСУДАРСТВЕННЫЙ МЕМОРИАЛЬНЫЙ МУЗЕЙ-ЗАПОВЕДНИК Д.И. МЕНДЕЛЕЕВА И А.А. БЛОКА.
 				.footer__social.social
 					ul.social__list
 						li.social__item
+							img(src=`${sitePath}img/vector-icons/icon-vk.svg`, alt="")
 							a.social__link.link(href="https://vk.com/muzey.bloka" target="_blank") ВКонтакте
 						li.social__item
+							img(src=`${sitePath}img/vector-icons/icon-ok.svg`, alt="")
 							a.social__link.link(href="https://ok.ru/group/58176695500828" target="_blank") Одноклассники
 						li.social__item
+							img(src=`${sitePath}img/vector-icons/icon-tg.svg`, alt="")
 							a.social__link.link(href="https://t.me/blok_museum" target="_blank") Телеграм
 						li.social__item
+							img(src=`${sitePath}img/vector-icons/icon-yt.svg`, alt="")
 							a.social__link.link(href="https://www.youtube.com/channel/UCOdk1EbUILrCNqcehUSRy6g/" target="_blank") Youtube

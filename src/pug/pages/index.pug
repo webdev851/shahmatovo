@@ -11,7 +11,7 @@ block content
 				.top__container.container
 					.top__content
 						.top__heading
-							h1.c-accent МУЗЕЙ-ЗАПОВЕДНИК МЕНДЕЛЕЕВА И&nbsp;БЛОКА
+							h1 МУЗЕЙ-ЗАПОВЕДНИК <span class="c-accent">МЕНДЕЛЕЕВА И&nbsp;БЛОКА</span>
 							p Музей рассказывает об&nbsp;истории дружбы двух семей:<br>Менделеевых и&nbsp;Бекетовых-Блока. 
 						.top__text
 							p В&nbsp;усадьбах проходила жизнь двух семей, росли дети, вершились наука и&nbsp;поэзия. Именно эти места объединили две семьи вместе, связав узами брака Александра Блока и&nbsp;Любовь Менделееву.
@@ -129,6 +129,10 @@ block content
 								.estates__image 
 									a.gallery-image(href=`${sitePath}img/estates/history-image-05.jpg` data-fancybox="index-gallery" data-caption="5 августа 2001 г. открыт Главный дом усадьбы Шахматово" aria-label="Фото музея-заповедника") 
 										+picture('estates/history-image-05', '5 августа 2001 г. открыт Главный дом усадьбы Шахматово')
+			section.section.pushkincard
+				.container.card-container
+					a(href=`${sitePath}pushkin-card.html`) 
+						include ../parts/pushkincard-banner
 			section.section.news
 				.news__container.container
 					.news__content 
@@ -145,21 +149,29 @@ block content
 					.rules__content 
 						.rules__heading.section-heading.heading-more 
 							h2.section-header.rules__header Условия посещения<br>музея-заповедника
-							a(href="#").heading-link.link.btn-link Ознакомиться со&nbsp;всеми условиями
 				.card-container.container 
 					ul.rules__list.card-list.card-list--two
 						li.rules__item.card-item
-							h5.rules__title.card-title <span class="c-accent">Важно!</span> Не забудьте! 
-							p.rules__text Добавить блок на&nbsp;главной странице о&nbsp;«Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+							h5.h5.rules__title.card-title.c-accent Расположение
+							p.rules__text Три усадьбы (Шахматово, Боблово и Тараканово) расположены за городом, поэтому советуем одеваться по погоде, и предусмотреть удобную обувь на устойчивой подошве. Не забудьте взять с собой перекус и средство от насекомых.
 						li.rules__item.card-item
-							h5.rules__title.card-title Парковка
-							p.rules__text Добавить блок на главной странице о «Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+							h5.h5.rules__title.card-title.c-accent Билеты
+							p.rules__text Вход на территорию усадеб и в здания музеев осуществляется посетителями по предъявлению входного билета. В экспозициях необходимо оставить в гардеробе верхнюю одежду и наплечные сумки/рюкзаки (либо держать их перед собой в экспозициях);
 						li.rules__item.card-item
-							h5.rules__title.card-title Возьмите еду с собой!
-							p.rules__text Добавить блок на главной странице о «Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+							h5.h5.rules__title.card-title.c-accent Животные
+							p.rules__text Вход с животными на территории усадеб запрещен – в музее-заповеднике живут лошади и собаки, и мы очень не хотим, чтобы у четвероногих друзей были конфликты; 
 						li.rules__item.card-item
-							h5.rules__title.card-title <span class="c-accent">С животными нельзя!</span>
-							p.rules__text Добавить блок на главной странице о «Условия посещения музея-заповедника. Мы находимся за городом. Важно предупредить посетителей об удобной обуви, отсутствии общепита, запрете на посещение усадеб с животными и т.д». Также упомянуть о парковке.
+							h5.h5.rules__title.card-title.c-accent Экскурсии
+							p.rules__text Экскурсионная деятельность в музее-заповеднике осуществляется экскурсоводами музея.
+			section.section.gosuslugi
+				.gosuslugi__container.container.card-container
+					.gosuslugi__content
+						.gosuslugi__text
+							h3.c-accent.gosuslugi__title Расскажите, как музей может стать лучше?
+							p.gosuslugi__description Ждём ваших предложений
+							button.gosuslugi__button.btn.btn-primary.pos-banner-btn_2#js-show-iframe-wrapper Написать
+						.gosuslugi__image
+							+picture('gosuslugi-pic')
 			section.section.contacts
 				.contacts__container.container 
 					.contacts__content 

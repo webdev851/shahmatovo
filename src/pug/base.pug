@@ -1,5 +1,5 @@
--const sitePath = 'https://weblazum.ru/shahmatovo/'
-//- -const sitePath = '/' 
+//- -const sitePath = 'https://weblazum.ru/shahmatovo/'
+-const sitePath = '/' 
 -let randomNumber = Math.round(100*Math.random())
 
 doctype html
@@ -11,10 +11,12 @@ html(lang='ru')
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		title= metaTitle
 		meta(name='description', content= metaDescription)
-		//- meta(name='robots', content='noindex, nofollow')
+		meta(name='robots', content='noindex, nofollow')
 		meta(property='og:title' content= metaTitle)
+		meta(name="format-detection" content="telephone=no")
 		//- meta(property='og:description' content= metaDescription)
 		//- meta(property='og:image' content='img/cover-project.jpg')
+		link(href=`${sitePath}css/simplebar.min.css?${randomNumber}`, rel='stylesheet')
 		link(href=`${sitePath}css/swiper-bundle.min.css?${randomNumber}`, rel='stylesheet')
 		link(href=`${sitePath}css/fancybox.css?${randomNumber}`, rel='stylesheet')
 		link(href=`${sitePath}css/style.css?${randomNumber}`, rel='stylesheet')
@@ -35,7 +37,13 @@ html(lang='ru')
 			include header 
 			block content
 			include footer
+		script(src=`${sitePath}libs/simplebar.min.js`)
 		script(src=`${sitePath}libs/swiper-bundle.min.js`)
 		script(src=`${sitePath}libs/fancybox.umd.js`)
 		script(src="https://api-maps.yandex.ru/2.1/?load=package.standard&lang=ru_RU&width=100%height=100%scroll=false")
+
+		if (pageName == 'front-page')
+			script(src="https://pos.gosuslugi.ru/bin/script.min.js")
+			script(src=`${sitePath}js/gosuslugi.js`)
+
 		script(src=`${sitePath}js/main.js?${randomNumber}`)

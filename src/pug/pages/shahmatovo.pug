@@ -54,13 +54,14 @@ block content
 					.estate__col
 						p Тем не менее, до нашего времени сохранились многие растения старого парка: деревья, кустарники, цветы. Сохранились фрагменты исторических посадок, являющиеся особо ценными мемориальными объектами.
 						p В 1980 году, к 100-летнему юбилею А. Блока, на уровне власти было принято решение о восстановлении усадьбы Шахматово. Исторические документы, фотографии, рисунки, воспоминания гостей и хозяев Шахматова — дали возможность вернуть облик имения таким, каким оно было при жизни поэта.
-				.estate__row
-					a(href=`${sitePath}img/estates/shahmatovo-image-03.jpg` data-fancybox="gallery-repair" data-caption="Берёзовая аллея" class="gallery-image")
-						+picture('estates/shahmatovo-image-03', 'Берёзовая аллея')
-					a(href=`${sitePath}img/estates/shahmatovo-image-01.jpg` data-fancybox="gallery-repair" data-caption="Главный усадебный дом" class="gallery-image")
-						+picture('estates/shahmatovo-image-01', 'Главный усадебный дом')
-					a(href=`${sitePath}img/estates/shahmatovo-image-04.jpg` data-fancybox="gallery-repair" data-caption="Комната поэта" class="gallery-image")
-						+picture('estates/shahmatovo-image-04', 'Комната поэта')
+				.estate__row(data-simplebar)
+					.gallery
+						a(href=`${sitePath}img/estates/shahmatovo-image-03.jpg` data-fancybox="gallery-repair" data-caption="Берёзовая аллея" class="gallery-image")
+							+picture('estates/shahmatovo-image-03', 'Берёзовая аллея')
+						a(href=`${sitePath}img/estates/shahmatovo-image-01.jpg` data-fancybox="gallery-repair" data-caption="Главный усадебный дом" class="gallery-image")
+							+picture('estates/shahmatovo-image-01', 'Главный усадебный дом')
+						a(href=`${sitePath}img/estates/shahmatovo-image-04.jpg` data-fancybox="gallery-repair" data-caption="Комната поэта" class="gallery-image")
+							+picture('estates/shahmatovo-image-04', 'Комната поэта')
 				.estate__row
 					.estate__col
 						h2.c-accent Музей-Заповедник
@@ -76,28 +77,48 @@ block content
 				.estate__row
 					.estate__col
 						span В&nbsp;настоящее время
-						h2.c-accent Восстановлены:
-					.estate__col
-						a(href=`${sitePath}img/estates/shahmatovo-image-01.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
-							+picture('estates/shahmatovo-image-01')
-						a(href=`${sitePath}img/estates/shahmatovo-image-05.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
-							+picture('estates/shahmatovo-image-05')
-						a(href=`${sitePath}img/estates/shahmatovo-image-06.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
-							+picture('estates/shahmatovo-image-06')
-						a(href=`${sitePath}img/estates/shahmatovo-image-07.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
-							+picture('estates/shahmatovo-image-07')
-						a(href=`${sitePath}img/estates/shahmatovo-image-08.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
-							+picture('estates/shahmatovo-image-08')
-						a(href=`${sitePath}img/estates/shahmatovo-image-09.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
-							+picture('estates/shahmatovo-image-09')
-						a(href=`${sitePath}img/estates/shahmatovo-image-10.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
-							+picture('estates/shahmatovo-image-10')
-						a(href=`${sitePath}img/estates/shahmatovo-image-11.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
-							+picture('estates/shahmatovo-image-11')
-						div.mobile-hidden
-							p Кроме усадебных построек <span class="c-accent">восстановлен и окружающий ландшафт</span>, который имеет историческое значение.
-							a.btn.btn-primary(href=`${sitePath}tickets.html?ref=shahmatovo`) Билеты
-							+picture('estates/sign-04', false, 'svg', 'rtl')
+						h2.c-accent Воссозданы:
+					.estate__col 
+						.gallery.mobile-hidden
+							a(href=`${sitePath}img/estates/shahmatovo-image-01.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
+								+picture('estates/shahmatovo-image-01')
+							a(href=`${sitePath}img/estates/shahmatovo-image-05.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
+								+picture('estates/shahmatovo-image-05')
+							a(href=`${sitePath}img/estates/shahmatovo-image-06.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
+								+picture('estates/shahmatovo-image-06')
+							a(href=`${sitePath}img/estates/shahmatovo-image-07.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
+								+picture('estates/shahmatovo-image-07')
+							a(href=`${sitePath}img/estates/shahmatovo-image-08.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
+								+picture('estates/shahmatovo-image-08')
+							a(href=`${sitePath}img/estates/shahmatovo-image-09.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
+								+picture('estates/shahmatovo-image-09')
+							a(href=`${sitePath}img/estates/shahmatovo-image-10.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
+								+picture('estates/shahmatovo-image-10')
+							a(href=`${sitePath}img/estates/shahmatovo-image-11.jpg` data-fancybox="shahmatovo-gallery" class="gallery-image") 
+								+picture('estates/shahmatovo-image-11')
+							div.mobile-hidden
+								p Кроме усадебных построек <span class="c-accent">восстановлен и окружающий ландшафт</span>, который имеет историческое значение.
+								a.btn.btn-primary(href=`${sitePath}tickets.html?ref=shahmatovo`) Билеты
+								+picture('estates/sign-04', false, 'svg', 'rtl')
+						div.desktop-hidden(data-simplebar)
+							.gallery
+								a(href=`${sitePath}img/estates/shahmatovo-image-01.jpg` data-fancybox="shahmatovo-gallery-mob" class="gallery-image") 
+									+picture('estates/shahmatovo-image-01')
+								a(href=`${sitePath}img/estates/shahmatovo-image-05.jpg` data-fancybox="shahmatovo-gallery-mob" class="gallery-image") 
+									+picture('estates/shahmatovo-image-05')
+								a(href=`${sitePath}img/estates/shahmatovo-image-06.jpg` data-fancybox="shahmatovo-gallery-mob" class="gallery-image") 
+									+picture('estates/shahmatovo-image-06')
+								a(href=`${sitePath}img/estates/shahmatovo-image-07.jpg` data-fancybox="shahmatovo-gallery-mob" class="gallery-image") 
+									+picture('estates/shahmatovo-image-07')
+								a(href=`${sitePath}img/estates/shahmatovo-image-08.jpg` data-fancybox="shahmatovo-gallery-mob" class="gallery-image") 
+									+picture('estates/shahmatovo-image-08')
+								a(href=`${sitePath}img/estates/shahmatovo-image-09.jpg` data-fancybox="shahmatovo-gallery-mob" class="gallery-image") 
+									+picture('estates/shahmatovo-image-09')
+								a(href=`${sitePath}img/estates/shahmatovo-image-10.jpg` data-fancybox="shahmatovo-gallery-mob" class="gallery-image") 
+									+picture('estates/shahmatovo-image-10')
+								a(href=`${sitePath}img/estates/shahmatovo-image-11.jpg` data-fancybox="shahmatovo-gallery-mob" class="gallery-image") 
+									+picture('estates/shahmatovo-image-11')
+
 					.estate__col.desktop-hidden
 						div 
 							p Кроме усадебных построек <span class="c-accent">восстановлен и окружающий ландшафт</span>, который имеет историческое значение.

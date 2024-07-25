@@ -14,13 +14,12 @@ block content
 					.section-heading.section-heading--center
 						h2.section-header= pageTitle
 		section.section.pushkincard.offset-top
-			.pushkincard__container.container
+			.pushkincard__container.container.card-container
 				.pushkincard__content 
 					.pushkincard__main
-						.pushkincard__banner 
-							+picture('pushkincard-banner')
+						include ../parts/pushkincard-banner
 						.pushkincard__about 
-							a.pushkincard__btn.btn.btn-primary(href="#") О проекте «Пушкинская карта»
+							a.pushkincard__btn.btn.btn-primary(href="https://www.culture.ru/pushkinskaya-karta" target="_blank") О&nbsp;проекте «Пушкинская карта»
 							span.pushkincard__disclaimer Оплата онлайн возможна только по&nbsp;пушкинской карте
 						.pushkincard__tickets.tickets
 							ul.tickets__list

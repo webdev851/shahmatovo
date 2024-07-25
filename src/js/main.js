@@ -1,5 +1,13 @@
 'use strict'
 
+
+
+// Год в футере
+let currentDate = new Date();
+const copyYear = document.querySelector('#copy-year')
+
+copyYear.innerHTML = currentDate.getFullYear()
+
 // Прелоадер
 document.addEventListener('DOMContentLoaded', () => {
 	const preloader = document.querySelector('#preloader')
@@ -11,6 +19,8 @@ const swiperMainBanner = new Swiper('.swiper-mainbanner', {
 	slidesPerView: 1,
 	autoplay: true,
 	loop: true,
+	effect: 'fade',
+
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -57,6 +67,7 @@ Fancybox.bind("[data-fancybox]", {
 
 // Меню
 const 
+	header = document.querySelector('.header'),
 	mobileMenu = document.querySelector('.nav__mobilemenu'),
 	burger = document.querySelector('.burger'),
 	mobileClose = document.querySelector('.mobile-close'),
@@ -67,12 +78,14 @@ burger.addEventListener('click', () => {
 	mobileMenu.classList.add('active')
 	overlay.classList.add('open')
 	body.classList.add('lock')
+	header.classList.add('open')
 })
 
 mobileClose.addEventListener('click', () => {
 	mobileMenu.classList.remove('active')
 	overlay.classList.remove('open')
 	body.classList.remove('lock')
+	header.classList.remove('open')
 })
 
 // Табы
@@ -251,4 +264,48 @@ function init() {
 // Ожидание загрузки библиотеки Яндекс.Карт
 if (document.querySelector('.ymap')) {
 	ymaps.ready(init)
+}
+
+
+// Открытие событий
+const 
+	eventLinks = document.querySelectorAll('.events__link'),
+	eventItems = document.querySelectorAll('.events__item'),
+	eventBodies = document.querySelectorAll('.events__body'),
+	eventList = document.querySelector('.events__list'),
+	eventMoreBtn = document.querySelector('.events__more button')
+
+if (eventList) {
+	eventLinks.forEach((item, index) => {
+		item.addEventListener('click', (e) => {
+			e.preventDefault()
+
+			// Закрываем все элементы
+			eventItems.forEach((item, i) => {
+				if (i !== index) {
+					item.classList.remove('open')
+					eventLinks[i].innerHTML = 'Читать подробнее'
+				}
+			});
+			
+			// Переключаем текущий элемент
+			if (eventItems[index].classList.contains('open')) {
+				eventItems[index].classList.remove('open')
+				item.innerHTML = 'Читать подробнее'
+			} else {
+				eventItems[index].classList.add('open')
+				item.innerHTML = 'Скрыть'
+			}
+		})
+	})
+
+	eventMoreBtn.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		eventItems.forEach(item => {
+			item.classList.remove('hidden');
+		})
+
+		eventMoreBtn.style.display = "none"
+	})
 }
